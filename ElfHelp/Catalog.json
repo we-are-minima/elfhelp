@@ -1,0 +1,2407 @@
+[
+  {
+    "id": "trastada-123",
+    "title": "Zumo de naranja a dos pajitas",
+    "symbol": "cup.and.saucer",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Una naranja y una pajita por elfo",
+    "preparation": "Sienta al elfo junto a una naranja e inserta una pajita en un pequeño agujero de la piel. Si tienes dos elfos, dales una naranja a cada uno."
+  },
+  {
+    "id": "trastada-124",
+    "title": "El retrato del elfo con hocico",
+    "symbol": "paintpalette",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Papel, rotuladores y un pincel",
+    "preparation": "Dibuja un cerdito con gorro navideño y apoya el dibujo delante del elfo. Déjale un pincel en la mano. Si tienes dos elfos, sienta al segundo enfrente como modelo."
+  },
+  {
+    "id": "trastada-125",
+    "title": "Elfo atrapado en la aspiradora",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "Aspiradora desenchufada y unos cereales",
+    "preparation": "Coloca a un elfo junto a la boquilla, sobre el suelo. Pon al segundo cerca del mango y deja unos cereales junto a la escena."
+  },
+  {
+    "id": "trastada-126",
+    "title": "Nuevo peinado de espaguetis",
+    "symbol": "comb",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "Espaguetis cocidos, un peine y papel",
+    "preparation": "Coloca unos espaguetis fríos sobre el gorro como si fueran una melena. Deja un peine al lado y escribe «¡Nuevo peinado!» en un papel."
+  },
+  {
+    "id": "trastada-127",
+    "title": "Elfo a la conquista del escalón",
+    "symbol": "creditcard",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Cartulina, rotulador y cinta de papel",
+    "preparation": "Recorta una tarjeta de cartulina y escribe «Crédito Oro». Sujétala al elfo con cinta de papel y apóyalo contra un escalón bajo como si estuviera subiendo."
+  },
+  {
+    "id": "trastada-001",
+    "title": "Ángel de harina",
+    "symbol": "snowflake",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "Harina y una bandeja",
+    "preparation": "Esparce una capa fina de harina en la bandeja. Tumba al elfo boca arriba y marca las alas y la silueta moviendo sus brazos y piernas."
+  },
+  {
+    "id": "trastada-002",
+    "title": "Cine de medianoche",
+    "symbol": "film",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Palomitas, un cuenco, un móvil y cojines",
+    "preparation": "Sienta a los elfos entre los cojines. Pon un cuenco de palomitas delante de ellos. Apoya el móvil frente al cuenco como si fuera la pantalla del cine."
+  },
+  {
+    "id": "trastada-004",
+    "title": "La torre de calcetines",
+    "symbol": "flag",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "calcetines, vaso de plástico",
+    "preparation": "Enrolla varios calcetines alrededor de un vaso invertido. Coloca al elfo en la cima con una banderita de papel."
+  },
+  {
+    "id": "trastada-005",
+    "title": "Pescadores de cereales",
+    "symbol": "fish",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "cuenco, cereales, hilo y cucharas",
+    "preparation": "Llena el cuenco de cereales. Ata un aro de papel al hilo de cada caña hecha con una cuchara. Pon a un elfo a pescar y al otro a guardar las capturas."
+  },
+  {
+    "id": "trastada-006",
+    "title": "Spa entre nubes",
+    "symbol": "drop",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Cuenco, malvaviscos, pepino y papel de cocina",
+    "preparation": "Llena el cuenco con malvaviscos y recuesta al elfo. Envuélvele la cabeza con papel de cocina. Ponle dos rodajas de pepino sobre los ojos."
+  },
+  {
+    "id": "trastada-007",
+    "title": "Parking de zapatillas",
+    "symbol": "car",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "zapatillas, papel",
+    "preparation": "Alinea cuatro zapatillas como plazas y haz un cartel de aparcamiento. Sienta a los elfos al volante de dos zapatillas."
+  },
+  {
+    "id": "trastada-008",
+    "title": "Picnic en la encimera",
+    "symbol": "basket",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "servilleta, tazas de juguete, galletas",
+    "preparation": "Extiende la servilleta y coloca dos tazas. Reparte unas migas sobre el mantel y sienta a los elfos como si ya hubieran merendado."
+  },
+  {
+    "id": "trastada-009",
+    "title": "Cazadores de estrellas",
+    "symbol": "star",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, lápiz, tijeras",
+    "preparation": "Recorta estrellas y escóndelas alrededor de un mueble. Coloca a los elfos con un mapa dibujado de los escondites."
+  },
+  {
+    "id": "trastada-010",
+    "title": "Pista de patinaje",
+    "symbol": "snowflake",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel de aluminio, cartulina",
+    "preparation": "Forra una tabla con aluminio, recorta patines de cartulina y pon a los elfos en poses opuestas, uno patinando y otro intentando mantener el equilibrio."
+  },
+  {
+    "id": "trastada-011",
+    "title": "El ladrón de la última galleta",
+    "symbol": "birthday.cake",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "Una galleta mordida, un tarro vacío y una taza",
+    "preparation": "Sienta al elfo detrás de la taza con la galleta entre las manos. Deja el tarro abierto y esparce unas migas entre el tarro y el elfo."
+  },
+  {
+    "id": "trastada-013",
+    "title": "Tutifruti con cara",
+    "symbol": "face.smiling",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "fruta con piel gruesa, papel, cinta",
+    "preparation": "Dibuja ojos y bocas en papel y fíjalos a las pieles. Pon a un elfo presentando a su nueva pandilla y a otro detrás de la fruta más grande."
+  },
+  {
+    "id": "trastada-014",
+    "title": "Detectives de migas",
+    "symbol": "magnifyingglass",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "galleta, papel, rotulador",
+    "preparation": "Traza un camino de migas en una bandeja. Dibuja con papel una lupa y pon al elfo siguiendo las pistas hasta el último trozo."
+  },
+  {
+    "id": "trastada-015",
+    "title": "La lavandería del elfo",
+    "symbol": "washer",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "calcetines limpios, pinzas, cuerda",
+    "preparation": "Cuelga una cuerda corta a poca altura. Pon calcetines doblados sobre ella y deja que un elfo sujete una pinza mientras el otro espera con un calcetín."
+  },
+  {
+    "id": "trastada-016",
+    "title": "Foto de graduación",
+    "symbol": "graduationcap",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "libros, papel, cinta",
+    "preparation": "Apila libros como gradas y dobla papel negro para los birretes. Sienta al elfo delante de varios juguetes graduados."
+  },
+  {
+    "id": "trastada-017",
+    "title": "Botellas de bolera",
+    "symbol": "circle.grid.3x3",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "botellas vacías, pelota blanda",
+    "preparation": "Coloca las botellas en triángulo. Deja dos caídas y pon al elfo con una pelota blanda al principio de la pista."
+  },
+  {
+    "id": "trastada-018",
+    "title": "El puente de los libros",
+    "symbol": "book",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "libros, regla, papel",
+    "preparation": "Haz dos pilas bajas y apoya una regla rígida sobre ellas. Sitúa a un elfo cruzando y al otro vigilando desde el extremo."
+  },
+  {
+    "id": "trastada-019",
+    "title": "Banda de cucharas",
+    "symbol": "music.note",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cucharas de madera, vasos irrompibles",
+    "preparation": "Coloca vasos boca abajo como tambores. Apoya una cuchara en la mano de un elfo y otra en la mano del segundo."
+  },
+  {
+    "id": "trastada-020",
+    "title": "Bosque de papel",
+    "symbol": "tree",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "papel verde, tijeras, cinta",
+    "preparation": "Recorta árboles de distintos tamaños, dobla una base a cada uno y arma un bosque sobre una bandeja. Esconde el gorro del elfo entre los árboles."
+  },
+  {
+    "id": "trastada-021",
+    "title": "La clínica de peluches",
+    "symbol": "cross.case",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "peluche, pañuelo, tiritas",
+    "preparation": "Pon un pañuelo como camilla y una tirita sobre la pata del peluche. Viste al elfo de médico con un pañuelo como bata."
+  },
+  {
+    "id": "trastada-022",
+    "title": "El torneo de tres en raya",
+    "symbol": "number",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, dos lápices",
+    "preparation": "Dibuja un tablero y marca varias jugadas. Deja a cada elfo con un lápiz y una casilla pendiente para decidir el ganador."
+  },
+  {
+    "id": "trastada-023",
+    "title": "Tren de cajas de té",
+    "symbol": "train.side.front.car",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cajas pequeñas, cinta, rollo de cartón",
+    "preparation": "Pega las cajas en fila con poca cinta, añade el tubo de cartón como chimenea y sienta a uno o dos elfos en los vagones."
+  },
+  {
+    "id": "trastada-024",
+    "title": "Cama de pan tostado",
+    "symbol": "bed.double",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "pan de molde, plato, servilleta",
+    "preparation": "Usa una rebanada como colchón y dobla la servilleta como manta. Deja al elfo arropado con el gorro asomando."
+  },
+  {
+    "id": "trastada-025",
+    "title": "Semáforo de mandarinas",
+    "symbol": "trafficlight",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "mandarinas, papel de colores, cinta",
+    "preparation": "Pega círculos rojo, amarillo y verde a tres mandarinas. Apílalas en un vaso ancho y coloca a los elfos en ambos lados de un paso de papel."
+  },
+  {
+    "id": "trastada-026",
+    "title": "La banda del karaoke",
+    "symbol": "mic",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, rotulador, cucharas",
+    "preparation": "Haz un cartel de karaoke. Dales cucharas como micrófonos y deja una lista de canciones infantiles escritas con tachones."
+  },
+  {
+    "id": "trastada-027",
+    "title": "Viaje en colador",
+    "symbol": "airplane",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "colador, cucharas, servilleta",
+    "preparation": "Usa el colador de nave y las cucharas de mando. Sienta a los elfos en servilletas dobladas como asientos."
+  },
+  {
+    "id": "trastada-028",
+    "title": "Coronas para todos",
+    "symbol": "crown",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, tijeras, cinta",
+    "preparation": "Recorta varias coronas pequeñas y colócalas a peluches y juguetes. Deja al elfo entregando la última corona a un muñeco."
+  },
+  {
+    "id": "trastada-029",
+    "title": "Elfo en la hemeroteca",
+    "symbol": "newspaper",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, rotulador, tijeras",
+    "preparation": "Crea un periódico en miniatura con un titular absurdo sobre la casa. Dóblalo y déjalo entre las manos del elfo."
+  },
+  {
+    "id": "trastada-030",
+    "title": "La tienda de botones",
+    "symbol": "cart",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Requiere recoger",
+    "materials": "botones grandes, tazas, papel",
+    "preparation": "Clasifica los botones en tazas y añade precios inventados. Sienta a un elfo de vendedor y al otro con un botón como compra."
+  },
+  {
+    "id": "trastada-031",
+    "title": "Club de lectura",
+    "symbol": "books.vertical",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "libro infantil, papel, lápiz",
+    "preparation": "Abre un libro por la página que más guste en casa. Pon un marcapáginas diminuto y sienta a los elfos junto a un peluche atento."
+  },
+  {
+    "id": "trastada-032",
+    "title": "Árbitros de mesa",
+    "symbol": "soccerball",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, pelota blanda, cinta",
+    "preparation": "Haz dos porterías con tiras de papel. Pon la pelota en el centro, un elfo con tarjetas de árbitro y otro celebrando un gol."
+  },
+  {
+    "id": "trastada-033",
+    "title": "El gran pulpo de calcetines",
+    "symbol": "water.waves",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "calcetines, bol, papel",
+    "preparation": "Coloca un bol boca abajo y reparte ocho calcetines como tentáculos. Añade ojos de papel y sitúa al elfo encima como capitán."
+  },
+  {
+    "id": "trastada-034",
+    "title": "Balanceo de cuchara",
+    "symbol": "scalemass",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cuchara, cartón, dos trozos de cinta",
+    "preparation": "Haz un sube y baja con una tira gruesa de cartón y una cuchara boca abajo como apoyo. Sienta un elfo en cada extremo."
+  },
+  {
+    "id": "trastada-035",
+    "title": "Entrega postal",
+    "symbol": "envelope",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "sobres, papel, lápiz",
+    "preparation": "Escribe dos cartas minúsculas a los juguetes de la casa y reparte sobres. Coloca a un elfo con bolsa de papel y al otro recibiendo una carta."
+  },
+  {
+    "id": "trastada-036",
+    "title": "Laberinto de dominó",
+    "symbol": "square.grid.3x3",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Requiere recoger",
+    "materials": "fichas de dominó, papel",
+    "preparation": "Traza un laberinto sobre la mesa con las fichas tumbadas. Pon a los elfos en la entrada y la salida y señala la meta con una bandera de papel."
+  },
+  {
+    "id": "trastada-037",
+    "title": "Arte con garbanzos",
+    "symbol": "paintpalette",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "garbanzos secos, bandeja, papel",
+    "preparation": "Dibuja una estrella en papel y rellena la silueta con garbanzos dentro de una bandeja. Sienta al elfo junto al último garbanzo."
+  },
+  {
+    "id": "trastada-038",
+    "title": "La jaula del dinosaurio",
+    "symbol": "lock.open",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "dinosaurio de juguete, caja, pajitas",
+    "preparation": "Deja al dinosaurio dentro de una caja abierta y pega pajitas como barrotes a un lado. Coloca al elfo con los brazos levantados frente a la salida."
+  },
+  {
+    "id": "trastada-039",
+    "title": "Tazas en formación",
+    "symbol": "cup.and.saucer",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "tazas, servilletas, cucharas",
+    "preparation": "Pon servilletas dobladas en fila y una taza encima de cada una. Coloca un elfo dando instrucciones y otro alineando la última cuchara."
+  },
+  {
+    "id": "trastada-040",
+    "title": "La cumbre del sofá",
+    "symbol": "mountain.2",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cojines, pañuelo, papel",
+    "preparation": "Apila dos cojines en el suelo, planta una bandera arriba y deja a un elfo en la cima. Si hay dos, coloca al segundo escalando desde abajo."
+  },
+  {
+    "id": "trastada-041",
+    "title": "Café diminuto",
+    "symbol": "cup.and.saucer",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "tapones grandes, servilleta, rotulador",
+    "preparation": "Haz un menú en una servilleta y pon los tapones como tacitas. Coloca un elfo atendiendo el café y otro esperando turno."
+  },
+  {
+    "id": "trastada-042",
+    "title": "La feria de cucharas",
+    "symbol": "ticket",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cucharas, cajas, papel",
+    "preparation": "Haz puestos con cajas pequeñas y un letrero diferente en cada uno. Pon a los elfos disputándose el premio de tocar la cuchara más grande."
+  },
+  {
+    "id": "trastada-043",
+    "title": "Elfo en un nido",
+    "symbol": "bird",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "cuenco, papel, pañuelos",
+    "preparation": "Haz tiras de papel y acomódalas en el cuenco. Pon al elfo sentado encima de tres bolitas de papel como si estuviera incubándolas."
+  },
+  {
+    "id": "trastada-044",
+    "title": "La cárcel de los lápices",
+    "symbol": "key",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "lápices, vaso, cinta",
+    "preparation": "Agrupa lápices alrededor de un vaso con cinta de papel. Sienta al elfo dentro del vaso y a su compañero dejando una llave dibujada en el suelo."
+  },
+  {
+    "id": "trastada-045",
+    "title": "Ducha de confeti",
+    "symbol": "shower",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "papel de colores, colador, bandeja",
+    "preparation": "Corta trozos grandes de papel y ponlos en el colador dentro de la bandeja. Siéntalo debajo de un puñado de confeti como si hubiera abierto el grifo."
+  },
+  {
+    "id": "trastada-046",
+    "title": "La barca de las servilletas",
+    "symbol": "sailboat",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "servilletas, bandeja, cinta",
+    "preparation": "Dobla una servilleta gruesa a modo de casco y otra como vela. Coloca la barca en seco sobre una bandeja y sienta dentro a los elfos."
+  },
+  {
+    "id": "trastada-047",
+    "title": "Aviones en la terminal",
+    "symbol": "airplane.departure",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, cinta, rotulador",
+    "preparation": "Dobla tres aviones, marca una pista con cinta y añade un panel de salidas. Pon un elfo en la puerta de embarque y otro esperando su vuelo."
+  },
+  {
+    "id": "trastada-048",
+    "title": "Lamparita de guardia",
+    "symbol": "flashlight.off.fill",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "linterna apagada, papel",
+    "preparation": "Haz una placa de «Guardia nocturna» y cuélgala del elfo. Apoya la linterna apagada a su lado y déjalo junto a una puerta."
+  },
+  {
+    "id": "trastada-049",
+    "title": "El gran puzzle",
+    "symbol": "puzzlepiece",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Requiere recoger",
+    "materials": "puzle infantil, cartón, caja",
+    "preparation": "Monta una esquina del puzle sobre el cartón. Coloca a un elfo con la pieza correcta y al otro intentando encajar una de otro color."
+  },
+  {
+    "id": "trastada-050",
+    "title": "La orquesta de calcetines",
+    "symbol": "music.note.list",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "calcetines, pinzas, papel",
+    "preparation": "Dobla calcetines de dos colores como instrumentos. Alinea juguetes como público y sienta a los elfos delante con batutas de papel."
+  },
+  {
+    "id": "trastada-051",
+    "title": "Bocadillo gigante de elfo",
+    "symbol": "takeoutbag.and.cup.and.straw",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cojines, pañuelo",
+    "preparation": "Pon dos cojines en el suelo como pan. Deja que el elfo asome entre ellos junto con un pañuelo verde doblado como lechuga."
+  },
+  {
+    "id": "trastada-052",
+    "title": "El museo de la casa",
+    "symbol": "building.columns",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "objetos domésticos, papel, lápiz",
+    "preparation": "Elige tres objetos cotidianos y escribe etiquetas como si fueran tesoros. Coloca un elfo mirando una exposición y otro como guía."
+  },
+  {
+    "id": "trastada-053",
+    "title": "Se busca un calcetín",
+    "symbol": "magnifyingglass",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "calcetín, papel, lápiz",
+    "preparation": "Dibuja un cartel de «Se busca» con el retrato de un calcetín. Coloca al elfo cerca del calcetín escondido a medias."
+  },
+  {
+    "id": "trastada-054",
+    "title": "Tienda de campaña",
+    "symbol": "tent",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "pañuelo, dos libros, almohadilla",
+    "preparation": "Apoya el pañuelo en un libro abierto y usa otro como base. Pon una almohadilla dentro y deja al elfo dormido con la cabeza fuera."
+  },
+  {
+    "id": "trastada-055",
+    "title": "Pesca de tapones",
+    "symbol": "fish",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "tapones grandes, bandeja, cucharas",
+    "preparation": "Reparte tapones en una bandeja vacía. Pon dos cucharas en el borde y sienta a los elfos pescando el mismo tapón."
+  },
+  {
+    "id": "trastada-056",
+    "title": "Trineo de caja",
+    "symbol": "snowflake",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "caja de pañuelos vacía, papel, cinta",
+    "preparation": "Recorta dos patines de cartón, pégalos bajo la caja y pon un pañuelo dentro. Sienta a un elfo conduciendo y al otro de pasajero."
+  },
+  {
+    "id": "trastada-057",
+    "title": "Las gafas del futuro",
+    "symbol": "eyeglasses",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "cartulina, tijeras, cinta",
+    "preparation": "Recorta gafas exageradas con dos formas distintas. Pruébaselas al elfo y deja un espejo pequeño al lado de su estudio de diseño."
+  },
+  {
+    "id": "trastada-058",
+    "title": "El club del bostezo",
+    "symbol": "moon.zzz",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "pañuelos, papel, peluches",
+    "preparation": "Coloca varios peluches boca arriba y tápalos con pañuelos. Deja al elfo en medio con un papel que diga «Campeonato de siestas»."
+  },
+  {
+    "id": "trastada-059",
+    "title": "El truco del sombrero",
+    "symbol": "wand.and.stars",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "vaso de plástico opaco, papel, conejo de juguete",
+    "preparation": "Pon el conejo asomando detrás del vaso boca abajo y haz una varita enrollando papel. Sitúa al elfo de mago."
+  },
+  {
+    "id": "trastada-060",
+    "title": "Encuesta del desayuno",
+    "symbol": "checkmark.seal",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, rotulador, dos cuencos",
+    "preparation": "Escribe dos candidaturas para el desayuno y pon un cuenco en cada lado. Deja a los elfos con papeletas absurdas."
+  },
+  {
+    "id": "trastada-061",
+    "title": "El estudio de radio",
+    "symbol": "mic",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "vaso de papel, cordón, libreta",
+    "preparation": "Pon el vaso como micrófono, escribe un parte del tiempo disparatado y sienta a los dos elfos como presentadores."
+  },
+  {
+    "id": "trastada-062",
+    "title": "La playa del baño",
+    "symbol": "sun.max",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "toalla, gafas de sol, tapones grandes",
+    "preparation": "Dobla la toalla como tumbona, coloca las gafas al lado y sienta al elfo cerca de un vaso de plástico a modo de sombrilla."
+  },
+  {
+    "id": "trastada-063",
+    "title": "Explotó el horno de papel",
+    "symbol": "oven",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "papel, cartón, tijeras",
+    "preparation": "Dibuja un horno en cartón y abre una puertecita. Deja galletas de papel escapando por la mesa y sitúa al elfo con una bandeja."
+  },
+  {
+    "id": "trastada-064",
+    "title": "La regata de tapones",
+    "symbol": "sailboat",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "tapones grandes, papel, bandeja",
+    "preparation": "Coloca velas plegadas sobre dos tapones con cinta. Dibuja una meta en la bandeja y sienta un elfo como capitán de cada barco."
+  },
+  {
+    "id": "trastada-065",
+    "title": "La manta voladora",
+    "symbol": "cloud",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "pañuelo, papel, pinzas",
+    "preparation": "Dobla el pañuelo en un rectángulo y sujétalo a una base de cartón que puedas apoyar sobre libros bajos. Sienta a los elfos encima y pon nubes de papel debajo."
+  },
+  {
+    "id": "trastada-066",
+    "title": "La máquina de abrazos",
+    "symbol": "heart",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "caja, papel, peluche",
+    "preparation": "Pon un botón dibujado en una caja y un peluche asomando por la abertura. Deja al elfo con un manual que solo diga «Pulsa aquí»."
+  },
+  {
+    "id": "trastada-067",
+    "title": "Sandwiches de juguete",
+    "symbol": "fork.knife",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "esponjas limpias, cartulina, plato",
+    "preparation": "Corta cartulina de colores en forma de ingredientes. Coloca las capas entre esponjas nuevas y deja al elfo atendiendo el pedido."
+  },
+  {
+    "id": "trastada-068",
+    "title": "Mapa del tesoro calcetinero",
+    "symbol": "map",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, lápiz, calcetines",
+    "preparation": "Traza un mapa del salón con una X donde esconderás un par de calcetines. Haz que los elfos sujeten el mapa por esquinas opuestas."
+  },
+  {
+    "id": "trastada-069",
+    "title": "Elfo de incógnito",
+    "symbol": "eyeglasses",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, rotulador, cinta",
+    "preparation": "Recorta un bigote de papel y colócalo con cinta sobre el gorro o la ropa del elfo. Escóndelo a plena vista entre los peluches."
+  },
+  {
+    "id": "trastada-070",
+    "title": "Cascada de cintas",
+    "symbol": "water.waves",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Requiere recoger",
+    "materials": "cintas de regalo, pinzas, bol",
+    "preparation": "Fija cintas cortas a una caja apoyada en el suelo para que caigan en un bol vacío. Sienta al elfo en el borde con los pies entre las cintas."
+  },
+  {
+    "id": "trastada-071",
+    "title": "Elfo escultor",
+    "symbol": "hands.sparkles",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "plastilina, papel",
+    "preparation": "Modela una escultura pequeña y deliberadamente extraña. Colócala junto al elfo con una placa que diga «Retrato de familia»."
+  },
+  {
+    "id": "trastada-072",
+    "title": "El coche en revisión",
+    "symbol": "wrench.and.screwdriver",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "coche de juguete, pinza, papel",
+    "preparation": "Pon el coche encima de un libro bajo y coloca al elfo examinándolo con una pinza. Anota «Luces bien. Bocina demasiado bien»."
+  },
+  {
+    "id": "trastada-073",
+    "title": "La oficina perdida",
+    "symbol": "laptopcomputer",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "notas de papel, lápiz, cinta",
+    "preparation": "Dibuja un portátil en papel doblado. Pega diminutas notas alrededor y sienta al elfo frente a su lista de trastadas."
+  },
+  {
+    "id": "trastada-074",
+    "title": "Olimpiadas de pinzas",
+    "symbol": "medal",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "pinzas, cinta, papel",
+    "preparation": "Dibuja carriles paralelos y coloca pinzas de colores como competidoras. Pon a los elfos en la meta con medallas de cartón."
+  },
+  {
+    "id": "trastada-075",
+    "title": "El túnel de las cucharas",
+    "symbol": "car",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cucharas, rollos de cartón, coche pequeño",
+    "preparation": "Apoya cucharas sobre dos rollos tumbados para formar un túnel. Deja un coche entrando y a los elfos señalando rutas distintas."
+  },
+  {
+    "id": "trastada-076",
+    "title": "Elfo hace yoga",
+    "symbol": "figure.mind.and.body",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "pañuelo, papel, peluche",
+    "preparation": "Extiende el pañuelo como esterilla. Dobla las piernas del elfo en una postura cómoda y coloca un peluche al lado intentando copiarle."
+  },
+  {
+    "id": "trastada-077",
+    "title": "La entrevista al oso",
+    "symbol": "mic",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "peluche, cuchara, papel",
+    "preparation": "Sienta al peluche frente al elfo y usa una cuchara como micrófono. Pon un cartel de «Especial de medianoche»."
+  },
+  {
+    "id": "trastada-078",
+    "title": "La tómbola de calcetines",
+    "symbol": "gift",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "bolsa de tela, calcetines, papel",
+    "preparation": "Numera los calcetines con papelitos, mételos en la bolsa y deja uno a medio sacar. Pon un elfo presentando y otro con el número ganador."
+  },
+  {
+    "id": "trastada-079",
+    "title": "Bajo el volcán",
+    "symbol": "mountain.2",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "vaso, papel rojo, cartón",
+    "preparation": "Cubre un vaso invertido con cartón para formar una montaña. Añade tiras rojas como lava y coloca a los elfos huyendo por una pista de papel."
+  },
+  {
+    "id": "trastada-080",
+    "title": "Concurso de peinados",
+    "symbol": "comb",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "pinzas de pelo, muñecos, papel",
+    "preparation": "Pon accesorios distintos a tres muñecos. Numera las propuestas y deja al elfo con una hoja de puntuaciones."
+  },
+  {
+    "id": "trastada-081",
+    "title": "La gincana de colores",
+    "symbol": "paintpalette",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "objetos de colores, papel, lápiz",
+    "preparation": "Escribe tres colores y coloca un objeto de cada uno en un rincón accesible. Pon a los elfos señalando el primer hallazgo."
+  },
+  {
+    "id": "trastada-082",
+    "title": "Puente levadizo",
+    "symbol": "building.2",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "cartón, cuerda, cinta",
+    "preparation": "Dobla un cartón para levantar una rampa con un cordón corto. Pon dos juguetes esperando y un elfo encargado de bajar el puente."
+  },
+  {
+    "id": "trastada-083",
+    "title": "Los porteros del Polo Norte",
+    "symbol": "ticket",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, cinta, vasos de plástico",
+    "preparation": "Haz una entrada entre dos vasos y escribe un cartel de control de acceso. Sienta a un elfo comprobando pases y al otro con su pase al revés."
+  },
+  {
+    "id": "trastada-084",
+    "title": "Microconcierto",
+    "symbol": "music.mic",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "caja, papel, vasos",
+    "preparation": "Levanta un escenario con una caja y dibuja un gran cartel en papel. Coloca a los elfos tocando vasos boca abajo como instrumentos."
+  },
+  {
+    "id": "trastada-085",
+    "title": "Raquetas de cartón",
+    "symbol": "tennis.racket",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cartón, tijeras, bola de papel",
+    "preparation": "Recorta dos raquetas pequeñas sin hilos y arruga papel para hacer la pelota. Pon a los elfos a cada lado de una raya dibujada."
+  },
+  {
+    "id": "trastada-086",
+    "title": "La escuela de risa",
+    "symbol": "face.smiling",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, lápiz, juguetes",
+    "preparation": "Haz una pizarra de papel con tres caras divertidas. Coloca al elfo enseñando y a varios juguetes sentados frente a él."
+  },
+  {
+    "id": "trastada-087",
+    "title": "Elfo envasado al vacío",
+    "symbol": "shippingbox",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "tarro de plástico abierto, papel",
+    "preparation": "Coloca al elfo asomando en un tarro sin tapa. Pega fuera una etiqueta de «Conservar entre trastadas»."
+  },
+  {
+    "id": "trastada-088",
+    "title": "Cubo de nieve de papel",
+    "symbol": "snow",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, cuenco, cuchara",
+    "preparation": "Arruga bolas de papel blanco y mételas en el cuenco. Pon a los elfos preparando dos pilas para una batalla sin nieve real."
+  },
+  {
+    "id": "trastada-089",
+    "title": "Bigotes en el retrato familiar",
+    "symbol": "photo",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Retrato familiar, cartulina negra y amarilla y cinta removible",
+    "preparation": "Recorta bigotes y unas gafas de cartulina. Pégalos sobre el cristal del marco con cinta removible. Sienta a los elfos al lado y deja unos bigotes de sobra sobre la mesa."
+  },
+  {
+    "id": "trastada-090",
+    "title": "La caja de los botones gigantes",
+    "symbol": "button.programmable",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cartón, rotulador, tijeras",
+    "preparation": "Recorta círculos de cartón, dibuja botones y coloca uno enorme apoyado detrás del elfo, como si hubiera pulsado el que no era."
+  },
+  {
+    "id": "trastada-091",
+    "title": "La mesa del árbitro",
+    "symbol": "sportscourt",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cuaderno, papel, lápiz",
+    "preparation": "Haz un marcador con hojas dobladas y anota dos puntuaciones disparatadas. Coloca a los elfos discutiendo el resultado con tarjetas de papel."
+  },
+  {
+    "id": "trastada-092",
+    "title": "Casco de astronauta",
+    "symbol": "moon.stars",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "vaso transparente, cartón, papel",
+    "preparation": "Apoya un vaso transparente en la mesa junto a la cabeza del elfo como casco desmontado. Haz un panel con cartón y botones dibujados."
+  },
+  {
+    "id": "trastada-093",
+    "title": "El castillo de los rollos",
+    "symbol": "flag",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "tubos de cartón, papel, tijeras",
+    "preparation": "Recorta almenas en tres tubos, ponlos en triángulo y añade una bandera. Haz que los elfos se asomen desde dos torres."
+  },
+  {
+    "id": "trastada-094",
+    "title": "Caza de zapatillas",
+    "symbol": "shoe",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "zapatillas, papel, lápiz",
+    "preparation": "Coloca huellas de papel entre dos pares de zapatillas y deja al elfo con una nota que diga «Este par corre menos»."
+  },
+  {
+    "id": "trastada-095",
+    "title": "El perro de papel",
+    "symbol": "dog",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, rotulador, cinta",
+    "preparation": "Dobla un papel para hacer orejas y dibuja un hocico. Coloca al elfo paseando la figura con una tira corta de papel."
+  },
+  {
+    "id": "trastada-096",
+    "title": "Campeonato de pulgares",
+    "symbol": "hand.thumbsup",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, rotulador, dos manoplas",
+    "preparation": "Haz una grada de papel para las manoplas, numéralas y coloca a los elfos enfrentados entre los dos pulgares."
+  },
+  {
+    "id": "trastada-097",
+    "title": "La heladería del Polo Norte",
+    "symbol": "snowflake",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "vasos, papel de colores, cucharas",
+    "preparation": "Arruga papel de colores para formar bolas de helado falsas. Pon una bola en cada vaso y sienta al elfo preparando un pedido."
+  },
+  {
+    "id": "trastada-098",
+    "title": "El ascensor diminuto",
+    "symbol": "arrow.up.arrow.down",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "caja pequeña, papel, cinta",
+    "preparation": "Dibuja puertas y botones en una caja abierta y colócala junto a una escalera de libros. Sienta dentro al elfo y pon un cartel de «Fuera de servicio»."
+  },
+  {
+    "id": "trastada-099",
+    "title": "Partida de cartas minúscula",
+    "symbol": "suit.club",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, rotulador, tijeras",
+    "preparation": "Recorta seis rectángulos y dibuja cartas diferentes. Reparte tres a cada elfo y esconde una adicional bajo el gorro de uno."
+  },
+  {
+    "id": "trastada-100",
+    "title": "El DJ de los tapones",
+    "symbol": "headphones",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "tapones grandes, papel, caja",
+    "preparation": "Apoya dos tapones sobre una caja y dibuja los mandos. Coloca a los elfos pinchando música para varios peluches."
+  },
+  {
+    "id": "trastada-101",
+    "title": "La colada de papel",
+    "symbol": "tshirt",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, pinzas, caja",
+    "preparation": "Recorta camisetas pequeñas de papel y engánchalas con pinzas al borde de una caja. Sienta al elfo al lado de una camiseta arrugada."
+  },
+  {
+    "id": "trastada-102",
+    "title": "La biblioteca al revés",
+    "symbol": "book.closed",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "libros, papel, lápiz",
+    "preparation": "Pon tres libros boca abajo y pégalos a un cartel de «Lectura avanzada» solo con apoyo, sin adhesivo en las cubiertas. Sienta a los elfos leyendo del revés."
+  },
+  {
+    "id": "trastada-103",
+    "title": "Nube de algodón",
+    "symbol": "cloud.sun",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "algodón, bandeja, papel",
+    "preparation": "Dispón algodón en forma de nube dentro de una bandeja. Corta rayos de papel y coloca al elfo repartiendo el tiempo del día."
+  },
+  {
+    "id": "trastada-104",
+    "title": "Trineo cuesta abajo",
+    "symbol": "snowflake",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "tabla de cartón, cojín, caja pequeña",
+    "preparation": "Apoya la tabla sobre un cojín a ras de suelo y pon una caja a media cuesta. Sienta a los elfos en la caja con los pies hacia la bajada."
+  },
+  {
+    "id": "trastada-105",
+    "title": "El congreso de peluches",
+    "symbol": "person.3",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "peluches, papel, libreta",
+    "preparation": "Sienta varios peluches en semicírculo. Escribe un orden del día con un único punto y coloca a los elfos tomando notas."
+  },
+  {
+    "id": "trastada-106",
+    "title": "La imprenta de patatas",
+    "symbol": "paintbrush",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Requiere recoger",
+    "materials": "patata cortada por un adulto, pintura lavable, papel",
+    "preparation": "Talla un sello sencillo en una mitad de patata y estampa varias figuras en papel. Deja la patata y el papel seco en una bandeja junto al elfo."
+  },
+  {
+    "id": "trastada-107",
+    "title": "Elfo con brújula",
+    "symbol": "location.north",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, lápiz, tapa grande",
+    "preparation": "Dibuja los puntos cardinales en un círculo de papel y ponlo dentro de la tapa. Deja al elfo mirando la brújula con un mapa al revés."
+  },
+  {
+    "id": "trastada-108",
+    "title": "Choque de tazas",
+    "symbol": "exclamationmark.triangle",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "dos tazas, cinta de papel, rotulador",
+    "preparation": "Coloca dos tazas de lado sobre paños para que queden estables. Dibuja una señal de tráfico y pon los elfos contando su versión del choque."
+  },
+  {
+    "id": "trastada-109",
+    "title": "El jardín de las cucharas",
+    "symbol": "leaf",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cucharas, papel, caja",
+    "preparation": "Recorta flores de papel y fíjalas a cucharas. Pon las cucharas tumbadas sobre una caja como un jardín y sienta al elfo con un vaso-regadera vacío."
+  },
+  {
+    "id": "trastada-110",
+    "title": "Huella dactilar gigante",
+    "symbol": "fingerprint",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, lápiz, rotulador",
+    "preparation": "Dibuja una huella enorme sobre papel y escribe «Prueba A». Pon a los elfos comparándola con una segunda huella dibujada al lado."
+  },
+  {
+    "id": "trastada-111",
+    "title": "La fábrica de copos",
+    "symbol": "snowflake",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "papel, tijeras, bandeja",
+    "preparation": "Dobla y recorta varios copos, dejando los recortes dentro de la bandeja. Coloca a los elfos frente a una fila de copos acabados."
+  },
+  {
+    "id": "trastada-112",
+    "title": "Caja fuerte de chocolate",
+    "symbol": "lock",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "caja pequeña, rotulador, envoltorios de chocolate",
+    "preparation": "Dibuja un dial en la caja, esconde envoltorios dentro y deja al elfo con una combinación de tres números escrita en papel."
+  },
+  {
+    "id": "trastada-113",
+    "title": "La escalera se toma un descanso",
+    "symbol": "figure.stairs",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "regla, papel, libros",
+    "preparation": "Apoya una regla sobre un libro bajo. Añade peldaños de papel y deja al elfo sentado a mitad de camino con un cartel de descanso."
+  },
+  {
+    "id": "trastada-114",
+    "title": "El equipo de mudanza",
+    "symbol": "shippingbox",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cajas pequeñas, papel, cinta",
+    "preparation": "Etiqueta cajas con cosas absurdas como «aires de Navidad». Coloca a los elfos transportando una caja vacía entre los dos."
+  },
+  {
+    "id": "trastada-115",
+    "title": "Salto de longitud",
+    "symbol": "ruler",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cinta métrica, papel, servilleta",
+    "preparation": "Extiende una cinta en el suelo y pon una servilleta como pista de aterrizaje. Coloca un elfo tumbado en su récord y otro anotándolo."
+  },
+  {
+    "id": "trastada-116",
+    "title": "El cartel de prohibido madrugar",
+    "symbol": "moon.zzz",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel, lápiz, muñecos",
+    "preparation": "Dibuja una señal de «Prohibido madrugar» y apóyala frente a los peluches acostados. Deja al elfo dormido encima del cartel."
+  },
+  {
+    "id": "trastada-117",
+    "title": "Escuela de chefs",
+    "symbol": "fork.knife",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cuencos, cucharas, papel",
+    "preparation": "Dobla gorros de papel, pon cuencos vacíos frente a los elfos y coloca una receta disparatada en medio."
+  },
+  {
+    "id": "trastada-118",
+    "title": "Sol y luna",
+    "symbol": "sun.and.horizon",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "cartulina, lápiz, cinta",
+    "preparation": "Dibuja y recorta un sol y una luna. Apóyalos a cada lado de un libro y sienta a un elfo en cada turno."
+  },
+  {
+    "id": "trastada-119",
+    "title": "La cámara del tiempo",
+    "symbol": "camera",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "cartón, tapón grande, fotos",
+    "preparation": "Haz una cámara con cartón y un tapón como objetivo. Coloca una foto antigua junto a ella y deja al elfo sentado como fotógrafo."
+  },
+  {
+    "id": "trastada-120",
+    "title": "La sala de espera",
+    "symbol": "clock",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "libros pequeños, papel, muñecos",
+    "preparation": "Forma sillas con libros tumbados, escribe números de turno y sienta a los muñecos. Coloca al elfo durmiéndose con el primer número en la mano."
+  },
+  {
+    "id": "trastada-121",
+    "title": "La feria de los espejos",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Elaborada",
+    "time": "Más de 15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "papel de aluminio, cartón, cinta",
+    "preparation": "Forra tres piezas de cartón con aluminio y curva cada una de una forma distinta. Pon a los elfos frente a sus reflejos deformados."
+  },
+  {
+    "id": "trastada-122",
+    "title": "Pirámide de vasos",
+    "symbol": "triangle",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "vasos de plástico, papel, lápiz",
+    "preparation": "Monta una pirámide baja de vasos vacíos. Pon al elfo en la base junto a un cartel que diga «Arquitectura del Polo Norte»."
+  },
+  {
+    "id": "trastada-128",
+    "title": "El elfo se adueña de la consola",
+    "symbol": "gamecontroller",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "mando, auriculares, cojín",
+    "preparation": "Sienta al elfo en el sofá con el mando entre las manos. Apoya los auriculares sobre el cojín para que parezca que está en plena partida."
+  },
+  {
+    "id": "trastada-129",
+    "title": "Sándwich de elfo",
+    "symbol": "fork.knife",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "dos rebanadas de pan, tabla",
+    "preparation": "Coloca un elfo tumbado entre dos rebanadas sobre la tabla. Sienta al otro a su lado con una mano sobre la rebanada de arriba."
+  },
+  {
+    "id": "trastada-130",
+    "title": "El dentista del dinosaurio",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "dinosaurio de juguete, cepillo de dientes limpio, vaso",
+    "preparation": "Coloca al dinosaurio frente al elfo y apoya el cepillo sobre un vaso, apuntando hacia la boca del juguete."
+  },
+  {
+    "id": "trastada-131",
+    "title": "El panda se cuela en la colada",
+    "symbol": "washer",
+    "elves": [
+      "1 elfo"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "panda de peluche, dos libros",
+    "preparation": "Con la lavadora apagada y la puerta abierta, coloca el peluche en el borde del tambor. Sienta al elfo sobre los libros a su lado y retira ambos antes de volver a usar la lavadora."
+  },
+  {
+    "id": "trastada-132",
+    "title": "Enfermería del Polo Norte",
+    "symbol": "cross.case",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "manta pequeña, pañuelos, termómetro de juguete",
+    "preparation": "Arropa a un elfo en el sofá. Sienta al otro junto a los pañuelos, como si estuviera de guardia, y deja el termómetro de juguete al lado."
+  },
+  {
+    "id": "trastada-133",
+    "title": "A toda máquina, elfos",
+    "symbol": "train.side.front.car",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Específicos",
+    "cleanup": "Mínima",
+    "materials": "tren de juguete, vías, lazo",
+    "preparation": "Monta un tramo corto de vía. Tumba a un elfo sobre la vía con un lazo suelto a modo de adorno y coloca al otro junto a la locomotora."
+  },
+  {
+    "id": "trastada-134",
+    "title": "Asalto al neceser",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "espejo, brocha limpia, neceser, papel rosa",
+    "preparation": "Sienta a los dos elfos delante del espejo. Pon una brocha limpia en manos de uno y coloca círculos de papel rosa en las mejillas del otro para simular el colorete."
+  },
+  {
+    "id": "scene-bananas",
+    "title": "Plátanos con cara",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Plátanos y rotulador",
+    "preparation": "Dibuja una expresión distinta en la piel de cada plátano. Colócalos en fila y sienta al elfo al lado con el rotulador."
+  },
+  {
+    "id": "scene-cotton-snowman",
+    "title": "Un muñeco de nieve en el sofá",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Algodón, cartulina negra y naranja, un plato y un cojín",
+    "preparation": "Forma un muñeco con tres bolas de algodón y añade los ojos y la nariz de cartulina. Ponlo en un plato y deja un rastro de algodón hasta un cojín entreabierto. Sienta a los dos elfos junto al cojín."
+  },
+  {
+    "id": "scene-dinosaurs-chocolate",
+    "title": "Dinosaurios a por los bombones",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Dinosaurios de juguete, caja de bombones y envoltorios",
+    "preparation": "Abre la caja de bombones y coloca dos dinosaurios alrededor. Pon un envoltorio cerca de cada dinosaurio y sienta al elfo junto a la caja."
+  },
+  {
+    "id": "scene-egg-fight",
+    "title": "Huevos con tiritas",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Huevos, huevera, tiritas y rotulador",
+    "preparation": "Dibuja caras de susto en los huevos y pon una tirita a un par de ellos. Colócalos en la huevera y sienta al elfo al lado."
+  },
+  {
+    "id": "scene-fridge",
+    "title": "La nevera tiene ojos",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Ojos adhesivos y envases o frutas",
+    "preparation": "Pega los ojos en los envases o en la piel de las frutas, sin tocar la parte comestible. Sienta al elfo junto a los alimentos y deja a la vista la lámina de ojos."
+  },
+  {
+    "id": "scene-paper-ghosts",
+    "title": "Tres fantasmas de papel",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Pañuelos de papel, rotulador y tres juguetes",
+    "preparation": "Dibuja dos ojos en cada pañuelo. Cubre un juguete con cada pañuelo y coloca al elfo al lado de los tres fantasmas."
+  },
+  {
+    "id": "scene-pony",
+    "title": "Un pañal para el poni",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Poni de juguete, papel y cinta adhesiva",
+    "preparation": "Dobla el papel y rodea con él la grupa del poni. Sujétalo con cinta y sienta al elfo al lado con el rollo a la vista."
+  },
+  {
+    "id": "scene-remote-stickers",
+    "title": "El mando de las sonrisas",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Mando a distancia y pegatinas removibles",
+    "preparation": "Coloca pegatinas de caritas sobre los botones. Sienta al elfo al lado del mando con la hoja de pegatinas a la vista."
+  },
+  {
+    "id": "scene-rubber-ducks",
+    "title": "Un desayuno de patitos",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Patitos de goma, cuenco, cuchara y jarra de leche",
+    "preparation": "Llena el cuenco con los patitos y pon uno más en un platito. Coloca el cuenco, la cuchara y la jarra en una bandeja junto al elfo."
+  },
+  {
+    "id": "scene-snow-dessert",
+    "title": "El muñeco de nieve se derrite",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Helado de vainilla, chocolate, zanahoria, palitos salados y un cuenco",
+    "preparation": "Pon el helado en el cuenco y forma una cara con chocolate y zanahoria. Usa dos palitos salados como brazos. Sienta al elfo junto al cuenco con una cuchara de madera."
+  },
+  {
+    "id": "scene-toy-car-clamp",
+    "title": "Un cepo para el coche",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Coches de juguete y pinzas de tender",
+    "preparation": "Alinea los coches y coloca una pinza en la rueda del primero. Sienta a los dos elfos junto a la fila con otra pinza a mano."
+  },
+  {
+    "id": "scene-foam-beard",
+    "title": "La barba de espuma",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Espuma de afeitar, platito y toalla",
+    "preparation": "Sienta al elfo apoyado en una toalla. Ponle un poco de espuma en la barbilla y deja el platito con más espuma al lado."
+  },
+  {
+    "id": "scene-window-astronauts",
+    "title": "Astronautas en la ventana",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Papel de aluminio, cartón e hilo",
+    "preparation": "Viste a dos o tres elfos con papel de aluminio. Recorta una luna y una estrella de cartón y cubre la luna con aluminio. Cuelga las figuras a distintas alturas de una barra firme, fuera del alcance de los pequeños."
+  },
+  {
+    "id": "scene-marshmallow-fort",
+    "title": "Barricadas de malvaviscos",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Malvaviscos grandes y pequeños y un astronauta de juguete",
+    "preparation": "Apila los malvaviscos grandes para formar dos barricadas. Coloca al elfo detrás de una y al astronauta detrás de la otra. Esparce algunos malvaviscos pequeños entre ambas."
+  },
+  {
+    "id": "scene-sack-race",
+    "title": "Carrera de sacos",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Bolsas de papel, juguetes, dos vasos y banderines",
+    "preparation": "Dobla los bordes de las bolsas y mete al elfo y a sus contrincantes, uno en cada bolsa. Coloca los vasos y los banderines como meta."
+  },
+  {
+    "id": "scene-sink-regatta",
+    "title": "Regata en el fregadero",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Molde rectangular y cuchara de madera",
+    "preparation": "Pon el molde en el fregadero seco y sienta dentro a los dos elfos. Apoya la cuchara sobre sus manos a modo de remo."
+  },
+  {
+    "id": "scene-paper-roads",
+    "title": "Cruce de papel higiénico",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Papel higiénico, rotulador y coches de juguete",
+    "preparation": "Cruza dos tiras de papel y dibuja líneas discontinuas dejando libre el centro. Reparte los coches por el cruce y sienta al elfo junto a la carretera."
+  },
+  {
+    "id": "scene-tape-web",
+    "title": "Telaraña de cinta",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Cinta de pintor, cojín y banco",
+    "preparation": "Pega tiras radiales en una puerta y únelas con tramos de cinta para dibujar la telaraña. Sienta al elfo bajo la telaraña con el rollo a su lado."
+  },
+  {
+    "id": "scene-mirror-tic-tac-toe",
+    "title": "Tres en raya en el espejo",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Cinta removible, rotuladores para cristal y toallas",
+    "preparation": "Forma la cuadrícula con cuatro tiras de cinta. Dibuja cruces y círculos de dos colores. Sienta a los elfos sobre las toallas junto al espejo."
+  },
+  {
+    "id": "scene-colouring-book",
+    "title": "Elfo fuera de las líneas",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Dibujos navideños para colorear y ceras",
+    "preparation": "Garabatea los dibujos con varios colores. Deja las ceras alrededor y sienta al elfo junto a una de ellas."
+  },
+  {
+    "id": "scene-spaghetti-chef",
+    "title": "El chef de los espaguetis",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Espaguetis cocidos y fríos, olla, cuchara de madera y papel",
+    "preparation": "Haz un gorro de chef con papel. Coloca los espaguetis en la olla y deja algunos colgando del borde. Sienta al elfo junto a la olla con la cuchara en la mano."
+  },
+  {
+    "id": "scene-paper-zigzag",
+    "title": "Papel higiénico en zigzag",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Papel higiénico y tijeras",
+    "preparation": "Desenrolla un tramo de papel y recorta triángulos en uno de los bordes. Deja los recortes en la tapa cerrada junto al elfo."
+  },
+  {
+    "id": "scene-stolen-soda",
+    "title": "El ladrón de refrescos",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Vaso, refresco, pajita, bandeja y gominolas",
+    "preparation": "Sienta al elfo en la bandeja junto al vaso. Inclina la pajita hacia su boca y deja un platito de gominolas al lado."
+  },
+  {
+    "id": "scene-snow-bowling",
+    "title": "Bolos de nieve",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Vasos de papel blancos, rotuladores y malvaviscos",
+    "preparation": "Dibuja caras de muñeco de nieve en los vasos y apílalos en pirámide. Sienta al elfo enfrente con tres malvaviscos como bolas de bolos."
+  },
+  {
+    "id": "scene-yogurt-raid",
+    "title": "El asalto a los yogures",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Envases de yogur, una cucharilla y un poco de yogur",
+    "preparation": "Coloca un par de envases vacíos en la nevera. Deja una cucharilla dentro de otro vasito y ponle al elfo un poquito de yogur en la cara."
+  },
+  {
+    "id": "scene-paper-ice-fishing",
+    "title": "Pesca en el hielo",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Cartulina, un palito e hilo",
+    "preparation": "Recorta un disco de cartulina blanca, un círculo azul y tres peces naranjas. Monta el estanque sobre la tapa cerrada del inodoro. Ata un hilo al palito y pon la caña en la mano del elfo."
+  },
+  {
+    "id": "scene-mandarin-choir",
+    "title": "El coro de mandarinas",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Mandarinas, rotulador, papel y un palito",
+    "preparation": "Dibuja caras cantando en las cáscaras y coloca las mandarinas en dos filas. Dibuja una partitura y dale al elfo un palito como batuta."
+  },
+  {
+    "id": "scene-rudolph-bathroom",
+    "title": "Rudolph en el baño",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Cartulina, tijeras y cinta removible",
+    "preparation": "Recorta los ojos, las orejas, las astas y una nariz roja. Pega las piezas a la cisterna con cinta removible. Sienta un elfo sobre la tapa cerrada y el otro encima de la cisterna."
+  },
+  {
+    "id": "scene-laundry-tree",
+    "title": "El árbol se volvió tendedero",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Ropa interior limpia y pinzas",
+    "preparation": "Cuelga las prendas de ramas firmes con pinzas. Sienta al elfo sobre un regalo a los pies del árbol."
+  },
+  {
+    "id": "scene-film-hammock",
+    "title": "Una hamaca transparente",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Film transparente, una silla y un cojín",
+    "preparation": "Extiende una tira corta de film entre los laterales del respaldo, justo encima del cojín. Recuesta a un elfo sobre el cojín, con la cara despejada, y sienta al otro junto al rollo."
+  },
+  {
+    "id": "scene-toy-card-game",
+    "title": "Una partida con los peluches",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Cartas, peluches y juguetes",
+    "preparation": "Sienta al elfo y a los juguetes alrededor de una mesa baja. Reparte unas cartas a cada uno y deja el mazo en el centro. Esconde una carta bajo la pierna del elfo."
+  },
+  {
+    "id": "scene-mirror-costume",
+    "title": "El espejo que te convierte en elfo",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Cartulina roja y blanca, tijeras y cinta removible",
+    "preparation": "Recorta un gorro rojo con banda blanca y un cuello de picos. Pégalos al espejo a la altura del reflejo. Sienta al elfo junto al lavabo."
+  },
+  {
+    "id": "scene-dental-floss",
+    "title": "Enredado en hilo dental",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Hilo dental y una toalla",
+    "preparation": "Sienta al elfo apoyado en una toalla. Enrolla unas vueltas de hilo dental alrededor de su cintura y deja la cajita abierta a su lado."
+  },
+  {
+    "id": "scene-hot-dog-elf",
+    "title": "El perrito caliente del elfo",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Pan de perrito, salchichas, salsa oscura y un plato",
+    "preparation": "Abre el pan y tumba al elfo dentro. Dibuja caras tristes en las salchichas con unas gotas de salsa oscura y colócalas junto al plato."
+  },
+  {
+    "id": "scene-flour-sled",
+    "title": "Trineo sobre nieve de harina",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Media",
+    "time": "6–15 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Requiere recoger",
+    "materials": "Trineo de juguete, harina, un cuenco y un rodillo",
+    "preparation": "Espolvorea harina sobre una superficie que se pueda limpiar. Arrastra el trineo para marcar dos huellas y sienta al elfo en él. Deja el cuenco y el rodillo cerca."
+  },
+  {
+    "id": "scene-paper-tree-garland",
+    "title": "La guirnalda de papel higiénico",
+    "symbol": "sparkles",
+    "elves": [
+      "1 elfo",
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Papel higiénico, árbol de Navidad y libros",
+    "preparation": "Pasa unas vueltas de papel por ramas del árbol, lejos de las bombillas. Deja el rollo al pie de la guirnalda y sienta al elfo sobre unos libros."
+  },
+  {
+    "id": "scene-sock-drawer",
+    "title": "El misterio del cajón de calcetines",
+    "symbol": "sparkles",
+    "elves": [
+      "2 elfos"
+    ],
+    "difficulty": "Fácil",
+    "time": "Hasta 5 min",
+    "materialsType": "Habituales de casa",
+    "cleanup": "Mínima",
+    "materials": "Calcetines y un cajón",
+    "preparation": "Abre un cajón y deja un par de calcetines colgando del borde. Coloca un elfo asomado al cajón y sienta al otro en el suelo con un calcetín sobre el gorro."
+  }
+]
