@@ -169,6 +169,8 @@ private struct Home: View {
     @State private var setupStep: SetupStep = .introduction
     @State private var handTapCount = 0
     @State private var hasScrolledHome = false
+    @State private var keyboardVisible = false
+    @State private var homeViewportHeight: CGFloat = 0
     @State private var promptedReviewDay: Int?
     @State private var setupShownThisLaunch = false
     @State private var planReady = false
@@ -292,11 +294,6 @@ private struct Home: View {
                             showsSnow: surpriseRound == nil && panel == nil && !showSplash
                         )
                     }
-                    .overlay(alignment: .top) {
-                        if showsConfirmation && !reduceMotion {
-                            SuccessConfetti().frame(height: 200).allowsHitTesting(false)
-                        }
-                    }
                     .transition(screenTransition)
                 }
             }
@@ -414,6 +411,12 @@ private struct Home: View {
             }
             activate()
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+            keyboardVisible = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+            keyboardVisible = false
+        }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in activate() }
         .onChange(of: scenePhase) { _, phase in if phase == .active { activate() } }
         .onReceive(NotificationCenter.default.publisher(for: .openReminder)) { _ in activate() }
@@ -455,7 +458,13 @@ private struct Home: View {
             dailyCards(width: cardWidth, height: cardHeight, viewportHeight: space.size.height)
                 .allowsHitTesting(surpriseRound == nil)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .onAppear { if !keyboardVisible { homeViewportHeight = space.size.height } }
+                .onChange(of: space.size.height) { _, height in
+                    if !keyboardVisible { homeViewportHeight = height }
+                }
         }
+        .frame(height: keyboardVisible && homeViewportHeight > 0 ? homeViewportHeight : nil, alignment: .top)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         .mask {
             GeometryReader { space in
                 let fade = flippedDay == nil ? 0.13 : min(0.025, 12 / max(1, space.size.height))
@@ -488,6 +497,12 @@ private struct Home: View {
             if showsConfirmation {
                 GeometryReader { space in
                     let cardHeight = max(0, min(space.size.height * 0.74, space.size.width * dayPhotoRatio * 1.1))
+                    let snackbarY = min(space.size.height - 24, (space.size.height + cardHeight) / 2 + 36)
+                    if !reduceMotion {
+                        SuccessConfetti()
+                            .frame(height: 200)
+                            .position(x: space.size.width / 2, y: snackbarY + 75)
+                    }
                     Label("Travesura cambiada", systemImage: "checkmark.circle.fill")
                         .modifier(AppTypography.selection)
                         .foregroundStyle(.white)
@@ -496,7 +511,7 @@ private struct Home: View {
                         .background(ideaControlTint, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                         .modifier(GlassSurface(prominent: false, radius: 16, interactive: false))
                         .position(x: space.size.width / 2,
-                                  y: min(space.size.height - 24, (space.size.height + cardHeight) / 2 + 36))
+                                  y: snackbarY)
                 }
                 .allowsHitTesting(false)
                 .transition(reduceMotion ? .opacity : .offset(y: 8).combined(with: .opacity))
@@ -1077,7 +1092,7 @@ private struct Home: View {
                     .resizable()
                     .scaledToFill()
             }
-            .clipShape(Circle())
+            .clipShape(Circle().inset(by: size * 0.025))
             .overlay {
                 // The visible bubble spans about 520 px in the 640 px glass asset.
                 Image("OrnamentBubbleGlass")
@@ -2475,7 +2490,8 @@ private struct IdeaBoard: View {
 
     var body: some View {
         let current = position ?? startingPosition
-        let resting = backdropPosition ?? startingPosition
+        let centered = distance(from: current, to: center(of: nearestCard(to: current))) < 1
+        let resting = centered ? current : (backdropPosition ?? startingPosition)
         let restingIdea = idea(at: entryIndex(for: nearestCard(to: resting)))
         let restingCard = restingIdea ?? ideas[0]
         return Group {
@@ -2491,11 +2507,14 @@ private struct IdeaBoard: View {
                                           animated: !reduceMotion,
                                           started: { hasScrolled = true; selectionSettled = false },
                                           snap: { center(of: nearestCard(to: $0)) }) { point in
-                            selectionSettled = false
-                            position = point
+                            if distance(from: position ?? startingPosition, to: point) > 0.1 {
+                                selectionSettled = false
+                                position = point
+                            }
                         } settled: { point in
                             scrollRequest = nil
                             backdropPosition = point
+                            position = point
                             selectionSettled = hasScrolled
                         } tapped: { point in
                             let boardPoint = CGPoint(x: current.x + point.x - size.width / 2,
@@ -2590,7 +2609,7 @@ private struct IdeaBoard: View {
             .padding(.top, 16)
         }
         .overlay(alignment: .bottom) {
-            if !showsList, hasScrolled, selectionSettled, birthStarted == nil {
+            if !showsList, hasScrolled, (selectionSettled || centered), birthStarted == nil {
                 Button {
                     if let restingIdea {
                         select(restingIdea)
@@ -2825,7 +2844,7 @@ private struct IdeaBoard: View {
                 maxSampleOffset: CGSize(width: 32, height: 32),
                 isEnabled: usesCrystal && morph > 0.01
             )
-            .clipShape(Circle())
+            .clipShape(Circle().inset(by: size * 0.025))
             .overlay {
                 Image("OrnamentBubbleGlass")
                     .resizable()
@@ -2851,8 +2870,16 @@ private struct IdeaBoard: View {
     private func openIdea(at slot: Slot) {
         AppHaptics.tap()
         hasScrolled = true
-        selectionSettled = false
-        scrollRequest = center(of: slot)
+        let target = center(of: slot)
+        if distance(from: position ?? startingPosition, to: target) < 1 {
+            position = target
+            backdropPosition = target
+            selectionSettled = true
+            scrollRequest = nil
+        } else {
+            selectionSettled = false
+            scrollRequest = target
+        }
     }
 }
 
