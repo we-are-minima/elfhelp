@@ -4,7 +4,12 @@
 <dict>
     <key>UIAppFonts</key>
     <array>
-        <string>ITCGaramondStd-LtCond.ttf</string>
+        <string>NewKansasSwash-RegularItalic.otf</string>
+        <string>NewKansasSwash-MediumItalic.otf</string>
+        <string>NewKansas-Bold.otf</string>
+        <string>Inter-Regular.otf</string>
+        <string>Inter-Medium.otf</string>
+        <string>Inter-SemiBold.otf</string>
     </array>
     <key>UILaunchStoryboardName</key>
     <string>LaunchScreen</string>

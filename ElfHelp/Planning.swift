@@ -64,10 +64,11 @@ struct CatalogFilters: Equatable {
     var selections: [CatalogFilter: Set<String>]
 
     init(_ values: [CatalogFilter: Set<String>] = [:]) {
-        selections = [:]
-        for (group, selected) in values {
-            let valid = selected.intersection(group.options)
-            if !valid.isEmpty && valid.count < group.options.count { selections[group] = valid }
+        let elves = values[.elves] == ["2 elfos"] ? "2 elfos" : "1 elfo"
+        selections = [.elves: [elves]]
+        if let difficulty = values[.difficulty]?.intersection(CatalogFilter.difficulty.options),
+           difficulty.count == 1 {
+            selections[.difficulty] = difficulty
         }
     }
 
@@ -84,9 +85,33 @@ struct CatalogFilters: Equatable {
     }
 }
 
+enum TravesuraOutcome: String, Codable, CaseIterable {
+    case incredible, disaster, skipped
+    var title: String {
+        switch self {
+        case .incredible: "Increíble"
+        case .disaster: "Un desastre"
+        case .skipped: "No la hice"
+        }
+    }
+}
+
+struct TravesuraReview: Codable {
+    let ideaID: String
+    let outcome: TravesuraOutcome
+}
+
 struct DecemberPlan: Codable {
     var assignments: [Int: String] = [:]
     var deckOrder: [String] = []
+    var reviews: [Int: TravesuraReview]?
+
+    mutating func review(day: Int, outcome: TravesuraOutcome) {
+        guard reviews?[day] == nil, let id = assignments[day] else { return }
+        if reviews == nil { reviews = [:] }
+        reviews?[day] = TravesuraReview(ideaID: id, outcome: outcome)
+        if outcome == .skipped { assignments.removeValue(forKey: day) }
+    }
 
     static let openingIdeaID = "trastada-002"
 
@@ -108,14 +133,14 @@ struct DecemberPlan: Codable {
                 assignments.removeValue(forKey: day)
             }
         }
-        if days.contains(1), assignments[1] == nil, !assignments.values.contains(Self.openingIdeaID),
+        if days.contains(1), reviews?[1] == nil, assignments[1] == nil, !assignments.values.contains(Self.openingIdeaID),
            catalog.contains(where: { $0.id == Self.openingIdeaID }) {
             assignments[1] = Self.openingIdeaID
         }
         let assigned = Set(assignments.values)
         let available = catalog.filter { !assigned.contains($0.id) }
         let ordered = available.filter(filters.matches) + available.filter { !filters.matches($0) }
-        let emptyDays = days.filter { assignments[$0] == nil }
+        let emptyDays = days.filter { assignments[$0] == nil && reviews?[$0] == nil }
         for (day, idea) in zip(emptyDays, ordered) { assignments[day] = idea.id }
     }
 
@@ -144,7 +169,7 @@ struct DecemberPlan: Codable {
 }
 
 struct DecemberEdition {
-    static let pages = -3...24
+    static let pages = 1...24
 
     let year: Int
     var calendar = Calendar(identifier: .gregorian)

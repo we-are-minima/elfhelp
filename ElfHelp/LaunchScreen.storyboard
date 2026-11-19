@@ -1,34 +1,126 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24173" propertyAccessControl="none" targetRuntime="iOS.CocoaTouch" useAutolayout="YES" launchScreen="YES" initialViewController="launch-controller">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light" />
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1" />
     </dependencies>
     <scenes>
         <scene sceneID="launch-scene">
             <objects>
                 <viewController id="launch-controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="launch-view">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852" />
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="launch-image">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" clipsSubviews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="launch-canvas">
+                                <rect key="frame" x="0" y="0" width="414" height="896" />
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashElf" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-0">
+                                        <rect key="frame" x="0" y="281" width="414" height="480" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-1">
+                                        <rect key="frame" x="65" y="105" width="307" height="197.17" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashTagline" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-2">
+                                        <rect key="frame" x="45" y="803" width="324" height="35" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashHat" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-3">
+                                        <rect key="frame" x="-80" y="-10" width="200" height="200" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashCandy" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-4">
+                                        <rect key="frame" x="260" y="25" width="160" height="160" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashSock" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-5">
+                                        <rect key="frame" x="-72" y="260" width="160" height="160" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashMug" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-6">
+                                        <rect key="frame" x="326" y="274" width="135" height="135" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashWC" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-7">
+                                        <rect key="frame" x="280" y="638" width="200" height="200" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashStarBalloon" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-8">
+                                        <rect key="frame" x="-79" y="715" width="145" height="145" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashStar" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-9">
+                                        <rect key="frame" x="47" y="153" width="40" height="53.33" />
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashStar" translatesAutoresizingMaskIntoConstraints="NO" id="launch-part-10">
+                                        <rect key="frame" x="363" y="783" width="25" height="33.33" />
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="launch-canvas" secondAttribute="height" multiplier="414:896" id="canvas-ratio" />
+                                    <constraint firstItem="launch-part-0" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="1.0" id="launch-part-0-width" />
+                                    <constraint firstItem="launch-part-0" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.5357142857142857" id="launch-part-0-height" />
+                                    <constraint firstItem="launch-part-0" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.5" id="launch-part-0-centerX" />
+                                    <constraint firstItem="launch-part-0" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.5814732142857143" id="launch-part-0-centerY" />
+                                    <constraint firstItem="launch-part-1" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.7415458937198067" id="launch-part-1-width" />
+                                    <constraint firstItem="launch-part-1" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.22005580357142857" id="launch-part-1-height" />
+                                    <constraint firstItem="launch-part-1" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.5277777777777778" id="launch-part-1-centerX" />
+                                    <constraint firstItem="launch-part-1" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.22721540178571425" id="launch-part-1-centerY" />
+                                    <constraint firstItem="launch-part-2" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.782608695652174" id="launch-part-2-width" />
+                                    <constraint firstItem="launch-part-2" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.0390625" id="launch-part-2-height" />
+                                    <constraint firstItem="launch-part-2" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.5" id="launch-part-2-centerX" />
+                                    <constraint firstItem="launch-part-2" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.9157366071428571" id="launch-part-2-centerY" />
+                                    <constraint firstItem="launch-part-3" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.4830917874396135" id="launch-part-3-width" />
+                                    <constraint firstItem="launch-part-3" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.22321428571428573" id="launch-part-3-height" />
+                                    <constraint firstItem="launch-part-3" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.04830917874396135" id="launch-part-3-centerX" />
+                                    <constraint firstItem="launch-part-3" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.10044642857142858" id="launch-part-3-centerY" />
+                                    <constraint firstItem="launch-part-4" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.3864734299516908" id="launch-part-4-width" />
+                                    <constraint firstItem="launch-part-4" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.17857142857142858" id="launch-part-4-height" />
+                                    <constraint firstItem="launch-part-4" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.821256038647343" id="launch-part-4-centerX" />
+                                    <constraint firstItem="launch-part-4" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.1171875" id="launch-part-4-centerY" />
+                                    <constraint firstItem="launch-part-5" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.3864734299516908" id="launch-part-5-width" />
+                                    <constraint firstItem="launch-part-5" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.17857142857142858" id="launch-part-5-height" />
+                                    <constraint firstItem="launch-part-5" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.01932367149758454" id="launch-part-5-centerX" />
+                                    <constraint firstItem="launch-part-5" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.3794642857142857" id="launch-part-5-centerY" />
+                                    <constraint firstItem="launch-part-6" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.32608695652173914" id="launch-part-6-width" />
+                                    <constraint firstItem="launch-part-6" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.15066964285714285" id="launch-part-6-height" />
+                                    <constraint firstItem="launch-part-6" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.9504830917874396" id="launch-part-6-centerX" />
+                                    <constraint firstItem="launch-part-6" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.38113839285714285" id="launch-part-6-centerY" />
+                                    <constraint firstItem="launch-part-7" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.4830917874396135" id="launch-part-7-width" />
+                                    <constraint firstItem="launch-part-7" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.22321428571428573" id="launch-part-7-height" />
+                                    <constraint firstItem="launch-part-7" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.9178743961352657" id="launch-part-7-centerX" />
+                                    <constraint firstItem="launch-part-7" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.8236607142857143" id="launch-part-7-centerY" />
+                                    <constraint firstItem="launch-part-8" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.3502415458937198" id="launch-part-8-width" />
+                                    <constraint firstItem="launch-part-8" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.16183035714285715" id="launch-part-8-height" />
+                                    <constraint firstItem="launch-part-8" firstAttribute="trailing" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.15942028985507245" id="launch-part-8-centerX" />
+                                    <constraint firstItem="launch-part-8" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.87890625" id="launch-part-8-centerY" />
+                                    <constraint firstItem="launch-part-9" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.0966183574879227" id="launch-part-9-width" />
+                                    <constraint firstItem="launch-part-9" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.059520089285714284" id="launch-part-9-height" />
+                                    <constraint firstItem="launch-part-9" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.16183574879227053" id="launch-part-9-centerX" />
+                                    <constraint firstItem="launch-part-9" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.20051897321428572" id="launch-part-9-centerY" />
+                                    <constraint firstItem="launch-part-10" firstAttribute="width" secondItem="launch-canvas" secondAttribute="width" multiplier="0.06038647342995169" id="launch-part-10-width" />
+                                    <constraint firstItem="launch-part-10" firstAttribute="height" secondItem="launch-canvas" secondAttribute="height" multiplier="0.037198660714285715" id="launch-part-10-height" />
+                                    <constraint firstItem="launch-part-10" firstAttribute="centerX" secondItem="launch-canvas" secondAttribute="trailing" multiplier="0.9070048309178744" id="launch-part-10-centerX" />
+                                    <constraint firstItem="launch-part-10" firstAttribute="centerY" secondItem="launch-canvas" secondAttribute="bottom" multiplier="0.8924832589285714" id="launch-part-10-centerY" />
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
                         <constraints>
-                            <constraint firstItem="launch-image" firstAttribute="leading" secondItem="launch-view" secondAttribute="leading" id="launch-leading"/>
-                            <constraint firstItem="launch-image" firstAttribute="trailing" secondItem="launch-view" secondAttribute="trailing" id="launch-trailing"/>
-                            <constraint firstItem="launch-image" firstAttribute="top" secondItem="launch-view" secondAttribute="top" id="launch-top"/>
-                            <constraint firstItem="launch-image" firstAttribute="bottom" secondItem="launch-view" secondAttribute="bottom" id="launch-bottom"/>
+                            <constraint firstItem="launch-canvas" firstAttribute="centerX" secondItem="launch-view" secondAttribute="centerX" id="canvas-centerX" />
+                            <constraint firstItem="launch-canvas" firstAttribute="centerY" secondItem="launch-view" secondAttribute="centerY" id="canvas-centerY" />
+                            <constraint firstItem="launch-canvas" firstAttribute="width" relation="lessThanOrEqual" secondItem="launch-view" secondAttribute="width" id="canvas-limit-width" />
+                            <constraint firstItem="launch-canvas" firstAttribute="height" relation="lessThanOrEqual" secondItem="launch-view" secondAttribute="height" id="canvas-limit-height" />
+                            <constraint firstItem="launch-canvas" firstAttribute="width" secondItem="launch-view" secondAttribute="width" priority="999" id="canvas-fill" />
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="launch-first-responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="launch-first-responder" sceneMemberID="firstResponder" />
             </objects>
         </scene>
     </scenes>
     <resources>
-        <image name="Splash" width="414" height="896"/>
+        <image name="SplashElf" width="414" height="896" />
+        <image name="Logo" width="414" height="896" />
+        <image name="SplashTagline" width="414" height="896" />
+        <image name="SplashHat" width="414" height="896" />
+        <image name="SplashCandy" width="414" height="896" />
+        <image name="SplashSock" width="414" height="896" />
+        <image name="SplashMug" width="414" height="896" />
+        <image name="SplashWC" width="414" height="896" />
+        <image name="SplashStarBalloon" width="414" height="896" />
+        <image name="SplashStar" width="414" height="896" />
     </resources>
 </document>
