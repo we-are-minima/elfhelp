@@ -217,12 +217,8 @@ private struct Home: View {
     private static var planningDate: Date { Date() }
     @State private var reminderTask: Task<Void, Never>?
     private let edition = DecemberEdition(year: 2026)
-    private var catalog: [Trastada] { Self.loadedCatalog }
-    private static let loadedCatalog: [Trastada] = {
-        guard let url = Bundle.main.url(forResource: "Catalog", withExtension: "json"),
-              let data = try? Data(contentsOf: url) else { return [] }
-        return (try? JSONDecoder().decode([Trastada].self, from: data)) ?? []
-    }()
+    @ObservedObject private var catalogStore = CatalogStore.shared
+    private var catalog: [Trastada] { catalogStore.items }
 
     private var illustratedCatalog: [Trastada] {
         catalog.filter(Artwork.hasPhoto)
@@ -410,6 +406,8 @@ private struct Home: View {
                 showSplash = false
             }
             activate()
+            PlanSync.shared.schedule(savedPlan, year: edition.year)
+            await catalogStore.refresh()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
             keyboardVisible = true
@@ -418,7 +416,13 @@ private struct Home: View {
             keyboardVisible = false
         }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged)) { _ in activate() }
-        .onChange(of: scenePhase) { _, phase in if phase == .active { activate() } }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active {
+                activate()
+                Task { await catalogStore.refresh() }
+            }
+        }
+        .onChange(of: savedPlan) { _, data in PlanSync.shared.schedule(data, year: edition.year) }
         .onReceive(NotificationCenter.default.publisher(for: .openReminder)) { _ in activate() }
     }
 
@@ -3769,16 +3773,19 @@ private struct CardPhoto: View {
 
     private var accessibleCaption: String {
         let title = context.map { "\($0) \(idea.title)" } ?? idea.title
-        return showsMetadata ? "\(title). \(idea.time). \(difficulty)" : title
+        guard showsMetadata else { return title }
+        return idea.time.isEmpty ? "\(title). \(difficulty)" : "\(title). \(idea.time). \(difficulty)"
     }
 
     private var difficulty: String { "Dificultad \(idea.difficulty.lowercased())" }
 
     @ViewBuilder private var metadata: some View {
-        Label {
-            Text(idea.time)
-        } icon: {
-            Text("🕒").accessibilityHidden(true)
+        if !idea.time.isEmpty {
+            Label {
+                Text(idea.time)
+            } icon: {
+                Text("🕒").accessibilityHidden(true)
+            }
         }
         Label {
             Text(difficulty)
@@ -3819,14 +3826,15 @@ private struct Artwork: View, Equatable {
     private static var photoAvailability: [String: Bool] = [:]
 
     @MainActor static func hasPhoto(_ idea: Trastada) -> Bool {
-        if let available = photoAvailability[idea.id] { return available }
+        if photoAvailability[idea.id] == true { return true }
+        // Solo guardamos los aciertos: una imagen remota puede descargarse más tarde.
         let available = photo(for: idea) != nil
-        photoAvailability[idea.id] = available
+        if available { photoAvailability[idea.id] = true }
         return available
     }
 
     static func photo(for idea: Trastada) -> UIImage? {
-        UIImage(named: idea.id)
+        UIImage(named: idea.imagePath ?? idea.id) ?? UIImage(named: idea.id) ?? RemoteArtwork.image(for: idea)
     }
 
     private static let thumbnailAssets: NSCache<NSString, UIImage> = {

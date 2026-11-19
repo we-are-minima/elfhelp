@@ -11,9 +11,14 @@ struct Trastada: Codable, Identifiable, Hashable {
     let cleanup: String
     let materials: String
     let preparation: String
+    /// Campos que llegan desde Supabase (el JSON de la app no los tiene).
+    var tags: [String]?
+    var imagePath: String?
+    var details: String?
 
     var materialTags: [String] {
-        materials
+        if let tags { return tags }
+        return materials
             .replacingOccurrences(of: #"\s+(?:y|e)\s+"#, with: ",", options: [.regularExpression, .caseInsensitive])
             .components(separatedBy: CharacterSet(charactersIn: ",;"))
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
