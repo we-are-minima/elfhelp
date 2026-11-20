@@ -14,7 +14,6 @@ struct Trastada: Codable, Identifiable, Hashable {
     /// Campos que llegan desde Supabase (el JSON de la app no los tiene).
     var tags: [String]?
     var imagePath: String?
-    var details: String?
 
     var materialTags: [String] {
         if let tags { return tags }

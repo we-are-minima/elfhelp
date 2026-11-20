@@ -34,7 +34,6 @@ private func checkedData(for request: URLRequest) async throws -> Data {
 struct RemoteTravesura: Decodable {
     let id: String
     let title: String
-    let description: String?
     let image_path: String?
     let materials: [String]
     let steps: [String]
@@ -63,8 +62,7 @@ extension Trastada {
             materials: remote.materials.joined(separator: ", "),
             preparation: remote.steps.joined(separator: " "),
             tags: remote.materials,
-            imagePath: remote.image_path,
-            details: remote.description
+            imagePath: remote.image_path
         )
     }
 }
@@ -88,7 +86,7 @@ final class CatalogStore: ObservableObject {
         defer { refreshing = false }
         do {
             var request = URLRequest(url: SupabaseConfig.endpoint("rest/v1/travesuras", query: [
-                URLQueryItem(name: "select", value: "id,title,description,image_path,materials,steps,elf_counts,difficulty"),
+                URLQueryItem(name: "select", value: "id,title,image_path,materials,steps,elf_counts,difficulty"),
                 URLQueryItem(name: "order", value: "id"),
             ]))
             request.setValue(SupabaseConfig.publishableKey, forHTTPHeaderField: "apikey")
