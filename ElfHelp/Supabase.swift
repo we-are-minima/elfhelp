@@ -298,7 +298,8 @@ final class PlanSync {
             add(Row(user_id: session.userID, travesura_id: review.ideaID,
                     status: skipped ? "available" : "done",
                     assigned_date: skipped ? nil : date(day),
-                    outcome: review.outcome.rawValue, updated_at: now))
+                    // "completed" has no value in the Supabase enum: it is just status "done".
+                    outcome: review.outcome == .completed ? nil : review.outcome.rawValue, updated_at: now))
         }
         for (day, id) in plan.assignments where plan.reviews?[day] == nil {
             add(Row(user_id: session.userID, travesura_id: id, status: "assigned",
