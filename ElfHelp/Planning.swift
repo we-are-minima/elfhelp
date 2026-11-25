@@ -14,6 +14,11 @@ struct Trastada: Codable, Identifiable, Hashable {
     /// Campos que llegan desde Supabase (el JSON de la app no los tiene).
     var tags: [String]?
     var imagePath: String?
+    /// Día (1–24) en que sale por defecto en el calendario inicial, según el modo de elfos.
+    var defaultDayOneElf: Int?
+    var defaultDayTwoElves: Int?
+
+    func defaultDay(twoElves: Bool) -> Int? { twoElves ? defaultDayTwoElves : defaultDayOneElf }
 
     var materialTags: [String] {
         if let tags { return tags }
@@ -134,20 +139,6 @@ struct DecemberPlan: Codable {
         }
     }
 
-    /// Travesura fija del día 1: «¡¿Adivina quién ha vuelto?!» (id de la tabla `travesuras` en Supabase).
-    static let openingIdeaID = "423c18fe-d1b6-8046-a0ef-f2e2e770eb32"
-
-    mutating func placeOpeningIdea(catalog: [Trastada]) {
-        let id = Self.openingIdeaID
-        guard assignments[1] != id else { return }
-        if let previousDay = assignments.first(where: { $0.value == id })?.key {
-            assignments[previousDay] = assignments[1]
-            assignments[1] = id
-        } else {
-            assign(id, to: 1, catalog: catalog)
-        }
-    }
-
     mutating func fillStarterDays(from catalog: [Trastada], matching filters: CatalogFilters, days: ClosedRange<Int> = 1...24) {
         let illustratedIDs = Set(catalog.map(\.id))
         for day in days {
@@ -155,9 +146,14 @@ struct DecemberPlan: Codable {
                 assignments.removeValue(forKey: day)
             }
         }
-        if days.contains(1), reviews?[1] == nil, assignments[1] == nil, !assignments.values.contains(Self.openingIdeaID),
-           catalog.contains(where: { $0.id == Self.openingIdeaID }) {
-            assignments[1] = Self.openingIdeaID
+        // Primero, las travesuras que tienen día asignado por defecto en Supabase para este modo de elfos.
+        let twoElves = filters.selections[.elves] == ["2 elfos"]
+        let scheduled = catalog
+            .compactMap { idea in idea.defaultDay(twoElves: twoElves).map { ($0, idea.id) } }
+            .sorted { $0.0 < $1.0 }
+        for (day, id) in scheduled where days.contains(day)
+            && assignments[day] == nil && reviews?[day] == nil && !assignments.values.contains(id) {
+            assignments[day] = id
         }
         let assigned = Set(assignments.values)
         let available = catalog.filter { !assigned.contains($0.id) }

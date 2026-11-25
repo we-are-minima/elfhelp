@@ -39,6 +39,8 @@ struct RemoteTravesura: Decodable {
     let steps: [String]
     let elf_counts: [Int]
     let difficulty: String?
+    let default_day_1_elf: Int?
+    let default_day_2_elves: Int?
 }
 
 extension Trastada {
@@ -62,7 +64,9 @@ extension Trastada {
             materials: remote.materials.joined(separator: ", "),
             preparation: remote.steps.joined(separator: " "),
             tags: remote.materials,
-            imagePath: remote.image_path
+            imagePath: remote.image_path,
+            defaultDayOneElf: remote.default_day_1_elf,
+            defaultDayTwoElves: remote.default_day_2_elves
         )
     }
 }
@@ -86,7 +90,7 @@ final class CatalogStore: ObservableObject {
         defer { refreshing = false }
         do {
             var request = URLRequest(url: SupabaseConfig.endpoint("rest/v1/travesuras", query: [
-                URLQueryItem(name: "select", value: "id,title,image_path,materials,steps,elf_counts,difficulty"),
+                URLQueryItem(name: "select", value: "id,title,image_path,materials,steps,elf_counts,difficulty,default_day_1_elf,default_day_2_elves"),
                 URLQueryItem(name: "order", value: "id"),
             ]))
             request.setValue(SupabaseConfig.publishableKey, forHTTPHeaderField: "apikey")

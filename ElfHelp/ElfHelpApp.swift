@@ -174,16 +174,12 @@ private struct Home: View {
     @State private var keyboardVisible = false
     @State private var homeViewportHeight: CGFloat = 0
     @State private var promptedReviewDay: Int?
-    @State private var promotionPreviewDismissed = false
-    /// Minimax preview card is hidden for now; set to true to show it again in DEBUG builds.
-    private let showsPromotionPreview = false
     @Environment(\.requestReview) private var requestAppReview
     @AppStorage("firstUseTimestamp") private var firstUseTimestamp = 0.0
     @AppStorage("ratingMilestones") private var ratingMilestones = ""
     @AppStorage("seenPromotions") private var seenPromotions = ""
     @State private var ratingTask: Task<Void, Never>?
     @State private var sharedTravesura: SharedTravesura?
-    @State private var setupShownThisLaunch = false
     @State private var planReady = false
     @AppStorage("planningWeekdays") private var planningWeekdays = 127
     @AppStorage("firstPlanningDay") private var firstPlanningDay = 1
@@ -192,11 +188,7 @@ private struct Home: View {
     private var planningDays: ClosedRange<Int> { firstPlanningDay...lastPlanningDay }
 
     private var shouldShowSetup: Bool {
-        #if DEBUG
-        return !setupShownThisLaunch
-        #else
-        return !initialSetupComplete
-        #endif
+        !initialSetupComplete
     }
 
     private func canEdit(_ day: Int) -> Bool {
@@ -226,11 +218,7 @@ private struct Home: View {
     @State private var now = Self.planningDate
 
     private static var planningDate: Date {
-        #if DEBUG
-        Calendar(identifier: .gregorian).date(from: DateComponents(year: 2026, month: 12, day: 3, hour: 10))!
-        #else
         Date()
-        #endif
     }
     @State private var reminderTask: Task<Void, Never>?
     private let edition = DecemberEdition(year: 2026)
@@ -570,43 +558,7 @@ private struct Home: View {
     }
 
     private var showsFarewellCard: Bool {
-        #if DEBUG
-        true
-        #else
         now >= edition.date(24)
-        #endif
-    }
-
-    private var promotionPreview: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Text("MINIMAX · VISTA PREVIA")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(.white.opacity(0.7))
-                Spacer()
-                Button {
-                    focusedDay = 1
-                    promotionPreviewDismissed = true
-                } label: {
-                    Image(systemName: "xmark")
-                }
-                .buttonStyle(GlassControl(iconOnly: true))
-                .accessibilityLabel("Cerrar promoción")
-            }
-            Image("SplashElf")
-                .resizable()
-                .scaledToFit()
-                .frame(maxHeight: 200)
-                .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            Text("Que siga la magia")
-                .systemHeading(.largeTitle)
-            Text("Descubre nuevas formas de compartir momentos especiales en familia con Minimax.")
-                .modifier(AppTypography.body)
-            Link("Descubrir Minimax", destination: URL(string: "https://www.heyminimax.com")!)
-                .modifier(PrimaryIdeaControl(animated: false))
-        }
-        .multilineTextAlignment(.center)
-        .foregroundStyle(.white)
     }
 
     private func dailyCards(width: CGFloat, height: CGFloat, viewportHeight: CGFloat) -> some View {
@@ -634,15 +586,6 @@ private struct Home: View {
                     .frame(width: width, height: height)
                     .modifier(DayCardFrame(alignment: .center, inset: 0))
                     .id(0)
-                    #if DEBUG
-                    if showsPromotionPreview && !promotionPreviewDismissed {
-                        promotionPreview
-                            .padding(24)
-                            .frame(width: width, height: height)
-                            .modifier(DayCardFrame(alignment: .center, inset: 0))
-                            .id(-1)
-                    }
-                    #endif
                     ForEach(DecemberEdition.pages, id: \.self) { day in
                         let cardHeight = flippedDay == day ? max(height, viewportHeight * 0.94) : height
                         dailyCard(page: day, height: cardHeight)
@@ -1106,16 +1049,6 @@ private struct Home: View {
 
     private func submitReview(day: Int, outcome: TravesuraOutcome) {
         update { plan in
-            #if DEBUG
-            // Allow another QA response without clearing the saved plan on launch.
-            if let previous = plan.reviews?[day] {
-                if plan.assignments[day] == nil,
-                   !plan.assignments.values.contains(previous.ideaID) {
-                    plan.assignments[day] = previous.ideaID
-                }
-                if plan.assignments[day] != nil { plan.reviews?[day] = nil }
-            }
-            #endif
             plan.review(day: day, outcome: outcome)
         }
         panel = nil
@@ -1782,7 +1715,6 @@ private struct Home: View {
         if firstUseTimestamp == 0 { firstUseTimestamp = Date().timeIntervalSince1970 }
         guard !showSplash, panel?.id != "setup" else { return }
         if shouldShowSetup {
-            setupShownThisLaunch = true
             planReady = false
             setupStep = .introduction
             panel = .setup
@@ -1805,13 +1737,8 @@ private struct Home: View {
         guard panel == nil else { return }
         if (1...24).contains(reminderDay) { return }
         let yesterday = edition.calendar.date(byAdding: .day, value: -1, to: now) ?? now
-        #if DEBUG
-        let previewReview = true
-        #else
-        let previewReview = false
-        #endif
         if let day = edition.today(yesterday), idea(on: day) != nil,
-           (previewReview || plan.reviews?[day] == nil), promptedReviewDay != day {
+           plan.reviews?[day] == nil, promptedReviewDay != day {
             promptedReviewDay = day
             panel = .review(day)
             return
