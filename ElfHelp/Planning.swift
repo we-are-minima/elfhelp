@@ -117,7 +117,8 @@ struct DecemberPlan: Codable {
         if outcome == .skipped { assignments.removeValue(forKey: day) }
     }
 
-    static let openingIdeaID = "trastada-002"
+    /// Travesura fija del día 1: «¡¿Adivina quién ha vuelto?!» (id de la tabla `travesuras` en Supabase).
+    static let openingIdeaID = "423c18fe-d1b6-8046-a0ef-f2e2e770eb32"
 
     mutating func placeOpeningIdea(catalog: [Trastada]) {
         let id = Self.openingIdeaID
