@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 import UserNotifications
 import UIKit
 import ImageIO
@@ -51,7 +52,7 @@ private extension Notification.Name {
 }
 
 private enum Panel: Identifiable {
-    case idea(Trastada), day(Int), calendar, settings, setup, filters, club, closing, review(Int)
+    case idea(Trastada), day(Int), calendar, settings, setup, filters, club, closing, review(Int), promotion(AppPromotion)
 
     var id: String {
         switch self {
@@ -64,6 +65,7 @@ private enum Panel: Identifiable {
         case .club: "club"
         case .closing: "closing"
         case .review(let day): "review-\(day)"
+        case .promotion(let promotion): "promotion-\(promotion.id)"
         }
     }
 }
@@ -172,6 +174,15 @@ private struct Home: View {
     @State private var keyboardVisible = false
     @State private var homeViewportHeight: CGFloat = 0
     @State private var promptedReviewDay: Int?
+    @State private var promotionPreviewDismissed = false
+    /// Minimax preview card is hidden for now; set to true to show it again in DEBUG builds.
+    private let showsPromotionPreview = false
+    @Environment(\.requestReview) private var requestAppReview
+    @AppStorage("firstUseTimestamp") private var firstUseTimestamp = 0.0
+    @AppStorage("ratingMilestones") private var ratingMilestones = ""
+    @AppStorage("seenPromotions") private var seenPromotions = ""
+    @State private var ratingTask: Task<Void, Never>?
+    @State private var sharedTravesura: SharedTravesura?
     @State private var setupShownThisLaunch = false
     @State private var planReady = false
     @AppStorage("planningWeekdays") private var planningWeekdays = 127
@@ -214,7 +225,13 @@ private struct Home: View {
     @State private var replacementDay: Int?
     @State private var now = Self.planningDate
 
-    private static var planningDate: Date { Date() }
+    private static var planningDate: Date {
+        #if DEBUG
+        Calendar(identifier: .gregorian).date(from: DateComponents(year: 2026, month: 12, day: 3, hour: 10))!
+        #else
+        Date()
+        #endif
+    }
     @State private var reminderTask: Task<Void, Never>?
     private let edition = DecemberEdition(year: 2026)
     @ObservedObject private var catalogStore = CatalogStore.shared
@@ -337,11 +354,11 @@ private struct Home: View {
             .fullScreenCover(isPresented: Binding(
                 get: { panel?.id == "setup" },
                 set: { if !$0, panel?.id == "setup" { panel = nil } }
-            )) {
+            ), onDismiss: { activate() }) {
                 panelContent(.setup)
             }
             .sheet(item: Binding(
-                get: { panel?.id == "setup" ? nil : panel },
+                get: { panel?.id == "setup" || panel?.id.hasPrefix("review-") == true ? nil : panel },
                 set: { if panel?.id != "setup" { panel = $0 } }
             ), onDismiss: {
                 calendarDetailPage = nil
@@ -396,6 +413,28 @@ private struct Home: View {
             } message: {
                 if let replacementDay, let existing = idea(on: replacementDay) { Text(existing.title) }
             }
+        }
+        .sheet(item: $sharedTravesura) { payload in
+            TravesuraShareSheet(payload: payload)
+        }
+        .overlay {
+            ZStack(alignment: .bottom) {
+                if case .review(let day) = panel {
+                    Color.black.opacity(0.35)
+                        .ignoresSafeArea()
+                        .contentShape(Rectangle())
+                        .onTapGesture { submitReview(day: day, outcome: .skipped) }
+                        .accessibilityHidden(true)
+                        .transition(.opacity)
+                    panelContent(.review(day))
+                        .frame(maxWidth: .infinity)
+                        .accessibilityAddTraits(.isModal)
+                        .accessibilityAction(.escape) { submitReview(day: day, outcome: .skipped) }
+                        .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
+                }
+            }
+            .ignoresSafeArea(.container, edges: .bottom)
+            .animation(reduceMotion ? .easeInOut(duration: 0.2) : .easeInOut(duration: 0.35), value: panel?.id.hasPrefix("review-") == true)
         }
         .preferredColorScheme(appearance.colorScheme)
         .ignoresSafeArea(.keyboard, edges: .bottom)
@@ -538,6 +577,38 @@ private struct Home: View {
         #endif
     }
 
+    private var promotionPreview: some View {
+        VStack(spacing: 20) {
+            HStack {
+                Text("MINIMAX · VISTA PREVIA")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.white.opacity(0.7))
+                Spacer()
+                Button {
+                    focusedDay = 1
+                    promotionPreviewDismissed = true
+                } label: {
+                    Image(systemName: "xmark")
+                }
+                .buttonStyle(GlassControl(iconOnly: true))
+                .accessibilityLabel("Cerrar promoción")
+            }
+            Image("SplashElf")
+                .resizable()
+                .scaledToFit()
+                .frame(maxHeight: 200)
+                .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+            Text("Que siga la magia")
+                .systemHeading(.largeTitle)
+            Text("Descubre nuevas formas de compartir momentos especiales en familia con Minimax.")
+                .modifier(AppTypography.body)
+            Link("Descubrir Minimax", destination: URL(string: "https://www.heyminimax.com")!)
+                .modifier(PrimaryIdeaControl(animated: false))
+        }
+        .multilineTextAlignment(.center)
+        .foregroundStyle(.white)
+    }
+
     private func dailyCards(width: CGFloat, height: CGFloat, viewportHeight: CGFloat) -> some View {
         ScrollViewReader { proxy in
             ScrollView(.vertical) {
@@ -563,6 +634,15 @@ private struct Home: View {
                     .frame(width: width, height: height)
                     .modifier(DayCardFrame(alignment: .center, inset: 0))
                     .id(0)
+                    #if DEBUG
+                    if showsPromotionPreview && !promotionPreviewDismissed {
+                        promotionPreview
+                            .padding(24)
+                            .frame(width: width, height: height)
+                            .modifier(DayCardFrame(alignment: .center, inset: 0))
+                            .id(-1)
+                    }
+                    #endif
                     ForEach(DecemberEdition.pages, id: \.self) { day in
                         let cardHeight = flippedDay == day ? max(height, viewportHeight * 0.94) : height
                         dailyCard(page: day, height: cardHeight)
@@ -626,6 +706,8 @@ private struct Home: View {
         let date = edition.calendarDate(for: page)
         let assigned = idea(on: day)
         let editable = canEdit(day)
+        let isPastDay = edition.calendar.startOfDay(for: date) < edition.calendar.startOfDay(for: now)
+        let completed = plan.reviews?[day].map { $0.outcome != .skipped } ?? false
         let preview = catalog.indices.contains(day - 1) ? catalog[day - 1] : nil
 
         return Group {
@@ -640,14 +722,33 @@ private struct Home: View {
                         )
                     }
                     .buttonStyle(HapticPlainStyle())
+                    .disabled(completed)
                     .overlay(alignment: .bottom) {
-                        HStack(spacing: 10) {
-                            Button("Cómo se hace") { flippedDay = day }
+                        Group {
+                            if completed {
+                                Button {
+                                    promptedReviewDay = day
+                                    update { $0.unmarkCompleted(day: day) }
+                                } label: {
+                                    Label("Travesura completada", systemImage: "checkmark.circle.fill")
+                                }
                                 .buttonStyle(OnboardingActionStyle())
-                            Button("Cambiar") { startSurprise(for: day) }
-                                .modifier(PrimaryIdeaControl(animated: false))
-                                .frame(width: 120)
-                                .disabled(!editable)
+                                .accessibilityHint("Desmarca la travesura como hecha")
+                            } else if isPastDay {
+                                Button("Marcar travesura como hecha") {
+                                    update { $0.markCompleted(day: day) }
+                                }
+                                .buttonStyle(OnboardingActionStyle())
+                            } else {
+                                HStack(spacing: 10) {
+                                    Button("Cómo se hace") { flippedDay = day }
+                                        .buttonStyle(OnboardingActionStyle())
+                                    Button("Cambiar") { startSurprise(for: day) }
+                                        .modifier(PrimaryIdeaControl(animated: false))
+                                        .frame(width: 120)
+                                        .disabled(!editable)
+                                }
+                            }
                         }
                         .padding(cardIconInset)
                         .opacity(flipped ? 0 : 1)
@@ -686,15 +787,7 @@ private struct Home: View {
         .modifier(DayCardFrame(alignment: .topLeading, inset: assigned == nil ? pearlCardInset : 0, radius: flippedDay == day ? 32 : pearlCardRadius))
         .overlay(alignment: .topTrailing) {
             HStack(alignment: .top) {
-                VStack(spacing: 8) {
-                    cardDate(for: date)
-                    if let review = plan.reviews?[day], review.outcome != .skipped {
-                        Label("Hecha", systemImage: "checkmark.circle.fill")
-                            .modifier(AppTypography(name: "Inter-SemiBold", size: 13, relativeTo: .footnote))
-                            .padding(8)
-                            .background(.ultraThinMaterial, in: Capsule())
-                    }
-                }
+                cardDate(for: date)
                 Spacer()
                 if let assigned {
                     share(assigned, cardGlass: true)
@@ -934,29 +1027,98 @@ private struct Home: View {
                 Button("Seguir explorando") { panel = nil }
             }
             .padding()
-        case .review(let day):
-            VStack(spacing: 24) {
-                Text("¿Qué tal fue la travesura de ayer?")
-                    .systemHeading(.title2)
-                    .multilineTextAlignment(.center)
-                if let idea = idea(on: day) {
-                    Text(idea.title).modifier(AppTypography.body)
+        case .promotion(let promotion):
+            ScrollView {
+                VStack(spacing: 24) {
+                    AsyncImage(url: promotion.imageURL) { image in
+                        image.resizable().scaledToFit()
+                    } placeholder: { ProgressView() }
+                    .frame(maxHeight: 280)
+                    .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                    Text(promotion.title).systemHeading(.title2)
+                    Text(promotion.message).modifier(AppTypography.body)
+                    Link(promotion.buttonTitle, destination: promotion.destinationURL)
+                        .modifier(PrimaryIdeaControl(animated: false))
                 }
-                ForEach(TravesuraOutcome.allCases, id: \.self) { outcome in
-                    Button(outcome.title) {
-                        update { $0.review(day: day, outcome: outcome) }
-                        panel = nil
+                .multilineTextAlignment(.center)
+                .padding(24)
+            }
+        case .review(let day):
+            VStack(spacing: 16) {
+                HStack {
+                    Spacer()
+                    Button { submitReview(day: day, outcome: .skipped) } label: {
+                        Image(systemName: "xmark")
                     }
-                    .modifier(PrimaryIdeaControl(animated: false))
+                    .buttonStyle(GlassControl(iconOnly: true))
+                    .accessibilityLabel("Cerrar. No lo hice")
+                }
+                // Same 16 pt gap from the top and right edges of the modal.
+                .padding(.trailing, -8)
+                VStack(spacing: 4) {
+                    Text("¿Qué tal fue la travesura de ayer?")
+                        .modifier(AppTypography(name: "Inter-SemiBold", size: 17, relativeTo: .headline))
+                        .multilineTextAlignment(.center)
+                    if let idea = idea(on: day) {
+                        Text(idea.title).modifier(AppTypography.body).multilineTextAlignment(.center)
+                    }
+                }
+                HStack(alignment: .top, spacing: 64) {
+                    ForEach([TravesuraOutcome.incredible, .disaster], id: \.self) { outcome in
+                        Button {
+                            submitReview(day: day, outcome: outcome)
+                        } label: {
+                            VStack(spacing: 8) {
+                                Image(outcome == .incredible ? "ReviewOk" : "ReviewWrong")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(6)
+                                    .frame(width: 84, height: 84)
+                                    .accessibilityHidden(true)
+                                    .background(.black.opacity(0.15), in: Circle())
+                                    .overlay { Circle().strokeBorder(.white.opacity(0.35), lineWidth: 2) }
+                                Text(outcome.title)
+                                    .modifier(AppTypography(name: "Inter-SemiBold", size: 13, relativeTo: .footnote))
+                                    .multilineTextAlignment(.center)
+                            }
+                            .frame(width: 84)
+                        }
+                        .buttonStyle(HapticPlainStyle())
+                    }
                 }
             }
-            .padding(24)
+            .foregroundStyle(.white)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 24)
+            .padding(.top, 16)
+            .padding(.bottom, 64)
+            .background {
+                FrostedBackdrop()
+                    .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+            }
         case .closing:
             ScrollView {
                 ChristmasFarewell()
                 .padding(24)
             }
         }
+    }
+
+    private func submitReview(day: Int, outcome: TravesuraOutcome) {
+        update { plan in
+            #if DEBUG
+            // Allow another QA response without clearing the saved plan on launch.
+            if let previous = plan.reviews?[day] {
+                if plan.assignments[day] == nil,
+                   !plan.assignments.values.contains(previous.ideaID) {
+                    plan.assignments[day] = previous.ideaID
+                }
+                if plan.assignments[day] != nil { plan.reviews?[day] = nil }
+            }
+            #endif
+            plan.review(day: day, outcome: outcome)
+        }
+        panel = nil
     }
 
     private func dayDetail(page: Int) -> some View {
@@ -1067,9 +1229,9 @@ private struct Home: View {
                     floatingPreview("scene-cotton-snowman", size: diameter * 0.2, x: -0.35, y: 1.9, depth: 0.17, time: time, container: space.size)
                     floatingPreview("scene-snow-bowling", size: diameter * 0.31, x: 0.04, y: -1.23, depth: 0.31, time: time, container: space.size)
                     floatingPreview("scene-mandarin-choir", size: diameter * 0.45, x: -0.59, y: -0.67, depth: 0.42, time: time, container: space.size)
-                    floatingPreview("trastada-011", size: diameter * 0.68, x: -0.68, y: 0.32, depth: 0.7, time: time, container: space.size)
+                    floatingPreview("scene-last-cookie-thief", size: diameter * 0.68, x: -0.68, y: 0.32, depth: 0.7, time: time, container: space.size)
                     floatingPreview("scene-sink-regatta", size: diameter * 0.62, x: 0.68, y: 0.34, depth: 0.63, time: time, container: space.size)
-                    floatingPreview("trastada-002", size: diameter, x: 0, y: -0.02, depth: 1, time: time, container: space.size)
+                    floatingPreview("scene-midnight-movie", size: diameter, x: 0, y: -0.02, depth: 1, time: time, container: space.size)
                     floatingPreview("scene-rubber-ducks", size: diameter * 0.58, x: -0.69, y: 1.42, depth: 0.72, time: time, container: space.size)
                     floatingPreview("scene-spaghetti-chef", size: diameter * 0.64, x: 0.10, y: 1.67, depth: 0.82, time: time, container: space.size)
                     floatingPreview("scene-sack-race", size: diameter * 0.49, x: 0.66, y: 1.24, depth: 0.51, time: time, container: space.size)
@@ -1358,13 +1520,11 @@ private struct Home: View {
     }
 
     @ViewBuilder private func share(_ idea: Trastada, cardGlass: Bool) -> some View {
-        let image = Artwork.shareImage(for: idea)
-        let link = ShareLink(
-            item: image,
-            subject: Text("Elf help!"),
-            message: Text("Mira qué travesura he encontrado. ¡Descárgate la app de Elf Help!" + (appStoreURL.map { "\n\($0.absoluteString)" } ?? "")),
-            preview: SharePreview(idea.title, image: image)
-        ) {
+        let link = Button {
+            let message = "Descubre esta y otras travesuras en Elf Help!"
+                + (appStoreURL.map { " Descárgala ahora en App Store\n" + $0.absoluteString } ?? "")
+            sharedTravesura = SharedTravesura(image: Artwork.shareUIImage(for: idea), message: message)
+        } label: {
             Label("Compartir", systemImage: "square.and.arrow.up")
                 .labelStyle(.iconOnly)
         }
@@ -1447,30 +1607,9 @@ private struct Home: View {
             }
             Section("Información") {
                 NavigationLink {
-                    List {
-                        Section("Planifica diciembre") {
-                            Text("Desliza las tarjetas para cambiar de día. Pulsa Cómo se hace para ver los materiales y los pasos de la travesura.")
-                        }
-                        Section("Si no llegan los avisos") {
-                            Text("Comprueba que estén activados en Elf help! y en los Ajustes de iOS.")
-                        }
-                    }
-                    .navigationTitle("Ayuda")
+                    PrivacyPolicyView()
                 } label: {
-                    settingsLabel("Ayuda", icon: "questionmark.circle", tint: .blue)
-                }
-                NavigationLink {
-                    List {
-                        Section("Datos en tu iPhone") {
-                            Text("Tu calendario, los filtros y la hora de los avisos se guardan en este dispositivo. Puedes usar Elf help! sin crear una cuenta.")
-                        }
-                        Section("Enlaces externos") {
-                            Text("El club de cartas y el formulario de recordatorio se abren en la web.")
-                        }
-                    }
-                    .navigationTitle("Privacidad")
-                } label: {
-                    settingsLabel("Privacidad", icon: "hand.raised", tint: .green)
+                    settingsLabel("Política de privacidad", icon: "hand.raised", tint: .green)
                 }
                 if let appStoreURL {
                     ShareLink(item: appStoreURL) {
@@ -1621,10 +1760,26 @@ private struct Home: View {
         refreshReminders()
     }
 
+    private func scheduleAppRating() {
+        let elapsed = Calendar.current.dateComponents([.day], from: Date(timeIntervalSince1970: firstUseTimestamp), to: Date()).day ?? 0
+        let candidates = [3, 7, 14].filter { elapsed >= $0 }.map { "day-\($0)" }
+            + (edition.today(now) == 24 ? ["final-\(edition.year)"] : [])
+        let seen = Set(ratingMilestones.split(separator: "|").map(String.init))
+        guard candidates.contains(where: { !seen.contains($0) }) else { return }
+        ratingTask?.cancel()
+        ratingTask = Task { @MainActor in
+            try? await Task.sleep(for: .seconds(2))
+            guard !Task.isCancelled, panel == nil, surpriseRound == nil, scenePhase == .active else { return }
+            ratingMilestones = seen.union(candidates).sorted().joined(separator: "|")
+            requestAppReview()
+        }
+    }
+
     private func activate() {
         let currentDate = Self.planningDate
         if !edition.calendar.isDate(now, inSameDayAs: currentDate) { focusedDay = nil }
         now = currentDate
+        if firstUseTimestamp == 0 { firstUseTimestamp = Date().timeIntervalSince1970 }
         guard !showSplash, panel?.id != "setup" else { return }
         if shouldShowSetup {
             setupShownThisLaunch = true
@@ -1650,20 +1805,28 @@ private struct Home: View {
         guard panel == nil else { return }
         if (1...24).contains(reminderDay) { return }
         let yesterday = edition.calendar.date(byAdding: .day, value: -1, to: now) ?? now
-        if let day = edition.today(yesterday), plan.assignments[day] != nil,
-           plan.reviews?[day] == nil, promptedReviewDay != day {
+        #if DEBUG
+        let previewReview = true
+        #else
+        let previewReview = false
+        #endif
+        if let day = edition.today(yesterday), idea(on: day) != nil,
+           (previewReview || plan.reviews?[day] == nil), promptedReviewDay != day {
             promptedReviewDay = day
             panel = .review(day)
             return
         }
+        if let day = edition.today(now), let promotion = AppPromotion.configured.first(where: {
+            $0.enabled && $0.days.contains(day) && !seenPromotions.split(separator: "|").contains(Substring("\(edition.year):\($0.id)"))
+        }) {
+            seenPromotions += "|\(edition.year):\(promotion.id)"
+            panel = .promotion(promotion)
+            return
+        }
+        scheduleAppRating()
         if now >= edition.date(26), !closingSeen {
             closingSeen = true
             panel = .closing
-        } else if let day = edition.today(now), [8, 18].contains(day),
-                  clubURL != nil, clubModalCount < 2, clubModalDay != day {
-            clubModalDay = day
-            clubModalCount += 1
-            panel = .club
         }
     }
 
@@ -2361,6 +2524,7 @@ private struct ButtonHaptics: ViewModifier {
 private struct HapticPlainStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .contentShape(Rectangle())
             .modifier(ButtonHaptics(isPressed: configuration.isPressed))
             .opacity(configuration.isPressed ? 0.75 : 1)
     }
@@ -2382,6 +2546,7 @@ private struct GlassControl: ButtonStyle {
             .padding(.horizontal, iconOnly ? 0 : 12)
             .padding(.vertical, iconOnly ? 0 : 5)
             .frame(minWidth: iconOnly ? 44 : nil, minHeight: 44)
+            .contentShape(Rectangle())
             .modifier(GlassSurface(prominent: filled, radius: 24, darkInk: darkInk))
             .shadow(color: .white.opacity(filled ? 0.45 : 0), radius: 8)
             .opacity(enabled ? 1 : 0.55)
@@ -2394,6 +2559,7 @@ private struct SurpriseRound {
 }
 
 private struct IdeaBoard: View {
+    @AppStorage("bubbleGuideSeen") private var bubbleGuideSeen = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
     @State private var limitsEffects = ProcessInfo.processInfo.thermalState.rawValue >= ProcessInfo.ThermalState.serious.rawValue
@@ -2509,7 +2675,7 @@ private struct IdeaBoard: View {
                     .overlay {
                         NativeBoardScroll(start: current, request: scrollRequest,
                                           animated: !reduceMotion,
-                                          started: { hasScrolled = true; selectionSettled = false },
+                                          started: { bubbleGuideSeen = true; hasScrolled = true; selectionSettled = false },
                                           snap: { center(of: nearestCard(to: $0)) }) { point in
                             if distance(from: position ?? startingPosition, to: point) > 0.1 {
                                 selectionSettled = false
@@ -2526,7 +2692,7 @@ private struct IdeaBoard: View {
                             if let piece = pieces.first(where: { piece in
                                 distance(from: piece.center, to: boardPoint) <= piece.corner
                             }) {
-                                openIdea(at: piece.id)
+                                chooseIdea(at: piece.id)
                             }
                         }
                         .accessibilityHidden(true)
@@ -2598,6 +2764,7 @@ private struct IdeaBoard: View {
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity)
                 Button {
+                    bubbleGuideSeen = true
                     showsList.toggle()
                     if !showsList {
                         scrollRequest = hasScrolled ? center(of: nearestCard(to: current)) : startingPosition
@@ -2611,6 +2778,21 @@ private struct IdeaBoard: View {
             .padding(.horizontal, cardIconInset)
             .frame(minHeight: 54)
             .padding(.top, 16)
+        }
+        .overlay(alignment: .bottom) {
+            if !bubbleGuideSeen && !showsList {
+                VStack(spacing: 12) {
+                    ScrollHandHint()
+                    Text("Deslízate entre las burbujas para encontrar tu idea. Toca una para elegirla para ese día, o céntrala y pulsa el botón.")
+                        .modifier(AppTypography.body)
+                        .multilineTextAlignment(.center)
+                }
+                .foregroundStyle(.white)
+                .padding(24)
+                .background(ideaControlTint, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+                .padding(16)
+                .allowsHitTesting(false)
+            }
         }
         .overlay(alignment: .bottom) {
             if !showsList, hasScrolled, (selectionSettled || centered), birthStarted == nil {
@@ -2787,23 +2969,23 @@ private struct IdeaBoard: View {
                 let fade = min(1, max(0, (distanceFromFocus - 0.22) / 0.74))
                 let attention = 1 - fade * fade * (3 - 2 * fade)
                 if abs(x) < size.width / 2 + tile.width, abs(y) < size.height / 2 + tile.height {
-                    let imageSize = diameter(of: index)
+                    let imageSize = piece.width
                     let growth = bubbleBirth(for: piece.id, elapsed: birthElapsed)
                     Group {
                         if let idea = idea(at: index) {
                             Button {
-                                openIdea(at: piece.id)
+                                chooseIdea(at: piece.id)
                             } label: {
                                 bubbleSurface(
-                                    Artwork(idea: idea, height: imageSize, rounded: false, thumbnail: true).equatable(),
+                                    Artwork(idea: idea, height: imageSize, rounded: false, thumbnail: true, thumbnailMaxPixelSize: 1200).equatable(),
                                     size: imageSize, morph: piece.morph, usesCrystal: usesCrystal
                                 )
                             }
                             .buttonStyle(HapticPlainStyle())
-                            .accessibilityLabel(idea.title)
+                            .accessibilityLabel("Elegir \(idea.title) para el día \(day)")
                             .accessibilityAddTraits(hasScrolled && selectionSettled && piece.id == focused ? [.isSelected] : [])
                         } else if case .ornament(let name) = entries[index] {
-                            Button { openIdea(at: piece.id) } label: {
+                            Button { chooseIdea(at: piece.id) } label: {
                                 OrnamentBubble(
                                     name: name, index: index, size: imageSize,
                                     animated: !reduceMotion && !limitsEffects && attention > 0.30
@@ -2814,7 +2996,7 @@ private struct IdeaBoard: View {
                             .accessibilityLabel("¡Sorpréndeme! Elegir una travesura aleatoria para el día \(day)")
                         }
                     }
-                    .scaleEffect(piece.width / imageSize * max(0.05, growth))
+                    .scaleEffect(max(0.05, growth))
                     .blur(radius: 5 * fade * fade)
                     .opacity((0.65 + 0.35 * attention) * min(1, growth * 1.65))
                     .offset(x: x, y: y)
@@ -2871,18 +3053,13 @@ private struct IdeaBoard: View {
         select(idea)
     }
 
-    private func openIdea(at slot: Slot) {
+    private func chooseIdea(at slot: Slot) {
+        bubbleGuideSeen = true
         AppHaptics.tap()
-        hasScrolled = true
-        let target = center(of: slot)
-        if distance(from: position ?? startingPosition, to: target) < 1 {
-            position = target
-            backdropPosition = target
-            selectionSettled = true
-            scrollRequest = nil
+        if let selectedIdea = idea(at: entryIndex(for: slot)) {
+            select(selectedIdea)
         } else {
-            selectionSettled = false
-            scrollRequest = target
+            selectRandomIdea()
         }
     }
 }
@@ -3063,10 +3240,20 @@ private struct NativeBoardScroll: UIViewRepresentable {
 }
 
 private struct GenerateIdeaPressStyle: ButtonStyle {
+    var animated = true
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .modifier(AppTypography.selection)
+            .multilineTextAlignment(.center)
+            .foregroundStyle(.white)
+            .padding(.horizontal, 8)
+            .frame(maxWidth: .infinity, minHeight: cardBarControlHeight)
+            .background(ideaControlTint, in: Capsule())
+            .modifier(GlassSurface(prominent: false, radius: cardBarControlHeight / 2))
+            .overlay { CardActionHalo(animated: animated) }
+            .contentShape(Rectangle())
             .modifier(ButtonHaptics(isPressed: configuration.isPressed))
             .overlay {
                 Capsule()
@@ -3165,16 +3352,7 @@ private struct PrimaryIdeaControl: ViewModifier {
     var animated = true
 
     func body(content: Content) -> some View {
-        content
-            .modifier(AppTypography.selection)
-            .multilineTextAlignment(.center)
-            .foregroundStyle(.white)
-            .padding(.horizontal, 8)
-            .frame(maxWidth: .infinity, minHeight: cardBarControlHeight)
-            .background(ideaControlTint, in: Capsule())
-            .modifier(GlassSurface(prominent: false, radius: cardBarControlHeight / 2))
-            .overlay { CardActionHalo(animated: animated) }
-            .buttonStyle(GenerateIdeaPressStyle())
+        content.buttonStyle(GenerateIdeaPressStyle(animated: animated))
     }
 }
 
@@ -3406,7 +3584,6 @@ private struct FilterEditor: View {
     }
 
     var body: some View {
-        let count = ideas.count(where: draft.matches)
         List {
             Section("Número de elfos") {
                 optionRow("Uno", checked: draft.selections[.elves] == ["1 elfo"]) {
@@ -3416,21 +3593,7 @@ private struct FilterEditor: View {
                     draft.selections[.elves] = ["2 elfos"]
                 }
             }
-            Section {
-                ForEach(CatalogFilter.difficulty.options, id: \.self) { option in
-                    optionRow(option == "Elaborada" ? "Difícil" : option,
-                              checked: draft.selections[.difficulty] == [option]) {
-                        draft.selections[.difficulty] = [option]
-                    }
-                }
-                optionRow("Cualquiera", checked: draft.selections[.difficulty] == nil) {
-                    draft.selections[.difficulty] = nil
-                }
-            } header: {
-                Text("Dificultad")
-            } footer: {
-                Text(count == 1 ? "1 travesura disponible" : "\(count) travesuras disponibles")
-            }
+
         }
         .listStyle(.insetGrouped)
         .buttonStyle(HapticPlainStyle())
@@ -3800,11 +3963,12 @@ private struct Artwork: View, Equatable {
     let height: CGFloat
     var rounded = true
     var thumbnail = false
+    var thumbnailMaxPixelSize: CGFloat = 500
 
     var body: some View {
         GeometryReader { geometry in
-            if let photo = thumbnail ? Self.thumbnail(for: idea) : Self.photo(for: idea) {
-                Image(uiImage: photo).resizable().scaledToFill()
+            if let photo = thumbnail ? Self.thumbnail(for: idea, maxPixelSize: thumbnailMaxPixelSize) : Self.photo(for: idea) {
+                Image(uiImage: photo).resizable().interpolation(.high).scaledToFill()
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .clipped()
             } else {
@@ -3844,74 +4008,53 @@ private struct Artwork: View, Equatable {
         return cache
     }()
 
-    static func thumbnail(for idea: Trastada) -> UIImage? {
-        let id = idea.id as NSString
+    static func thumbnail(for idea: Trastada, maxPixelSize: CGFloat = 500) -> UIImage? {
+        let id = "\(idea.id)-\(idea.imagePath ?? "")-\(Int(maxPixelSize))" as NSString
         if let cached = thumbnailAssets.object(forKey: id) { return cached }
         guard let photo = photo(for: idea) else { return nil }
-        let image = photo.preparingThumbnail(of: CGSize(width: 400, height: 500)) ?? photo
+        let image = photo.preparingThumbnail(of: CGSize(width: maxPixelSize * 0.8, height: maxPixelSize)) ?? photo
         let cost = image.cgImage.map { $0.bytesPerRow * $0.height } ?? 0
         thumbnailAssets.setObject(image, forKey: id, cost: cost)
         return image
     }
 
-    @MainActor static func shareImage(for idea: Trastada) -> Image {
-        if let photo = photo(for: idea) { return Image(uiImage: photo) }
-        let renderer = ImageRenderer(content: Artwork(idea: idea, height: 640).frame(width: 640))
-        return renderer.uiImage.map { Image(uiImage: $0) } ?? Image(systemName: "photo")
+    @MainActor static func shareUIImage(for idea: Trastada) -> UIImage? {
+        let renderer = ImageRenderer(content:
+            Artwork(idea: idea, height: 800, rounded: false)
+                .overlay(alignment: .bottom) {
+                    VStack(spacing: 12) {
+                        Text(idea.title)
+                            .modifier(AppTypography(name: "NewKansasSwash-RegularItalic", size: 42, relativeTo: .largeTitle, lineHeight: 1.2))
+                        Text("Elf Help!").modifier(AppTypography.context)
+                    }
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(32)
+                    .frame(maxWidth: .infinity)
+                    .background(LinearGradient(colors: [.clear, .black.opacity(0.85)], startPoint: .top, endPoint: .bottom))
+                }
+                .frame(width: 640, height: 800)
+        )
+        renderer.scale = 2
+        return renderer.uiImage ?? photo(for: idea)
     }
 }
 
 private struct ChristmasFarewell: View {
-    @FocusState private var emailFocused: Bool
-    @State private var email = ""
-    @State private var feedback: String?
-
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 24) {
             Image(systemName: "sparkles")
                 .font(.title2)
                 .accessibilityHidden(true)
             Text("¡Feliz Navidad!")
                 .systemHeading(.largeTitle)
-            Text("Los elfos vuelven al Polo Norte. ¿Te avisamos cuando regresen el próximo diciembre?")
+            Text("Los elfos vuelven al Polo Norte. Gracias por llenar de magia estas mañanas. ¡Nos vemos el próximo diciembre!")
                 .modifier(AppTypography.body)
                 .foregroundStyle(.white.opacity(0.86))
-            TextField("Correo electrónico", text: $email)
-                .focused($emailFocused)
-                .keyboardType(.emailAddress)
-                .textContentType(.emailAddress)
-                .textInputAutocapitalization(.never)
-                .autocorrectionDisabled()
-                .submitLabel(.go)
-                .multilineTextAlignment(.leading)
-                .padding(12)
-                .background(.black.opacity(0.28), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                .onSubmit(submit)
-                .padding(.top, 16)
-            Button("¡Avísame el año que viene!", action: submit)
-                .modifier(PrimaryIdeaControl(animated: false))
-                .disabled(email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-            if let feedback {
-                Text(feedback)
-                    .font(.footnote)
-                    .accessibilityAddTraits(.updatesFrequently)
-            }
         }
         .multilineTextAlignment(.center)
         .foregroundStyle(.white)
         .frame(maxWidth: 380)
-    }
-
-    private func submit() {
-        emailFocused = false
-        let address = email.trimmingCharacters(in: .whitespacesAndNewlines)
-        let parts = address.split(separator: "@", omittingEmptySubsequences: false)
-        let valid = parts.count == 2 && !parts[0].isEmpty
-            && parts[1].split(separator: ".", omittingEmptySubsequences: false).count >= 2
-            && parts[1].split(separator: ".", omittingEmptySubsequences: false).allSatisfy { !$0.isEmpty }
-            && !address.contains(where: \.isWhitespace)
-        feedback = valid ? "Tu correo es válido. Aún no podemos activar el aviso; el envío por email estará disponible próximamente."
-            : "Revisa el correo electrónico e inténtalo de nuevo."
     }
 }
 

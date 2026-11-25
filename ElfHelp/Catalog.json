@@ -1,6 +1,6 @@
 [
   {
-    "id": "trastada-123",
+    "id": "scene-orange-juice-straws",
     "title": "Zumo de naranja a dos pajitas",
     "symbol": "cup.and.saucer",
     "elves": [
@@ -15,7 +15,7 @@
     "preparation": "Sienta al elfo junto a una naranja e inserta una pajita en un pequeño agujero de la piel. Si tienes dos elfos, dales una naranja a cada uno."
   },
   {
-    "id": "trastada-124",
+    "id": "scene-pig-portrait",
     "title": "El retrato del elfo con hocico",
     "symbol": "paintpalette",
     "elves": [
@@ -30,7 +30,7 @@
     "preparation": "Dibuja un cerdito con gorro navideño y apoya el dibujo delante del elfo. Déjale un pincel en la mano. Si tienes dos elfos, sienta al segundo enfrente como modelo."
   },
   {
-    "id": "trastada-125",
+    "id": "scene-vacuum-trap",
     "title": "Elfo atrapado en la aspiradora",
     "symbol": "sparkles",
     "elves": [
@@ -45,7 +45,7 @@
     "preparation": "Coloca a un elfo junto a la boquilla, sobre el suelo. Pon al segundo cerca del mango y deja unos cereales junto a la escena."
   },
   {
-    "id": "trastada-126",
+    "id": "scene-spaghetti-hairdo",
     "title": "Nuevo peinado de espaguetis",
     "symbol": "comb",
     "elves": [
@@ -59,7 +59,7 @@
     "preparation": "Coloca unos espaguetis fríos sobre el gorro como si fueran una melena. Deja un peine al lado y escribe «¡Nuevo peinado!» en un papel."
   },
   {
-    "id": "trastada-127",
+    "id": "scene-step-climb",
     "title": "Elfo a la conquista del escalón",
     "symbol": "creditcard",
     "elves": [
@@ -73,7 +73,7 @@
     "preparation": "Recorta una tarjeta de cartulina y escribe «Crédito Oro». Sujétala al elfo con cinta de papel y apóyalo contra un escalón bajo como si estuviera subiendo."
   },
   {
-    "id": "trastada-001",
+    "id": "scene-flour-angel",
     "title": "Ángel de harina",
     "symbol": "snowflake",
     "elves": [
@@ -88,7 +88,7 @@
     "preparation": "Esparce una capa fina de harina en la bandeja. Tumba al elfo boca arriba y marca las alas y la silueta moviendo sus brazos y piernas."
   },
   {
-    "id": "trastada-002",
+    "id": "scene-midnight-movie",
     "title": "Cine de medianoche",
     "symbol": "film",
     "elves": [
@@ -102,7 +102,7 @@
     "preparation": "Sienta a los elfos entre los cojines. Pon un cuenco de palomitas delante de ellos. Apoya el móvil frente al cuenco como si fuera la pantalla del cine."
   },
   {
-    "id": "trastada-004",
+    "id": "scene-sock-tower",
     "title": "La torre de calcetines",
     "symbol": "flag",
     "elves": [
@@ -116,7 +116,7 @@
     "preparation": "Enrolla varios calcetines alrededor de un vaso invertido. Coloca al elfo en la cima con una banderita de papel."
   },
   {
-    "id": "trastada-005",
+    "id": "scene-cereal-fishing",
     "title": "Pescadores de cereales",
     "symbol": "fish",
     "elves": [
@@ -130,7 +130,7 @@
     "preparation": "Llena el cuenco de cereales. Ata un aro de papel al hilo de cada caña hecha con una cuchara. Pon a un elfo a pescar y al otro a guardar las capturas."
   },
   {
-    "id": "trastada-006",
+    "id": "scene-cloud-spa",
     "title": "Spa entre nubes",
     "symbol": "drop",
     "elves": [
@@ -144,7 +144,7 @@
     "preparation": "Llena el cuenco con malvaviscos y recuesta al elfo. Envuélvele la cabeza con papel de cocina. Ponle dos rodajas de pepino sobre los ojos."
   },
   {
-    "id": "trastada-007",
+    "id": "scene-slipper-parking",
     "title": "Parking de zapatillas",
     "symbol": "car",
     "elves": [
@@ -158,7 +158,7 @@
     "preparation": "Alinea cuatro zapatillas como plazas y haz un cartel de aparcamiento. Sienta a los elfos al volante de dos zapatillas."
   },
   {
-    "id": "trastada-008",
+    "id": "scene-counter-picnic",
     "title": "Picnic en la encimera",
     "symbol": "basket",
     "elves": [
@@ -172,7 +172,7 @@
     "preparation": "Extiende la servilleta y coloca dos tazas. Reparte unas migas sobre el mantel y sienta a los elfos como si ya hubieran merendado."
   },
   {
-    "id": "trastada-009",
+    "id": "scene-star-hunters",
     "title": "Cazadores de estrellas",
     "symbol": "star",
     "elves": [
@@ -186,7 +186,7 @@
     "preparation": "Recorta estrellas y escóndelas alrededor de un mueble. Coloca a los elfos con un mapa dibujado de los escondites."
   },
   {
-    "id": "trastada-010",
+    "id": "scene-ice-rink",
     "title": "Pista de patinaje",
     "symbol": "snowflake",
     "elves": [
@@ -200,7 +200,7 @@
     "preparation": "Forra una tabla con aluminio, recorta patines de cartulina y pon a los elfos en poses opuestas, uno patinando y otro intentando mantener el equilibrio."
   },
   {
-    "id": "trastada-011",
+    "id": "scene-last-cookie-thief",
     "title": "El ladrón de la última galleta",
     "symbol": "birthday.cake",
     "elves": [
@@ -214,7 +214,7 @@
     "preparation": "Sienta al elfo detrás de la taza con la galleta entre las manos. Deja el tarro abierto y esparce unas migas entre el tarro y el elfo."
   },
   {
-    "id": "trastada-013",
+    "id": "scene-fruit-faces",
     "title": "Tutifruti con cara",
     "symbol": "face.smiling",
     "elves": [
@@ -229,7 +229,7 @@
     "preparation": "Dibuja ojos y bocas en papel y fíjalos a las pieles. Pon a un elfo presentando a su nueva pandilla y a otro detrás de la fruta más grande."
   },
   {
-    "id": "trastada-014",
+    "id": "scene-crumb-detectives",
     "title": "Detectives de migas",
     "symbol": "magnifyingglass",
     "elves": [
@@ -243,7 +243,7 @@
     "preparation": "Traza un camino de migas en una bandeja. Dibuja con papel una lupa y pon al elfo siguiendo las pistas hasta el último trozo."
   },
   {
-    "id": "trastada-015",
+    "id": "scene-elf-laundry",
     "title": "La lavandería del elfo",
     "symbol": "washer",
     "elves": [
@@ -258,7 +258,7 @@
     "preparation": "Cuelga una cuerda corta a poca altura. Pon calcetines doblados sobre ella y deja que un elfo sujete una pinza mientras el otro espera con un calcetín."
   },
   {
-    "id": "trastada-016",
+    "id": "scene-graduation-photo",
     "title": "Foto de graduación",
     "symbol": "graduationcap",
     "elves": [
@@ -272,7 +272,7 @@
     "preparation": "Apila libros como gradas y dobla papel negro para los birretes. Sienta al elfo delante de varios juguetes graduados."
   },
   {
-    "id": "trastada-017",
+    "id": "scene-bottle-bowling",
     "title": "Botellas de bolera",
     "symbol": "circle.grid.3x3",
     "elves": [
@@ -286,7 +286,7 @@
     "preparation": "Coloca las botellas en triángulo. Deja dos caídas y pon al elfo con una pelota blanda al principio de la pista."
   },
   {
-    "id": "trastada-018",
+    "id": "scene-book-bridge",
     "title": "El puente de los libros",
     "symbol": "book",
     "elves": [
@@ -300,7 +300,7 @@
     "preparation": "Haz dos pilas bajas y apoya una regla rígida sobre ellas. Sitúa a un elfo cruzando y al otro vigilando desde el extremo."
   },
   {
-    "id": "trastada-019",
+    "id": "scene-spoon-band",
     "title": "Banda de cucharas",
     "symbol": "music.note",
     "elves": [
@@ -314,7 +314,7 @@
     "preparation": "Coloca vasos boca abajo como tambores. Apoya una cuchara en la mano de un elfo y otra en la mano del segundo."
   },
   {
-    "id": "trastada-020",
+    "id": "scene-paper-forest",
     "title": "Bosque de papel",
     "symbol": "tree",
     "elves": [
@@ -328,7 +328,7 @@
     "preparation": "Recorta árboles de distintos tamaños, dobla una base a cada uno y arma un bosque sobre una bandeja. Esconde el gorro del elfo entre los árboles."
   },
   {
-    "id": "trastada-021",
+    "id": "scene-plush-clinic",
     "title": "La clínica de peluches",
     "symbol": "cross.case",
     "elves": [
@@ -342,7 +342,7 @@
     "preparation": "Pon un pañuelo como camilla y una tirita sobre la pata del peluche. Viste al elfo de médico con un pañuelo como bata."
   },
   {
-    "id": "trastada-022",
+    "id": "scene-tic-tac-toe-tournament",
     "title": "El torneo de tres en raya",
     "symbol": "number",
     "elves": [
@@ -356,7 +356,7 @@
     "preparation": "Dibuja un tablero y marca varias jugadas. Deja a cada elfo con un lápiz y una casilla pendiente para decidir el ganador."
   },
   {
-    "id": "trastada-023",
+    "id": "scene-tea-box-train",
     "title": "Tren de cajas de té",
     "symbol": "train.side.front.car",
     "elves": [
@@ -371,7 +371,7 @@
     "preparation": "Pega las cajas en fila con poca cinta, añade el tubo de cartón como chimenea y sienta a uno o dos elfos en los vagones."
   },
   {
-    "id": "trastada-024",
+    "id": "scene-toast-bed",
     "title": "Cama de pan tostado",
     "symbol": "bed.double",
     "elves": [
@@ -385,7 +385,7 @@
     "preparation": "Usa una rebanada como colchón y dobla la servilleta como manta. Deja al elfo arropado con el gorro asomando."
   },
   {
-    "id": "trastada-025",
+    "id": "scene-mandarin-traffic-light",
     "title": "Semáforo de mandarinas",
     "symbol": "trafficlight",
     "elves": [
@@ -399,7 +399,7 @@
     "preparation": "Pega círculos rojo, amarillo y verde a tres mandarinas. Apílalas en un vaso ancho y coloca a los elfos en ambos lados de un paso de papel."
   },
   {
-    "id": "trastada-026",
+    "id": "scene-karaoke-band",
     "title": "La banda del karaoke",
     "symbol": "mic",
     "elves": [
@@ -414,7 +414,7 @@
     "preparation": "Haz un cartel de karaoke. Dales cucharas como micrófonos y deja una lista de canciones infantiles escritas con tachones."
   },
   {
-    "id": "trastada-027",
+    "id": "scene-colander-trip",
     "title": "Viaje en colador",
     "symbol": "airplane",
     "elves": [
@@ -428,7 +428,7 @@
     "preparation": "Usa el colador de nave y las cucharas de mando. Sienta a los elfos en servilletas dobladas como asientos."
   },
   {
-    "id": "trastada-028",
+    "id": "scene-crowns-for-all",
     "title": "Coronas para todos",
     "symbol": "crown",
     "elves": [
@@ -442,7 +442,7 @@
     "preparation": "Recorta varias coronas pequeñas y colócalas a peluches y juguetes. Deja al elfo entregando la última corona a un muñeco."
   },
   {
-    "id": "trastada-029",
+    "id": "scene-newspaper-archive",
     "title": "Elfo en la hemeroteca",
     "symbol": "newspaper",
     "elves": [
@@ -456,7 +456,7 @@
     "preparation": "Crea un periódico en miniatura con un titular absurdo sobre la casa. Dóblalo y déjalo entre las manos del elfo."
   },
   {
-    "id": "trastada-030",
+    "id": "scene-button-shop",
     "title": "La tienda de botones",
     "symbol": "cart",
     "elves": [
@@ -470,7 +470,7 @@
     "preparation": "Clasifica los botones en tazas y añade precios inventados. Sienta a un elfo de vendedor y al otro con un botón como compra."
   },
   {
-    "id": "trastada-031",
+    "id": "scene-book-club",
     "title": "Club de lectura",
     "symbol": "books.vertical",
     "elves": [
@@ -484,7 +484,7 @@
     "preparation": "Abre un libro por la página que más guste en casa. Pon un marcapáginas diminuto y sienta a los elfos junto a un peluche atento."
   },
   {
-    "id": "trastada-032",
+    "id": "scene-table-referees",
     "title": "Árbitros de mesa",
     "symbol": "soccerball",
     "elves": [
@@ -498,7 +498,7 @@
     "preparation": "Haz dos porterías con tiras de papel. Pon la pelota en el centro, un elfo con tarjetas de árbitro y otro celebrando un gol."
   },
   {
-    "id": "trastada-033",
+    "id": "scene-sock-octopus",
     "title": "El gran pulpo de calcetines",
     "symbol": "water.waves",
     "elves": [
@@ -512,7 +512,7 @@
     "preparation": "Coloca un bol boca abajo y reparte ocho calcetines como tentáculos. Añade ojos de papel y sitúa al elfo encima como capitán."
   },
   {
-    "id": "trastada-034",
+    "id": "scene-spoon-balance",
     "title": "Balanceo de cuchara",
     "symbol": "scalemass",
     "elves": [
@@ -526,7 +526,7 @@
     "preparation": "Haz un sube y baja con una tira gruesa de cartón y una cuchara boca abajo como apoyo. Sienta un elfo en cada extremo."
   },
   {
-    "id": "trastada-035",
+    "id": "scene-mail-delivery",
     "title": "Entrega postal",
     "symbol": "envelope",
     "elves": [
@@ -540,7 +540,7 @@
     "preparation": "Escribe dos cartas minúsculas a los juguetes de la casa y reparte sobres. Coloca a un elfo con bolsa de papel y al otro recibiendo una carta."
   },
   {
-    "id": "trastada-036",
+    "id": "scene-domino-maze",
     "title": "Laberinto de dominó",
     "symbol": "square.grid.3x3",
     "elves": [
@@ -554,7 +554,7 @@
     "preparation": "Traza un laberinto sobre la mesa con las fichas tumbadas. Pon a los elfos en la entrada y la salida y señala la meta con una bandera de papel."
   },
   {
-    "id": "trastada-037",
+    "id": "scene-chickpea-art",
     "title": "Arte con garbanzos",
     "symbol": "paintpalette",
     "elves": [
@@ -568,7 +568,7 @@
     "preparation": "Dibuja una estrella en papel y rellena la silueta con garbanzos dentro de una bandeja. Sienta al elfo junto al último garbanzo."
   },
   {
-    "id": "trastada-038",
+    "id": "scene-dinosaur-cage",
     "title": "La jaula del dinosaurio",
     "symbol": "lock.open",
     "elves": [
@@ -582,7 +582,7 @@
     "preparation": "Deja al dinosaurio dentro de una caja abierta y pega pajitas como barrotes a un lado. Coloca al elfo con los brazos levantados frente a la salida."
   },
   {
-    "id": "trastada-039",
+    "id": "scene-mug-formation",
     "title": "Tazas en formación",
     "symbol": "cup.and.saucer",
     "elves": [
@@ -596,7 +596,7 @@
     "preparation": "Pon servilletas dobladas en fila y una taza encima de cada una. Coloca un elfo dando instrucciones y otro alineando la última cuchara."
   },
   {
-    "id": "trastada-040",
+    "id": "scene-sofa-summit",
     "title": "La cumbre del sofá",
     "symbol": "mountain.2",
     "elves": [
@@ -611,7 +611,7 @@
     "preparation": "Apila dos cojines en el suelo, planta una bandera arriba y deja a un elfo en la cima. Si hay dos, coloca al segundo escalando desde abajo."
   },
   {
-    "id": "trastada-041",
+    "id": "scene-tiny-cafe",
     "title": "Café diminuto",
     "symbol": "cup.and.saucer",
     "elves": [
@@ -625,7 +625,7 @@
     "preparation": "Haz un menú en una servilleta y pon los tapones como tacitas. Coloca un elfo atendiendo el café y otro esperando turno."
   },
   {
-    "id": "trastada-042",
+    "id": "scene-spoon-fair",
     "title": "La feria de cucharas",
     "symbol": "ticket",
     "elves": [
@@ -639,7 +639,7 @@
     "preparation": "Haz puestos con cajas pequeñas y un letrero diferente en cada uno. Pon a los elfos disputándose el premio de tocar la cuchara más grande."
   },
   {
-    "id": "trastada-043",
+    "id": "scene-elf-nest",
     "title": "Elfo en un nido",
     "symbol": "bird",
     "elves": [
@@ -653,7 +653,7 @@
     "preparation": "Haz tiras de papel y acomódalas en el cuenco. Pon al elfo sentado encima de tres bolitas de papel como si estuviera incubándolas."
   },
   {
-    "id": "trastada-044",
+    "id": "scene-pencil-jail",
     "title": "La cárcel de los lápices",
     "symbol": "key",
     "elves": [
@@ -667,7 +667,7 @@
     "preparation": "Agrupa lápices alrededor de un vaso con cinta de papel. Sienta al elfo dentro del vaso y a su compañero dejando una llave dibujada en el suelo."
   },
   {
-    "id": "trastada-045",
+    "id": "scene-confetti-shower",
     "title": "Ducha de confeti",
     "symbol": "shower",
     "elves": [
@@ -681,7 +681,7 @@
     "preparation": "Corta trozos grandes de papel y ponlos en el colador dentro de la bandeja. Siéntalo debajo de un puñado de confeti como si hubiera abierto el grifo."
   },
   {
-    "id": "trastada-046",
+    "id": "scene-napkin-boat",
     "title": "La barca de las servilletas",
     "symbol": "sailboat",
     "elves": [
@@ -695,7 +695,7 @@
     "preparation": "Dobla una servilleta gruesa a modo de casco y otra como vela. Coloca la barca en seco sobre una bandeja y sienta dentro a los elfos."
   },
   {
-    "id": "trastada-047",
+    "id": "scene-airport-terminal",
     "title": "Aviones en la terminal",
     "symbol": "airplane.departure",
     "elves": [
@@ -709,7 +709,7 @@
     "preparation": "Dobla tres aviones, marca una pista con cinta y añade un panel de salidas. Pon un elfo en la puerta de embarque y otro esperando su vuelo."
   },
   {
-    "id": "trastada-048",
+    "id": "scene-night-light-guard",
     "title": "Lamparita de guardia",
     "symbol": "flashlight.off.fill",
     "elves": [
@@ -723,7 +723,7 @@
     "preparation": "Haz una placa de «Guardia nocturna» y cuélgala del elfo. Apoya la linterna apagada a su lado y déjalo junto a una puerta."
   },
   {
-    "id": "trastada-049",
+    "id": "scene-big-puzzle",
     "title": "El gran puzzle",
     "symbol": "puzzlepiece",
     "elves": [
@@ -737,7 +737,7 @@
     "preparation": "Monta una esquina del puzle sobre el cartón. Coloca a un elfo con la pieza correcta y al otro intentando encajar una de otro color."
   },
   {
-    "id": "trastada-050",
+    "id": "scene-sock-orchestra",
     "title": "La orquesta de calcetines",
     "symbol": "music.note.list",
     "elves": [
@@ -751,7 +751,7 @@
     "preparation": "Dobla calcetines de dos colores como instrumentos. Alinea juguetes como público y sienta a los elfos delante con batutas de papel."
   },
   {
-    "id": "trastada-051",
+    "id": "scene-giant-elf-sandwich",
     "title": "Bocadillo gigante de elfo",
     "symbol": "takeoutbag.and.cup.and.straw",
     "elves": [
@@ -765,7 +765,7 @@
     "preparation": "Pon dos cojines en el suelo como pan. Deja que el elfo asome entre ellos junto con un pañuelo verde doblado como lechuga."
   },
   {
-    "id": "trastada-052",
+    "id": "scene-house-museum",
     "title": "El museo de la casa",
     "symbol": "building.columns",
     "elves": [
@@ -779,7 +779,7 @@
     "preparation": "Elige tres objetos cotidianos y escribe etiquetas como si fueran tesoros. Coloca un elfo mirando una exposición y otro como guía."
   },
   {
-    "id": "trastada-053",
+    "id": "scene-missing-sock",
     "title": "Se busca un calcetín",
     "symbol": "magnifyingglass",
     "elves": [
@@ -793,7 +793,7 @@
     "preparation": "Dibuja un cartel de «Se busca» con el retrato de un calcetín. Coloca al elfo cerca del calcetín escondido a medias."
   },
   {
-    "id": "trastada-054",
+    "id": "scene-camping-tent",
     "title": "Tienda de campaña",
     "symbol": "tent",
     "elves": [
@@ -807,7 +807,7 @@
     "preparation": "Apoya el pañuelo en un libro abierto y usa otro como base. Pon una almohadilla dentro y deja al elfo dormido con la cabeza fuera."
   },
   {
-    "id": "trastada-055",
+    "id": "scene-bottle-cap-fishing",
     "title": "Pesca de tapones",
     "symbol": "fish",
     "elves": [
@@ -821,7 +821,7 @@
     "preparation": "Reparte tapones en una bandeja vacía. Pon dos cucharas en el borde y sienta a los elfos pescando el mismo tapón."
   },
   {
-    "id": "trastada-056",
+    "id": "scene-box-sled",
     "title": "Trineo de caja",
     "symbol": "snowflake",
     "elves": [
@@ -835,7 +835,7 @@
     "preparation": "Recorta dos patines de cartón, pégalos bajo la caja y pon un pañuelo dentro. Sienta a un elfo conduciendo y al otro de pasajero."
   },
   {
-    "id": "trastada-057",
+    "id": "scene-future-glasses",
     "title": "Las gafas del futuro",
     "symbol": "eyeglasses",
     "elves": [
@@ -849,7 +849,7 @@
     "preparation": "Recorta gafas exageradas con dos formas distintas. Pruébaselas al elfo y deja un espejo pequeño al lado de su estudio de diseño."
   },
   {
-    "id": "trastada-058",
+    "id": "scene-yawn-club",
     "title": "El club del bostezo",
     "symbol": "moon.zzz",
     "elves": [
@@ -863,7 +863,7 @@
     "preparation": "Coloca varios peluches boca arriba y tápalos con pañuelos. Deja al elfo en medio con un papel que diga «Campeonato de siestas»."
   },
   {
-    "id": "trastada-059",
+    "id": "scene-hat-trick",
     "title": "El truco del sombrero",
     "symbol": "wand.and.stars",
     "elves": [
@@ -877,7 +877,7 @@
     "preparation": "Pon el conejo asomando detrás del vaso boca abajo y haz una varita enrollando papel. Sitúa al elfo de mago."
   },
   {
-    "id": "trastada-060",
+    "id": "scene-breakfast-survey",
     "title": "Encuesta del desayuno",
     "symbol": "checkmark.seal",
     "elves": [
@@ -891,7 +891,7 @@
     "preparation": "Escribe dos candidaturas para el desayuno y pon un cuenco en cada lado. Deja a los elfos con papeletas absurdas."
   },
   {
-    "id": "trastada-061",
+    "id": "scene-radio-studio",
     "title": "El estudio de radio",
     "symbol": "mic",
     "elves": [
@@ -905,7 +905,7 @@
     "preparation": "Pon el vaso como micrófono, escribe un parte del tiempo disparatado y sienta a los dos elfos como presentadores."
   },
   {
-    "id": "trastada-062",
+    "id": "scene-bathroom-beach",
     "title": "La playa del baño",
     "symbol": "sun.max",
     "elves": [
@@ -919,7 +919,7 @@
     "preparation": "Dobla la toalla como tumbona, coloca las gafas al lado y sienta al elfo cerca de un vaso de plástico a modo de sombrilla."
   },
   {
-    "id": "trastada-063",
+    "id": "scene-paper-oven-explosion",
     "title": "Explotó el horno de papel",
     "symbol": "oven",
     "elves": [
@@ -933,7 +933,7 @@
     "preparation": "Dibuja un horno en cartón y abre una puertecita. Deja galletas de papel escapando por la mesa y sitúa al elfo con una bandeja."
   },
   {
-    "id": "trastada-064",
+    "id": "scene-bottle-cap-regatta",
     "title": "La regata de tapones",
     "symbol": "sailboat",
     "elves": [
@@ -948,7 +948,7 @@
     "preparation": "Coloca velas plegadas sobre dos tapones con cinta. Dibuja una meta en la bandeja y sienta un elfo como capitán de cada barco."
   },
   {
-    "id": "trastada-065",
+    "id": "scene-flying-blanket",
     "title": "La manta voladora",
     "symbol": "cloud",
     "elves": [
@@ -962,7 +962,7 @@
     "preparation": "Dobla el pañuelo en un rectángulo y sujétalo a una base de cartón que puedas apoyar sobre libros bajos. Sienta a los elfos encima y pon nubes de papel debajo."
   },
   {
-    "id": "trastada-066",
+    "id": "scene-hug-machine",
     "title": "La máquina de abrazos",
     "symbol": "heart",
     "elves": [
@@ -976,7 +976,7 @@
     "preparation": "Pon un botón dibujado en una caja y un peluche asomando por la abertura. Deja al elfo con un manual que solo diga «Pulsa aquí»."
   },
   {
-    "id": "trastada-067",
+    "id": "scene-toy-sandwiches",
     "title": "Sandwiches de juguete",
     "symbol": "fork.knife",
     "elves": [
@@ -990,7 +990,7 @@
     "preparation": "Corta cartulina de colores en forma de ingredientes. Coloca las capas entre esponjas nuevas y deja al elfo atendiendo el pedido."
   },
   {
-    "id": "trastada-068",
+    "id": "scene-sock-treasure-map",
     "title": "Mapa del tesoro calcetinero",
     "symbol": "map",
     "elves": [
@@ -1004,7 +1004,7 @@
     "preparation": "Traza un mapa del salón con una X donde esconderás un par de calcetines. Haz que los elfos sujeten el mapa por esquinas opuestas."
   },
   {
-    "id": "trastada-069",
+    "id": "scene-elf-undercover",
     "title": "Elfo de incógnito",
     "symbol": "eyeglasses",
     "elves": [
@@ -1018,7 +1018,7 @@
     "preparation": "Recorta un bigote de papel y colócalo con cinta sobre el gorro o la ropa del elfo. Escóndelo a plena vista entre los peluches."
   },
   {
-    "id": "trastada-070",
+    "id": "scene-ribbon-waterfall",
     "title": "Cascada de cintas",
     "symbol": "water.waves",
     "elves": [
@@ -1032,7 +1032,7 @@
     "preparation": "Fija cintas cortas a una caja apoyada en el suelo para que caigan en un bol vacío. Sienta al elfo en el borde con los pies entre las cintas."
   },
   {
-    "id": "trastada-071",
+    "id": "scene-elf-sculptor",
     "title": "Elfo escultor",
     "symbol": "hands.sparkles",
     "elves": [
@@ -1046,7 +1046,7 @@
     "preparation": "Modela una escultura pequeña y deliberadamente extraña. Colócala junto al elfo con una placa que diga «Retrato de familia»."
   },
   {
-    "id": "trastada-072",
+    "id": "scene-car-checkup",
     "title": "El coche en revisión",
     "symbol": "wrench.and.screwdriver",
     "elves": [
@@ -1060,7 +1060,7 @@
     "preparation": "Pon el coche encima de un libro bajo y coloca al elfo examinándolo con una pinza. Anota «Luces bien. Bocina demasiado bien»."
   },
   {
-    "id": "trastada-073",
+    "id": "scene-lost-and-found",
     "title": "La oficina perdida",
     "symbol": "laptopcomputer",
     "elves": [
@@ -1074,7 +1074,7 @@
     "preparation": "Dibuja un portátil en papel doblado. Pega diminutas notas alrededor y sienta al elfo frente a su lista de travesuras."
   },
   {
-    "id": "trastada-074",
+    "id": "scene-clothespin-olympics",
     "title": "Olimpiadas de pinzas",
     "symbol": "medal",
     "elves": [
@@ -1088,7 +1088,7 @@
     "preparation": "Dibuja carriles paralelos y coloca pinzas de colores como competidoras. Pon a los elfos en la meta con medallas de cartón."
   },
   {
-    "id": "trastada-075",
+    "id": "scene-spoon-tunnel",
     "title": "El túnel de las cucharas",
     "symbol": "car",
     "elves": [
@@ -1102,7 +1102,7 @@
     "preparation": "Apoya cucharas sobre dos rollos tumbados para formar un túnel. Deja un coche entrando y a los elfos señalando rutas distintas."
   },
   {
-    "id": "trastada-076",
+    "id": "scene-elf-yoga",
     "title": "Elfo hace yoga",
     "symbol": "figure.mind.and.body",
     "elves": [
@@ -1116,7 +1116,7 @@
     "preparation": "Extiende el pañuelo como esterilla. Dobla las piernas del elfo en una postura cómoda y coloca un peluche al lado intentando copiarle."
   },
   {
-    "id": "trastada-077",
+    "id": "scene-bear-interview",
     "title": "La entrevista al oso",
     "symbol": "mic",
     "elves": [
@@ -1130,7 +1130,7 @@
     "preparation": "Sienta al peluche frente al elfo y usa una cuchara como micrófono. Pon un cartel de «Especial de medianoche»."
   },
   {
-    "id": "trastada-078",
+    "id": "scene-sock-raffle",
     "title": "La tómbola de calcetines",
     "symbol": "gift",
     "elves": [
@@ -1144,7 +1144,7 @@
     "preparation": "Numera los calcetines con papelitos, mételos en la bolsa y deja uno a medio sacar. Pon un elfo presentando y otro con el número ganador."
   },
   {
-    "id": "trastada-079",
+    "id": "scene-under-the-volcano",
     "title": "Bajo el volcán",
     "symbol": "mountain.2",
     "elves": [
@@ -1158,7 +1158,7 @@
     "preparation": "Cubre un vaso invertido con cartón para formar una montaña. Añade tiras rojas como lava y coloca a los elfos huyendo por una pista de papel."
   },
   {
-    "id": "trastada-080",
+    "id": "scene-hairstyle-contest",
     "title": "Concurso de peinados",
     "symbol": "comb",
     "elves": [
@@ -1172,7 +1172,7 @@
     "preparation": "Pon accesorios distintos a tres muñecos. Numera las propuestas y deja al elfo con una hoja de puntuaciones."
   },
   {
-    "id": "trastada-081",
+    "id": "scene-color-scavenger-hunt",
     "title": "La gincana de colores",
     "symbol": "paintpalette",
     "elves": [
@@ -1186,7 +1186,7 @@
     "preparation": "Escribe tres colores y coloca un objeto de cada uno en un rincón accesible. Pon a los elfos señalando el primer hallazgo."
   },
   {
-    "id": "trastada-082",
+    "id": "scene-drawbridge",
     "title": "Puente levadizo",
     "symbol": "building.2",
     "elves": [
@@ -1200,7 +1200,7 @@
     "preparation": "Dobla un cartón para levantar una rampa con un cordón corto. Pon dos juguetes esperando y un elfo encargado de bajar el puente."
   },
   {
-    "id": "trastada-083",
+    "id": "scene-north-pole-goalkeepers",
     "title": "Los porteros del Polo Norte",
     "symbol": "ticket",
     "elves": [
@@ -1214,7 +1214,7 @@
     "preparation": "Haz una entrada entre dos vasos y escribe un cartel de control de acceso. Sienta a un elfo comprobando pases y al otro con su pase al revés."
   },
   {
-    "id": "trastada-084",
+    "id": "scene-tiny-concert",
     "title": "Microconcierto",
     "symbol": "music.mic",
     "elves": [
@@ -1228,7 +1228,7 @@
     "preparation": "Levanta un escenario con una caja y dibuja un gran cartel en papel. Coloca a los elfos tocando vasos boca abajo como instrumentos."
   },
   {
-    "id": "trastada-085",
+    "id": "scene-cardboard-rackets",
     "title": "Raquetas de cartón",
     "symbol": "tennis.racket",
     "elves": [
@@ -1242,7 +1242,7 @@
     "preparation": "Recorta dos raquetas pequeñas sin hilos y arruga papel para hacer la pelota. Pon a los elfos a cada lado de una raya dibujada."
   },
   {
-    "id": "trastada-086",
+    "id": "scene-laughing-school",
     "title": "La escuela de risa",
     "symbol": "face.smiling",
     "elves": [
@@ -1256,7 +1256,7 @@
     "preparation": "Haz una pizarra de papel con tres caras divertidas. Coloca al elfo enseñando y a varios juguetes sentados frente a él."
   },
   {
-    "id": "trastada-087",
+    "id": "scene-vacuum-packed-elf",
     "title": "Elfo envasado al vacío",
     "symbol": "shippingbox",
     "elves": [
@@ -1270,7 +1270,7 @@
     "preparation": "Coloca al elfo asomando en un tarro sin tapa. Pega fuera una etiqueta de «Conservar entre travesuras»."
   },
   {
-    "id": "trastada-088",
+    "id": "scene-paper-snow-bucket",
     "title": "Cubo de nieve de papel",
     "symbol": "snow",
     "elves": [
@@ -1284,7 +1284,7 @@
     "preparation": "Arruga bolas de papel blanco y mételas en el cuenco. Pon a los elfos preparando dos pilas para una batalla sin nieve real."
   },
   {
-    "id": "trastada-089",
+    "id": "scene-family-portrait-mustaches",
     "title": "Bigotes en el retrato familiar",
     "symbol": "photo",
     "elves": [
@@ -1298,7 +1298,7 @@
     "preparation": "Recorta bigotes y unas gafas de cartulina. Pégalos sobre el cristal del marco con cinta removible. Sienta a los elfos al lado y deja unos bigotes de sobra sobre la mesa."
   },
   {
-    "id": "trastada-090",
+    "id": "scene-giant-button-box",
     "title": "La caja de los botones gigantes",
     "symbol": "button.programmable",
     "elves": [
@@ -1312,7 +1312,7 @@
     "preparation": "Recorta círculos de cartón, dibuja botones y coloca uno enorme apoyado detrás del elfo, como si hubiera pulsado el que no era."
   },
   {
-    "id": "trastada-091",
+    "id": "scene-referee-table",
     "title": "La mesa del árbitro",
     "symbol": "sportscourt",
     "elves": [
@@ -1326,7 +1326,7 @@
     "preparation": "Haz un marcador con hojas dobladas y anota dos puntuaciones disparatadas. Coloca a los elfos discutiendo el resultado con tarjetas de papel."
   },
   {
-    "id": "trastada-092",
+    "id": "scene-astronaut-helmet",
     "title": "Casco de astronauta",
     "symbol": "moon.stars",
     "elves": [
@@ -1340,7 +1340,7 @@
     "preparation": "Apoya un vaso transparente en la mesa junto a la cabeza del elfo como casco desmontado. Haz un panel con cartón y botones dibujados."
   },
   {
-    "id": "trastada-093",
+    "id": "scene-roll-castle",
     "title": "El castillo de los rollos",
     "symbol": "flag",
     "elves": [
@@ -1354,7 +1354,7 @@
     "preparation": "Recorta almenas en tres tubos, ponlos en triángulo y añade una bandera. Haz que los elfos se asomen desde dos torres."
   },
   {
-    "id": "trastada-094",
+    "id": "scene-slipper-hunt",
     "title": "Caza de zapatillas",
     "symbol": "shoe",
     "elves": [
@@ -1368,7 +1368,7 @@
     "preparation": "Coloca huellas de papel entre dos pares de zapatillas y deja al elfo con una nota que diga «Este par corre menos»."
   },
   {
-    "id": "trastada-095",
+    "id": "scene-paper-dog",
     "title": "El perro de papel",
     "symbol": "dog",
     "elves": [
@@ -1382,7 +1382,7 @@
     "preparation": "Dobla un papel para hacer orejas y dibuja un hocico. Coloca al elfo paseando la figura con una tira corta de papel."
   },
   {
-    "id": "trastada-096",
+    "id": "scene-thumb-wrestling",
     "title": "Campeonato de pulgares",
     "symbol": "hand.thumbsup",
     "elves": [
@@ -1396,7 +1396,7 @@
     "preparation": "Haz una grada de papel para las manoplas, numéralas y coloca a los elfos enfrentados entre los dos pulgares."
   },
   {
-    "id": "trastada-097",
+    "id": "scene-north-pole-ice-cream",
     "title": "La heladería del Polo Norte",
     "symbol": "snowflake",
     "elves": [
@@ -1410,7 +1410,7 @@
     "preparation": "Arruga papel de colores para formar bolas de helado falsas. Pon una bola en cada vaso y sienta al elfo preparando un pedido."
   },
   {
-    "id": "trastada-098",
+    "id": "scene-tiny-elevator",
     "title": "El ascensor diminuto",
     "symbol": "arrow.up.arrow.down",
     "elves": [
@@ -1424,7 +1424,7 @@
     "preparation": "Dibuja puertas y botones en una caja abierta y colócala junto a una escalera de libros. Sienta dentro al elfo y pon un cartel de «Fuera de servicio»."
   },
   {
-    "id": "trastada-099",
+    "id": "scene-tiny-card-game",
     "title": "Partida de cartas minúscula",
     "symbol": "suit.club",
     "elves": [
@@ -1438,7 +1438,7 @@
     "preparation": "Recorta seis rectángulos y dibuja cartas diferentes. Reparte tres a cada elfo y esconde una adicional bajo el gorro de uno."
   },
   {
-    "id": "trastada-100",
+    "id": "scene-bottle-cap-dj",
     "title": "El DJ de los tapones",
     "symbol": "headphones",
     "elves": [
@@ -1452,7 +1452,7 @@
     "preparation": "Apoya dos tapones sobre una caja y dibuja los mandos. Coloca a los elfos pinchando música para varios peluches."
   },
   {
-    "id": "trastada-101",
+    "id": "scene-paper-laundry",
     "title": "La colada de papel",
     "symbol": "tshirt",
     "elves": [
@@ -1466,7 +1466,7 @@
     "preparation": "Recorta camisetas pequeñas de papel y engánchalas con pinzas al borde de una caja. Sienta al elfo al lado de una camiseta arrugada."
   },
   {
-    "id": "trastada-102",
+    "id": "scene-upside-down-library",
     "title": "La biblioteca al revés",
     "symbol": "book.closed",
     "elves": [
@@ -1480,7 +1480,7 @@
     "preparation": "Pon tres libros boca abajo y pégalos a un cartel de «Lectura avanzada» solo con apoyo, sin adhesivo en las cubiertas. Sienta a los elfos leyendo del revés."
   },
   {
-    "id": "trastada-103",
+    "id": "scene-cotton-cloud",
     "title": "Nube de algodón",
     "symbol": "cloud.sun",
     "elves": [
@@ -1494,7 +1494,7 @@
     "preparation": "Dispón algodón en forma de nube dentro de una bandeja. Corta rayos de papel y coloca al elfo repartiendo el tiempo del día."
   },
   {
-    "id": "trastada-104",
+    "id": "scene-downhill-sled",
     "title": "Trineo cuesta abajo",
     "symbol": "snowflake",
     "elves": [
@@ -1508,7 +1508,7 @@
     "preparation": "Apoya la tabla sobre un cojín a ras de suelo y pon una caja a media cuesta. Sienta a los elfos en la caja con los pies hacia la bajada."
   },
   {
-    "id": "trastada-105",
+    "id": "scene-plush-congress",
     "title": "El congreso de peluches",
     "symbol": "person.3",
     "elves": [
@@ -1522,7 +1522,7 @@
     "preparation": "Sienta varios peluches en semicírculo. Escribe un orden del día con un único punto y coloca a los elfos tomando notas."
   },
   {
-    "id": "trastada-106",
+    "id": "scene-potato-printing",
     "title": "La imprenta de patatas",
     "symbol": "paintbrush",
     "elves": [
@@ -1536,7 +1536,7 @@
     "preparation": "Talla un sello sencillo en una mitad de patata y estampa varias figuras en papel. Deja la patata y el papel seco en una bandeja junto al elfo."
   },
   {
-    "id": "trastada-107",
+    "id": "scene-elf-compass",
     "title": "Elfo con brújula",
     "symbol": "location.north",
     "elves": [
@@ -1550,7 +1550,7 @@
     "preparation": "Dibuja los puntos cardinales en un círculo de papel y ponlo dentro de la tapa. Deja al elfo mirando la brújula con un mapa al revés."
   },
   {
-    "id": "trastada-108",
+    "id": "scene-mug-crash",
     "title": "Choque de tazas",
     "symbol": "exclamationmark.triangle",
     "elves": [
@@ -1564,7 +1564,7 @@
     "preparation": "Coloca dos tazas de lado sobre paños para que queden estables. Dibuja una señal de tráfico y pon los elfos contando su versión del choque."
   },
   {
-    "id": "trastada-109",
+    "id": "scene-spoon-garden",
     "title": "El jardín de las cucharas",
     "symbol": "leaf",
     "elves": [
@@ -1578,7 +1578,7 @@
     "preparation": "Recorta flores de papel y fíjalas a cucharas. Pon las cucharas tumbadas sobre una caja como un jardín y sienta al elfo con un vaso-regadera vacío."
   },
   {
-    "id": "trastada-110",
+    "id": "scene-giant-fingerprint",
     "title": "Huella dactilar gigante",
     "symbol": "fingerprint",
     "elves": [
@@ -1592,7 +1592,7 @@
     "preparation": "Dibuja una huella enorme sobre papel y escribe «Prueba A». Pon a los elfos comparándola con una segunda huella dibujada al lado."
   },
   {
-    "id": "trastada-111",
+    "id": "scene-snowflake-factory",
     "title": "La fábrica de copos",
     "symbol": "snowflake",
     "elves": [
@@ -1606,7 +1606,7 @@
     "preparation": "Dobla y recorta varios copos, dejando los recortes dentro de la bandeja. Coloca a los elfos frente a una fila de copos acabados."
   },
   {
-    "id": "trastada-112",
+    "id": "scene-chocolate-safe",
     "title": "Caja fuerte de chocolate",
     "symbol": "lock",
     "elves": [
@@ -1620,7 +1620,7 @@
     "preparation": "Dibuja un dial en la caja, esconde envoltorios dentro y deja al elfo con una combinación de tres números escrita en papel."
   },
   {
-    "id": "trastada-113",
+    "id": "scene-resting-ladder",
     "title": "La escalera se toma un descanso",
     "symbol": "figure.stairs",
     "elves": [
@@ -1634,7 +1634,7 @@
     "preparation": "Apoya una regla sobre un libro bajo. Añade peldaños de papel y deja al elfo sentado a mitad de camino con un cartel de descanso."
   },
   {
-    "id": "trastada-114",
+    "id": "scene-moving-crew",
     "title": "El equipo de mudanza",
     "symbol": "shippingbox",
     "elves": [
@@ -1648,7 +1648,7 @@
     "preparation": "Etiqueta cajas con cosas absurdas como «aires de Navidad». Coloca a los elfos transportando una caja vacía entre los dos."
   },
   {
-    "id": "trastada-115",
+    "id": "scene-long-jump",
     "title": "Salto de longitud",
     "symbol": "ruler",
     "elves": [
@@ -1662,7 +1662,7 @@
     "preparation": "Extiende una cinta en el suelo y pon una servilleta como pista de aterrizaje. Coloca un elfo tumbado en su récord y otro anotándolo."
   },
   {
-    "id": "trastada-116",
+    "id": "scene-no-early-rising-sign",
     "title": "El cartel de prohibido madrugar",
     "symbol": "moon.zzz",
     "elves": [
@@ -1676,7 +1676,7 @@
     "preparation": "Dibuja una señal de «Prohibido madrugar» y apóyala frente a los peluches acostados. Deja al elfo dormido encima del cartel."
   },
   {
-    "id": "trastada-117",
+    "id": "scene-chef-school",
     "title": "Escuela de chefs",
     "symbol": "fork.knife",
     "elves": [
@@ -1690,7 +1690,7 @@
     "preparation": "Dobla gorros de papel, pon cuencos vacíos frente a los elfos y coloca una receta disparatada en medio."
   },
   {
-    "id": "trastada-118",
+    "id": "scene-sun-and-moon",
     "title": "Sol y luna",
     "symbol": "sun.and.horizon",
     "elves": [
@@ -1704,7 +1704,7 @@
     "preparation": "Dibuja y recorta un sol y una luna. Apóyalos a cada lado de un libro y sienta a un elfo en cada turno."
   },
   {
-    "id": "trastada-119",
+    "id": "scene-time-machine",
     "title": "La cámara del tiempo",
     "symbol": "camera",
     "elves": [
@@ -1718,7 +1718,7 @@
     "preparation": "Haz una cámara con cartón y un tapón como objetivo. Coloca una foto antigua junto a ella y deja al elfo sentado como fotógrafo."
   },
   {
-    "id": "trastada-120",
+    "id": "scene-waiting-room",
     "title": "La sala de espera",
     "symbol": "clock",
     "elves": [
@@ -1732,7 +1732,7 @@
     "preparation": "Forma sillas con libros tumbados, escribe números de turno y sienta a los muñecos. Coloca al elfo durmiéndose con el primer número en la mano."
   },
   {
-    "id": "trastada-121",
+    "id": "scene-mirror-fair",
     "title": "La feria de los espejos",
     "symbol": "sparkles",
     "elves": [
@@ -1746,7 +1746,7 @@
     "preparation": "Forra tres piezas de cartón con aluminio y curva cada una de una forma distinta. Pon a los elfos frente a sus reflejos deformados."
   },
   {
-    "id": "trastada-122",
+    "id": "scene-cup-pyramid",
     "title": "Pirámide de vasos",
     "symbol": "triangle",
     "elves": [
@@ -1760,7 +1760,7 @@
     "preparation": "Monta una pirámide baja de vasos vacíos. Pon al elfo en la base junto a un cartel que diga «Arquitectura del Polo Norte»."
   },
   {
-    "id": "trastada-128",
+    "id": "scene-console-takeover",
     "title": "El elfo se adueña de la consola",
     "symbol": "gamecontroller",
     "elves": [
@@ -1774,7 +1774,7 @@
     "preparation": "Sienta al elfo en el sofá con el mando entre las manos. Apoya los auriculares sobre el cojín para que parezca que está en plena partida."
   },
   {
-    "id": "trastada-129",
+    "id": "scene-elf-sandwich",
     "title": "Sándwich de elfo",
     "symbol": "fork.knife",
     "elves": [
@@ -1788,7 +1788,7 @@
     "preparation": "Coloca un elfo tumbado entre dos rebanadas sobre la tabla. Sienta al otro a su lado con una mano sobre la rebanada de arriba."
   },
   {
-    "id": "trastada-130",
+    "id": "scene-dinosaur-dentist",
     "title": "El dentista del dinosaurio",
     "symbol": "sparkles",
     "elves": [
@@ -1802,7 +1802,7 @@
     "preparation": "Coloca al dinosaurio frente al elfo y apoya el cepillo sobre un vaso, apuntando hacia la boca del juguete."
   },
   {
-    "id": "trastada-131",
+    "id": "scene-panda-laundry",
     "title": "El panda se cuela en la colada",
     "symbol": "washer",
     "elves": [
@@ -1816,7 +1816,7 @@
     "preparation": "Con la lavadora apagada y la puerta abierta, coloca el peluche en el borde del tambor. Sienta al elfo sobre los libros a su lado y retira ambos antes de volver a usar la lavadora."
   },
   {
-    "id": "trastada-132",
+    "id": "scene-north-pole-infirmary",
     "title": "Enfermería del Polo Norte",
     "symbol": "cross.case",
     "elves": [
@@ -1830,7 +1830,7 @@
     "preparation": "Arropa a un elfo en el sofá. Sienta al otro junto a los pañuelos, como si estuviera de guardia, y deja el termómetro de juguete al lado."
   },
   {
-    "id": "trastada-133",
+    "id": "scene-full-steam-elves",
     "title": "A toda máquina, elfos",
     "symbol": "train.side.front.car",
     "elves": [
@@ -1844,7 +1844,7 @@
     "preparation": "Monta un tramo corto de vía. Tumba a un elfo sobre la vía con un lazo suelto a modo de adorno y coloca al otro junto a la locomotora."
   },
   {
-    "id": "trastada-134",
+    "id": "scene-toiletry-bag-raid",
     "title": "Asalto al neceser",
     "symbol": "sparkles",
     "elves": [

@@ -70,10 +70,7 @@ struct CatalogFilters: Equatable {
     init(_ values: [CatalogFilter: Set<String>] = [:]) {
         let elves = values[.elves] == ["2 elfos"] ? "2 elfos" : "1 elfo"
         selections = [.elves: [elves]]
-        if let difficulty = values[.difficulty]?.intersection(CatalogFilter.difficulty.options),
-           difficulty.count == 1 {
-            selections[.difficulty] = difficulty
-        }
+
     }
 
     func matches(_ idea: Trastada) -> Bool {
@@ -90,12 +87,13 @@ struct CatalogFilters: Equatable {
 }
 
 enum TravesuraOutcome: String, Codable, CaseIterable {
-    case incredible, disaster, skipped
+    case incredible, disaster, skipped, completed
     var title: String {
         switch self {
         case .incredible: "Increíble"
         case .disaster: "Un desastre"
         case .skipped: "No la hice"
+        case .completed: "Travesura completada"
         }
     }
 }
@@ -115,6 +113,25 @@ struct DecemberPlan: Codable {
         if reviews == nil { reviews = [:] }
         reviews?[day] = TravesuraReview(ideaID: id, outcome: outcome)
         if outcome == .skipped { assignments.removeValue(forKey: day) }
+    }
+
+    mutating func markCompleted(day: Int) {
+        guard let id = assignments[day] ?? reviews?[day]?.ideaID else { return }
+        if reviews == nil { reviews = [:] }
+        reviews?[day] = TravesuraReview(ideaID: id, outcome: .completed)
+        if assignments[day] == nil, !assignments.values.contains(id) {
+            assignments[day] = id
+        }
+    }
+
+    mutating func unmarkCompleted(day: Int) {
+        guard let review = reviews?[day], review.outcome != .skipped else { return }
+        // Keep the historical card if its idea has since been assigned elsewhere.
+        if assignments[day] == nil {
+            reviews?[day] = TravesuraReview(ideaID: review.ideaID, outcome: .skipped)
+        } else {
+            reviews?[day] = nil
+        }
     }
 
     /// Travesura fija del día 1: «¡¿Adivina quién ha vuelto?!» (id de la tabla `travesuras` en Supabase).
