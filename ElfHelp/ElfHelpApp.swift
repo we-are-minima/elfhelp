@@ -3834,7 +3834,8 @@ private struct Artwork: View, Equatable {
     }
 
     static func photo(for idea: Trastada) -> UIImage? {
-        UIImage(named: idea.imagePath ?? idea.id) ?? UIImage(named: idea.id) ?? RemoteArtwork.image(for: idea)
+        // Primero la foto descargada de Supabase; las de Assets solo como respaldo.
+        RemoteArtwork.image(for: idea) ?? UIImage(named: idea.imagePath ?? idea.id) ?? UIImage(named: idea.id)
     }
 
     private static let thumbnailAssets: NSCache<NSString, UIImage> = {
