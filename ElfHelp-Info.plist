@@ -16,7 +16,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>es</string>
     <key>ElfStoreURL</key>
-    <string>$(ELF_STORE_URL)</string>
+    <string>https://apps.apple.com/es/app/id6839395161</string>
     <key>ElfClubURL</key>
     <string>$(ELF_CLUB_URL)</string>
     <key>ElfSignupURL</key>

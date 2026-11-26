@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "intro-elves.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

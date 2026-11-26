@@ -238,12 +238,26 @@ private struct Home: View {
     private var plan: DecemberPlan {
         var current = storedPlan
         if !starterPlanApplied {
-            current.fillStarterDays(from: illustratedCatalog, matching: filterSelection, days: DecemberEdition.pages)
+            current.fillStarterDays(from: illustratedCatalog, matching: filterSelection, days: fillableDays)
         }
         return current
     }
 
     private var filtersActive: Bool { !filterSelection.selections.isEmpty }
+
+    /// Only today and future days get default travesuras; past days stay empty
+    /// so their travesuras remain available to choose.
+    private var fillableDays: ClosedRange<Int> {
+        let start = now < edition.date(1) ? 1 : (edition.today(now) ?? 24)
+        return start...24
+    }
+
+    /// Past days without a travesura are not shown (there is no empty card for them).
+    private func hidesPastEmptyDay(_ day: Int) -> Bool {
+        let calendar = edition.calendar
+        let isPast = calendar.startOfDay(for: edition.calendarDate(for: day)) < calendar.startOfDay(for: now)
+        return isPast && idea(on: day) == nil
+    }
 
     private var appStoreURL: URL? { configuredURL("ElfStoreURL") }
     private var clubURL: URL? { configuredURL("ElfClubURL") }
@@ -480,7 +494,94 @@ private struct Home: View {
         return "daily"
     }
 
-    private var selectedDay: Int { focusedDay ?? (now < edition.date(1) ? 0 : edition.stripFocus(now)) }
+    private var selectedDay: Int {
+        focusedDay ?? (showsIntroCard ? 0 : showsMinimaxCard ? -1 : (now < edition.date(1) ? 1 : edition.stripFocus(now)))
+    }
+
+    /// The instructions card only appears on the day the app is first used.
+    private var showsIntroCard: Bool {
+        firstUseTimestamp == 0
+            || edition.calendar.isDate(Date(timeIntervalSince1970: firstUseTimestamp), inSameDayAs: Date())
+    }
+
+    // MARK: Card de Minimax
+    /// Días en los que la card de Minimax sale la primera al abrir la app.
+    private static let minimaxDays: Set<Int> = [4, 8, 16, 24]
+    /// Pruebas: en DEBUG la card sale siempre (cerrarla dura hasta volver a abrir la app).
+    #if DEBUG
+    private static let forceMinimaxCard = false
+    #else
+    private static let forceMinimaxCard = false
+    #endif
+    @AppStorage("minimaxDismissedDay") private var minimaxDismissedDay = ""
+    @State private var minimaxDismissed = false
+
+    private var minimaxDayKey: String { "\(edition.year)-\(edition.today(now) ?? 0)" }
+
+    private var showsMinimaxCard: Bool {
+        guard !minimaxDismissed else { return false }
+        if Self.forceMinimaxCard { return true }
+        guard let today = edition.today(now), Self.minimaxDays.contains(today) else { return false }
+        return minimaxDismissedDay != minimaxDayKey
+    }
+
+    /// The Minimax card sits right before today's card, so it is the first thing seen.
+    private var minimaxAnchorDay: Int { edition.today(now) ?? 1 }
+
+    private func dismissMinimax(goTo day: Int) {
+        minimaxDismissedDay = minimaxDayKey
+        withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.35)) {
+            focusedDay = day
+            minimaxDismissed = true
+        }
+    }
+
+    private func minimaxCard(width: CGFloat, height: CGFloat) -> some View {
+        VStack(spacing: 0) {
+                Image("MinimaxLetter")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: height * 0.22)
+                    .accessibilityHidden(true)
+                    .padding(.bottom, 24)
+                Text("Diciembre tiene un elfo, ¿y el resto del año?")
+                    .modifier(AppTypography(name: "NewKansasSwash-MediumItalic", size: 28, relativeTo: .title2))
+                    .accessibilityAddTraits(.isHeader)
+                    .padding(.bottom, 16)
+                VStack(spacing: 12) {
+                    Text("Imagina que tus hijos esperan con la misma ilusión una carta que llega cada mes al buzón.")
+                    Text("Algo que no sea solo para ellos. Ni solo para ti. Algo vuestro. Historias que empiezan en un sobre y acaban formando parte de vuestra manera de estar juntos.")
+                    Text("Eso es Mini Max, y está a punto de empezar a escribir. Apúntate a la lista de espera y pronto tendrás noticias suyas.")
+                }
+                .modifier(AppTypography.body)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.bottom, 24)
+                Link("Quiero conocer a Mini Max", destination: URL(string: "https://weareminima.com/minimax")!)
+                    .modifier(PrimaryIdeaControl(animated: false))
+                    .padding(.bottom, 16)
+                Text("Ahora es su infancia. Algún día serán sus recuerdos.")
+                    .modifier(AppTypography.body)
+                    .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity)
+        .multilineTextAlignment(.center)
+        .foregroundStyle(.white)
+        .padding(.horizontal, 24)
+        .padding(.vertical, 40)
+        .frame(width: width)
+        .fixedSize(horizontal: false, vertical: true)
+        .overlay(alignment: .topTrailing) {
+            Button { dismissMinimax(goTo: minimaxAnchorDay) } label: {
+                Image(systemName: "xmark")
+            }
+            .buttonStyle(GlassControl(iconOnly: true))
+            .accessibilityLabel("Cerrar")
+            .padding(14)
+        }
+        .modifier(DayCardFrame(alignment: .center, inset: 0))
+        .shadow(color: .black.opacity(0.24), radius: 12, y: 3)
+    }
+
 
     private var dailyHome: some View {
         GeometryReader { space in
@@ -565,17 +666,30 @@ private struct Home: View {
         ScrollViewReader { proxy in
             ScrollView(.vertical) {
                 LazyVStack(spacing: 16) {
-                    VStack(spacing: 25) {
+                    if showsIntroCard {
+                    VStack(spacing: 0) {
+                        Image("IntroElves")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: height * 0.34)
+                            .accessibilityHidden(true)
+                            .padding(.bottom, 24)
                         Text("Un poco de magia cada día")
                             .modifier(AppTypography(name: "NewKansasSwash-MediumItalic", size: 28, relativeTo: .title2))
                             .frame(maxWidth: 272)
                             .accessibilityAddTraits(.isHeader)
+                            .padding(.bottom, 16)
                         Text("Desliza hacia arriba para descubrir la travesura que hemos elegido para cada día, del 1 al 24 de diciembre. Aprende cómo se hacen o cámbialas por las que más te gusten.")
                             .modifier(AppTypography.body)
                             .fixedSize(horizontal: false, vertical: true)
+                            .padding(.bottom, 25)
                         Button("¡Empezamos!") {
+                            // Go to today's card (day 1 before December), skipping the Minimax card.
+                            let target = now < edition.date(1) ? 1 : edition.stripFocus(now)
+                            if showsMinimaxCard && minimaxAnchorDay == target { minimaxDismissed = true }
                             withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.35)) {
-                                focusedDay = 1
+                                focusedDay = target
+                                proxy.scrollTo(target, anchor: .center)
                             }
                         }
                         .modifier(PrimaryIdeaControl(animated: false))
@@ -586,8 +700,13 @@ private struct Home: View {
                     .frame(width: width, height: height)
                     .modifier(DayCardFrame(alignment: .center, inset: 0))
                     .id(0)
-                    ForEach(DecemberEdition.pages, id: \.self) { day in
-                        let cardHeight = flippedDay == day ? max(height, viewportHeight * 0.94) : height
+                    }
+                    ForEach(DecemberEdition.pages.filter { !hidesPastEmptyDay($0) }, id: \.self) { day in
+                        let cardHeight = height
+                        if showsMinimaxCard && day == minimaxAnchorDay {
+                            minimaxCard(width: width, height: height)
+                                .id(-1)
+                        }
                         dailyCard(page: day, height: cardHeight)
                             .frame(width: width, height: cardHeight)
                             .animation(reduceMotion ? nil : .easeInOut(duration: 0.35), value: flippedDay)
@@ -617,7 +736,7 @@ private struct Home: View {
                 .scrollTargetLayout()
                 .frame(maxWidth: .infinity)
             }
-            .contentMargins(.vertical, max(0, (viewportHeight - (flippedDay == nil ? height : max(height, viewportHeight * 0.94))) / 2), for: .scrollContent)
+            .contentMargins(.vertical, max(0, (viewportHeight - height) / 2), for: .scrollContent)
             .scrollIndicators(.hidden)
             .scrollClipDisabled()
             .scrollTargetBehavior(.viewAligned(limitBehavior: .always))
@@ -747,12 +866,12 @@ private struct Home: View {
     private func cardBack(_ idea: Trastada) -> some View {
         GeometryReader { space in
             ScrollView {
-                VStack(alignment: .leading, spacing: 32) {
-                    VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .center, spacing: 32) {
+                    VStack(alignment: .center, spacing: 16) {
                         Text("Materiales")
                             .modifier(AppTypography(name: "NewKansasSwash-MediumItalic", size: 24, relativeTo: .title3))
                             .accessibilityAddTraits(.isHeader)
-                        MaterialTagLayout(spacing: 8) {
+                        MaterialTagLayout(spacing: 8, centered: true) {
                             ForEach(Array(idea.materialTags.enumerated()), id: \.offset) { _, material in
                                 Text(material)
                                     .modifier(AppTypography(name: "Inter-Medium", size: 13,
@@ -763,7 +882,7 @@ private struct Home: View {
                             }
                         }
                     }
-                    VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .center, spacing: 16) {
                         Text("Preparación")
                             .modifier(AppTypography(name: "NewKansasSwash-MediumItalic", size: 24, relativeTo: .title3))
                             .accessibilityAddTraits(.isHeader)
@@ -773,11 +892,11 @@ private struct Home: View {
                     }
                 }
                 .foregroundStyle(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .frame(minHeight: max(0, space.size.height - 96), alignment: .bottom)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .frame(minHeight: max(0, space.size.height - 144), alignment: .center)
                 .padding(.horizontal, 24)
-                .padding(.top, 72)
-                .padding(.bottom, 24)
+                .padding(.vertical, 72)
             }
             .scrollIndicators(.hidden)
             .overlay(alignment: .topTrailing) {
@@ -1191,7 +1310,7 @@ private struct Home: View {
                     .resizable()
                     .scaledToFill()
             }
-            .clipShape(Circle().inset(by: size * 0.025))
+            .clipShape(Circle().inset(by: size * 0.006))
             .overlay {
                 // The visible bubble spans about 520 px in the 640 px glass asset.
                 Image("OrnamentBubbleGlass")
@@ -1319,7 +1438,7 @@ private struct Home: View {
         initialSetupComplete = true
         let target = edition.stripFocus(now)
         let activeDays = planningDays.filter { includesWeekday($0, mask: planningWeekdays) }
-        focusedDay = now < edition.date(1) ? 0 : (activeDays.first { $0 >= target } ?? activeDays.last)
+        focusedDay = showsIntroCard ? 0 : now < edition.date(1) ? 1 : (activeDays.first { $0 >= target } ?? activeDays.last)
         panel = nil
         refreshReminders()
     }
@@ -1665,7 +1784,7 @@ private struct Home: View {
            !edition.canEdit(old, now: Self.planningDate) { return }
         update {
             $0.assign(idea.id, to: day, catalog: catalog)
-            $0.fillStarterDays(from: illustratedCatalog, matching: filterSelection, days: DecemberEdition.pages)
+            $0.fillStarterDays(from: illustratedCatalog, matching: filterSelection, days: fillableDays)
         }
         assignmentDay = nil
         panel = nil
@@ -1686,7 +1805,7 @@ private struct Home: View {
     private func applyStarterPlan(using filters: CatalogFilters, fillNewDates: Bool = false) {
         guard fillNewDates || !starterPlanApplied else { return }
         var revised = storedPlan
-        revised.fillStarterDays(from: illustratedCatalog, matching: filters, days: DecemberEdition.pages)
+        revised.fillStarterDays(from: illustratedCatalog, matching: filters, days: fillableDays)
         guard let data = try? JSONEncoder().encode(revised) else { return }
         savedPlan = data
         starterPlanApplied = true
@@ -1758,7 +1877,6 @@ private struct Home: View {
     }
 
     private func refreshReminders() {
-        let assignments = plan.assignments
         let days = planningDays.filter { includesWeekday($0, mask: planningWeekdays) }
         let minutes = reminderMinutes
         let enabled = remindersEnabled
@@ -1775,7 +1893,9 @@ private struct Home: View {
                 guard let date = edition.reminderDate(for: day, hour: minutes / 60, minute: minutes % 60),
                       date > Date() else { continue }
                 let content = UNMutableNotificationContent()
-                content.title = assignments[day] == nil ? "¿Preparamos mañana?" : "Todo listo para mañana"
+                let text = ReminderTexts.text(for: day)
+                content.title = text.title
+                content.body = text.body
                 content.sound = .default
                 content.userInfo = ["day": day]
                 let components = edition.calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
@@ -2957,7 +3077,7 @@ private struct IdeaBoard: View {
                 maxSampleOffset: CGSize(width: 32, height: 32),
                 isEnabled: usesCrystal && morph > 0.01
             )
-            .clipShape(Circle().inset(by: size * 0.025))
+            .clipShape(Circle().inset(by: size * 0.006))
             .overlay {
                 Image("OrnamentBubbleGlass")
                     .resizable()
@@ -3549,6 +3669,7 @@ private struct FilterEditor: View {
 
 private struct MaterialTagLayout: Layout {
     let spacing: CGFloat
+    var centered = false
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
         arrange(subviews, width: proposal.width ?? .infinity).size
@@ -3556,9 +3677,17 @@ private struct MaterialTagLayout: Layout {
 
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
         let layout = arrange(subviews, width: bounds.width)
+        // Centre each row horizontally when requested.
+        var rowShift: [CGFloat: CGFloat] = [:]
+        if centered {
+            for frame in layout.frames {
+                rowShift[frame.minY] = max(rowShift[frame.minY] ?? 0, frame.maxX)
+            }
+            for (y, maxX) in rowShift { rowShift[y] = (bounds.width - maxX) / 2 }
+        }
         for (subview, frame) in zip(subviews, layout.frames) {
             subview.place(
-                at: CGPoint(x: bounds.minX + frame.minX, y: bounds.minY + frame.minY),
+                at: CGPoint(x: bounds.minX + frame.minX + (rowShift[frame.minY] ?? 0), y: bounds.minY + frame.minY),
                 anchor: .topLeading,
                 proposal: ProposedViewSize(frame.size)
             )
@@ -3774,7 +3903,7 @@ private struct CardPhoto: View {
     let height: CGFloat
     let captionInset: CGFloat
     var context: String? = nil
-    var showsPlaceholder = true
+    var showsPlaceholder = false
     var showsInstructions = false
     var presentsCaption = false
     var showsMetadata = false
@@ -4012,5 +4141,88 @@ private struct ClubInvitation: View {
             .padding()
             .background(pink, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
+    }
+}
+
+/// Textos de las notificaciones: uno por cada día de travesura (1 a 24).
+/// Cada aviso se envía la noche anterior a la hora elegida por el usuario.
+enum ReminderTexts {
+    static let days: [(title: String, body: String)] = [
+        // Día 1 · se envía el 30 de noviembre · La llegada
+        (title: "Comienza tu periodo de prácticas 📑",
+         body: "24 noches para demostrar que puedes hacer el tonto profesionalmente."),
+        // Día 2 · se envía el 1 de diciembre
+        (title: "Aviso del Polo Norte 🚨",
+         body: "Tu derecho a acostarte cuando quieras queda temporalmente suspendido."),
+        // Día 3 · se envía el 2 de diciembre
+        (title: "Psss… ¿Están dormidos? 🤫",
+         body: "El sofá es una trampa. Levántate, tenemos asuntos élficos pendientes."),
+        // Día 4 · se envía el 3 de diciembre
+        (title: "Comunicado de Recursos Élficos ⚠️",
+         body: "Tu solicitud de irte directamente a la cama ha sido denegada."),
+        // Día 5 · se envía el 4 de diciembre
+        (title: "Estás recibiendo órdenes de un muñeco 😆",
+         body: "Asimílalo y seguimos."),
+        // Día 6 · se envía el 5 de diciembre
+        (title: "No te hagas el dormido 🫵",
+         body: "Que te he visto conectado."),
+        // Día 7 · se envía el 6 de diciembre
+        (title: "Inspección de trabajo élfica 👮",
+         body: "Tranquilo. Aquí las irregularidades las cometemos juntos."),
+        // Día 8 · se envía el 7 de diciembre
+        (title: "Houston, tenemos un elfo 🧑‍🎄",
+         body: "Y un adulto con un 2 % de batería. Vamos a optimizar recursos."),
+        // Día 9 · se envía el 8 de diciembre
+        (title: "La madurez está sobrevalorada 🤷‍♀️",
+         body: "Mira qué bien nos va haciendo tonterías a escondidas."),
+        // Día 10 · se envía el 9 de diciembre
+        (title: "No cierres ese ojito 👀",
+         body: "Que aún queda por montar el numerito."),
+        // Día 11 · se envía el 10 de diciembre
+        (title: "Psss… Croqueta humana del sofá 🫵",
+         body: "Hora de rodar hasta el elfo."),
+        // Día 12 · se envía el 11 de diciembre
+        (title: "Vamos, que tú puedes 💪",
+         body: "No te pido una hipoteca. Solo una trastada."),
+        // Día 13 · se envía el 12 de diciembre
+        (title: "Hoy toca hacer horas elfstras ⏳",
+         body: "No computan, no cotizan, pero ilusionan."),
+        // Día 14 · se envía el 13 de diciembre
+        (title: "¿Qué tal tu vida social? 💩",
+         body: "La mía estupenda desde que quedamos todas las noches."),
+        // Día 15 · se envía el 14 de diciembre
+        (title: "No te me quedes frito 🍳",
+         body: "Que hay que mover al del gorrito."),
+        // Día 16 · se envía el 15 de diciembre
+        (title: "Menuda vida de excesos 🍾",
+         body: "Desperdiciando papel higiénico, harina... No hay quien nos pare."),
+        // Día 17 · se envía el 16 de diciembre
+        (title: "Adultos haciendo cosas de adultos 💼",
+         body: "Cómo colocar un muñeco en situaciones comprometidas a medianoche."),
+        // Día 18 · se envía el 17 de diciembre
+        (title: "Tenemos que dejar de vernos así 👀",
+         body: "Siempre de noche, a escondidas y con tanto sueño."),
+        // Día 19 · se envía el 18 de diciembre
+        (title: "¿Qué haces, melón? 🍈",
+         body: "Que te vas a dormir sin montar el follón."),
+        // Día 20 · se envía el 19 de diciembre
+        (title: "Detectado movimiento sospechoso ⚠️",
+         body: "¿Estás yendo hacia la cama? Rectifica la trayectoria."),
+        // Día 21 · se envía el 20 de diciembre
+        (title: "El Polo Norte no tiene teletrabajo 💻",
+         body: "Créeme, también he preguntado."),
+        // Día 22 · se envía el 21 de diciembre
+        (title: "Según nuestro Excel… 📊",
+         body: "Te sobran cuatro minutos de vida personal. Procede con la trastada."),
+        // Día 23 · se envía el 22 de diciembre
+        (title: "Se acerca tu libertad condicional 💃",
+         body: "Una trastada hoy, otra mañana y recuperas la custodia de tu sofá."),
+        // Día 24 · se envía el 23 de diciembre · La despedida
+        (title: "Último turno, cómplice 💖",
+         body: "Algún día dejarán de creer en los elfos, pero nunca olvidarán cómo les hiciste creer en la magia. Hagamos que mañana sea inolvidable."),
+    ]
+
+    static func text(for day: Int) -> (title: String, body: String) {
+        days[min(max(day, 1), days.count) - 1]
     }
 }
