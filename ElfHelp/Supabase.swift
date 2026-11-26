@@ -1,6 +1,7 @@
 import Foundation
 import Security
 import UIKit
+import ImageIO
 
 // MARK: - Configuración
 
@@ -78,6 +79,8 @@ final class CatalogStore: ObservableObject {
     static let shared = CatalogStore()
 
     @Published private(set) var items: [Trastada]
+    /// Increases after new photos are downloaded, so cached "no photo" answers are re-checked.
+    private(set) var artworkGeneration = 0
     private var refreshing = false
 
     private init() {
@@ -101,6 +104,7 @@ final class CatalogStore: ObservableObject {
             guard !remote.isEmpty else { return }
             let catalog = remote.map(Trastada.init(remote:))
             await RemoteArtwork.prefetch(catalog)
+            artworkGeneration += 1
             items = catalog
             Self.saveCache(catalog)
         } catch {
@@ -137,12 +141,12 @@ final class CatalogStore: ObservableObject {
 
 /// Imágenes que no están en Assets: se descargan del bucket `travesuras` y se guardan en caché.
 enum RemoteArtwork {
-    private static var folder: URL {
+    private static let folder: URL = {
         let caches = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
         let folder = caches.appendingPathComponent("travesuras-images", isDirectory: true)
         try? FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
         return folder
-    }
+    }()
 
     private static func fileURL(for path: String) -> URL {
         let safeName = path.replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: ":", with: "_")
@@ -156,6 +160,27 @@ enum RemoteArtwork {
 
     private static func needsDownload(_ path: String) -> Bool {
         UIImage(named: path) == nil && !FileManager.default.fileExists(atPath: fileURL(for: path).path)
+    }
+
+    /// Cheap check (no image decoding) for a downloaded photo.
+    static func hasImage(for idea: Trastada) -> Bool {
+        guard let path = idea.imagePath else { return false }
+        return FileManager.default.fileExists(atPath: fileURL(for: path).path)
+    }
+
+    /// Downsampled image straight from the file (fast, low memory): used for bubbles.
+    static func thumbnail(for idea: Trastada, maxPixelSize: CGFloat) -> UIImage? {
+        guard let path = idea.imagePath else { return nil }
+        let url = fileURL(for: path) as CFURL
+        guard let source = CGImageSourceCreateWithURL(url, [kCGImageSourceShouldCache: false] as CFDictionary) else { return nil }
+        let options: [CFString: Any] = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceThumbnailMaxPixelSize: maxPixelSize
+        ]
+        guard let cgImage = CGImageSourceCreateThumbnailAtIndex(source, 0, options as CFDictionary) else { return nil }
+        return UIImage(cgImage: cgImage)
     }
 
     static func image(for idea: Trastada) -> UIImage? {

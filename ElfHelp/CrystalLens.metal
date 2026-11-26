@@ -2,21 +2,15 @@
 #include <SwiftUI/SwiftUI_Metal.h>
 using namespace metal;
 
-[[ stitchable ]] half4 crystalLens(float2 position, SwiftUI::Layer photo, float2 size, float morph) {
+[[ stitchable ]] half4 crystalLens(float2 position, half4 color, float2 size, float morph) {
     float2 radius = max(size * 0.5, float2(1));
     float2 p = (position - radius) / radius;
     float radialSquared = min(dot(p, p), 1.0);
     float radial = sqrt(radialSquared);
-    float strength = smoothstep(0.01, 0.48, morph);
+    // Starts at 0.12 so bubbles below that threshold can skip the shader with no visible jump.
+    float strength = smoothstep(0.12, 0.48, morph);
 
-    // Preserve the central portrait and refract only the surrounding scene.
-    float side = smoothstep(0.53, 1.0, abs(p.x)) * strength;
-    float2 warped = p;
-    warped.x -= sign(p.x) * side * 0.20;
-    warped.y += side * 0.10 * (p.y + 0.22 * p.x) * (1.0 - min(p.y * p.y, 1.0));
-    float2 lensPoint = radius + warped * radius;
-    half4 color = photo.sample(clamp(lensPoint, float2(0.5), size - 0.5));
-
+    // No refraction: the photo is never distorted, only tinted with the glass reflections.
     float rim = smoothstep(0.70, 0.99, radial);
     float underside = rim * smoothstep(0.30, 0.92, p.y);
     color.rgb *= half(1.0 - 0.23 * underside * strength);

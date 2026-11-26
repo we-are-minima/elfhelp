@@ -104,8 +104,9 @@ private struct LaunchArtwork: View {
                 Image("SplashTagline")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 324, height: 35)
-                    .offset(x: 45, y: 803)
+                    // 75 % of the original size, keeping the same center.
+                    .frame(width: 243, height: 26.25)
+                    .offset(x: 85.5, y: 807.4)
                 Image("SplashHat")
                     .resizable()
                     .scaledToFit()
@@ -238,7 +239,7 @@ private struct Home: View {
     private var plan: DecemberPlan {
         var current = storedPlan
         if !starterPlanApplied {
-            current.fillStarterDays(from: illustratedCatalog, matching: filterSelection, days: fillableDays)
+            current.fillStarterDays(from: catalog, matching: filterSelection, days: fillableDays)
         }
         return current
     }
@@ -1784,7 +1785,7 @@ private struct Home: View {
            !edition.canEdit(old, now: Self.planningDate) { return }
         update {
             $0.assign(idea.id, to: day, catalog: catalog)
-            $0.fillStarterDays(from: illustratedCatalog, matching: filterSelection, days: fillableDays)
+            $0.fillStarterDays(from: catalog, matching: filterSelection, days: fillableDays)
         }
         assignmentDay = nil
         panel = nil
@@ -1805,7 +1806,7 @@ private struct Home: View {
     private func applyStarterPlan(using filters: CatalogFilters, fillNewDates: Bool = false) {
         guard fillNewDates || !starterPlanApplied else { return }
         var revised = storedPlan
-        revised.fillStarterDays(from: illustratedCatalog, matching: filters, days: fillableDays)
+        revised.fillStarterDays(from: catalog, matching: filters, days: fillableDays)
         guard let data = try? JSONEncoder().encode(revised) else { return }
         savedPlan = data
         starterPlanApplied = true
@@ -2027,13 +2028,31 @@ private struct LoadingBubbleParade: View {
 private struct SetupProgress: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var progress = 0.0
+    @State private var phrases = Self.loadingPhrases.shuffled()
+    @State private var phraseIndex = 0
     let prepare: () -> Void
     let complete: () -> Void
 
+    /// Frases de la barra de carga: salen en orden aleatorio y cambian cada 2 segundos.
+    static let loadingPhrases = [
+        "Actualizando el elfOS…",
+        "Sacudiendo la purpurina del servidor",
+        "Conectando con SantaCloud…",
+        "Actualizando elfo.exe…",
+        "Verificando credenciales élficas…",
+        "Descongelando el disco duro…"
+    ]
+
     var body: some View {
-        VStack(spacing: 8) {
-            Text(progress, format: .percent.precision(.fractionLength(0)))
-                .modifier(AppTypography(name: "NewKansas-Bold", size: 32, relativeTo: .title))
+        VStack(spacing: 12) {
+            Text(phrases[phraseIndex % phrases.count])
+                .modifier(AppTypography.body)
+                .multilineTextAlignment(.center)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+                .id(phraseIndex)
+                .transition(.opacity)
+                .animation(.easeInOut(duration: 0.3), value: phraseIndex)
             GeometryReader { space in
             Capsule()
                 .fill(.white.opacity(0.16))
@@ -2082,13 +2101,21 @@ private struct SetupProgress: View {
         .accessibilityLabel("Cargando tu experiencia")
         .accessibilityValue(progress.formatted(.percent.precision(.fractionLength(0))))
         .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(2))
+                guard !Task.isCancelled else { return }
+                withAnimation(.easeInOut(duration: 0.3)) { phraseIndex += 1 }
+            }
+        }
+        .task {
             await Task.yield()
             guard !Task.isCancelled else { return }
             prepare()
             do {
+                // 7 seconds in total: 100 steps of 70 ms.
                 for percent in 1...100 {
-                    try await Task.sleep(for: .milliseconds(50))
-                    withAnimation(reduceMotion ? nil : .linear(duration: 0.05)) {
+                    try await Task.sleep(for: .milliseconds(70))
+                    withAnimation(reduceMotion ? nil : .linear(duration: 0.07)) {
                         progress = Double(percent) / 100
                     }
                 }
@@ -2606,6 +2633,7 @@ private struct SurpriseRound {
 }
 
 private struct IdeaBoard: View {
+    @Environment(\.displayScale) private var displayScale
     @AppStorage("bubbleGuideSeen") private var bubbleGuideSeen = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
@@ -3024,7 +3052,9 @@ private struct IdeaBoard: View {
                                 chooseIdea(at: piece.id)
                             } label: {
                                 bubbleSurface(
-                                    Artwork(idea: idea, height: imageSize, rounded: false, thumbnail: true, thumbnailMaxPixelSize: 1200).equatable(),
+                                    Artwork(idea: idea, height: imageSize, rounded: false, thumbnail: true,
+                                            thumbnailMaxPixelSize: bubblePixelSize(for: imageSize),
+                                            generation: CatalogStore.shared.artworkGeneration).equatable(),
                                     size: imageSize, morph: piece.morph, usesCrystal: usesCrystal
                                 )
                             }
@@ -3066,16 +3096,23 @@ private struct IdeaBoard: View {
         .sensoryFeedback(.impact(weight: .heavy, intensity: 1), trigger: focused)
     }
 
+    /// Bubble photos are decoded at roughly their on-screen size (in a few fixed steps,
+    /// so the cache stays small) instead of at full resolution.
+    private func bubblePixelSize(for size: CGFloat) -> CGFloat {
+        let needed = size * displayScale * 1.25
+        return [300, 450, 600, 800, 1200].first { $0 >= needed } ?? 1200
+    }
+
     private func bubbleSurface<Content: View>(
         _ content: Content, size: CGFloat, morph: CGFloat, usesCrystal: Bool
     ) -> some View {
         content
             .frame(width: size, height: size)
             .clipped()
-            .layerEffect(
+            .colorEffect(
                 ShaderLibrary.crystalLens(.float2(Float(size), Float(size)), .float(Float(morph))),
-                maxSampleOffset: CGSize(width: 32, height: 32),
-                isEnabled: usesCrystal && morph > 0.01
+                // Only the bubbles around the focus get the lens; the rest look identical without it.
+                isEnabled: usesCrystal && morph > 0.12
             )
             .clipShape(Circle().inset(by: size * 0.006))
             .overlay {
@@ -4020,6 +4057,8 @@ private struct Artwork: View, Equatable {
     var rounded = true
     var thumbnail = false
     var thumbnailMaxPixelSize: CGFloat = 500
+    /// Changes when new photos are downloaded, so `.equatable()` views redraw.
+    var generation = 0
 
     var body: some View {
         GeometryReader { geometry in
@@ -4044,12 +4083,21 @@ private struct Artwork: View, Equatable {
     }
 
     private static var photoAvailability: [String: Bool] = [:]
+    /// Misses are remembered until new photos are downloaded (artworkGeneration changes).
+    private static var photoMisses: [String: Int] = [:]
 
     @MainActor static func hasPhoto(_ idea: Trastada) -> Bool {
         if photoAvailability[idea.id] == true { return true }
-        // Solo guardamos los aciertos: una imagen remota puede descargarse más tarde.
-        let available = photo(for: idea) != nil
-        if available { photoAvailability[idea.id] = true }
+        let generation = CatalogStore.shared.artworkGeneration
+        if photoMisses[idea.id] == generation { return false }
+        let available = RemoteArtwork.hasImage(for: idea)
+            || UIImage(named: idea.imagePath ?? idea.id) != nil
+            || UIImage(named: idea.id) != nil
+        if available {
+            photoAvailability[idea.id] = true
+        } else {
+            photoMisses[idea.id] = generation
+        }
         return available
     }
 
@@ -4060,15 +4108,20 @@ private struct Artwork: View, Equatable {
 
     private static let thumbnailAssets: NSCache<NSString, UIImage> = {
         let cache = NSCache<NSString, UIImage>()
-        cache.totalCostLimit = 24 * 1024 * 1024
+        cache.totalCostLimit = 80 * 1024 * 1024
         return cache
     }()
 
     static func thumbnail(for idea: Trastada, maxPixelSize: CGFloat = 500) -> UIImage? {
         let id = "\(idea.id)-\(idea.imagePath ?? "")-\(Int(maxPixelSize))" as NSString
         if let cached = thumbnailAssets.object(forKey: id) { return cached }
-        guard let photo = photo(for: idea) else { return nil }
-        let image = photo.preparingThumbnail(of: CGSize(width: maxPixelSize * 0.8, height: maxPixelSize)) ?? photo
+        let image: UIImage
+        if let remote = RemoteArtwork.thumbnail(for: idea, maxPixelSize: maxPixelSize) {
+            image = remote
+        } else {
+            guard let photo = UIImage(named: idea.imagePath ?? idea.id) ?? UIImage(named: idea.id) else { return nil }
+            image = photo.preparingThumbnail(of: CGSize(width: maxPixelSize * 0.8, height: maxPixelSize)) ?? photo
+        }
         let cost = image.cgImage.map { $0.bytesPerRow * $0.height } ?? 0
         thumbnailAssets.setObject(image, forKey: id, cost: cost)
         return image
