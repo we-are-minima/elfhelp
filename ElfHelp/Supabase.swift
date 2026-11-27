@@ -80,7 +80,7 @@ final class CatalogStore: ObservableObject {
 
     @Published private(set) var items: [Trastada]
     /// Increases after new photos are downloaded, so cached "no photo" answers are re-checked.
-    private(set) var artworkGeneration = 0
+    @Published private(set) var artworkGeneration = 0
     private var refreshing = false
 
     private init() {
@@ -103,10 +103,15 @@ final class CatalogStore: ObservableObject {
             // Si la tabla viniera vacía por error, mantenemos lo que ya teníamos.
             guard !remote.isEmpty else { return }
             let catalog = remote.map(Trastada.init(remote:))
-            await RemoteArtwork.prefetch(catalog)
-            artworkGeneration += 1
             items = catalog
             Self.saveCache(catalog)
+            // Photos download in small batches, default-day travesuras first, and the
+            // screen refreshes after each batch instead of waiting for all of them.
+            let priority = catalog.filter { $0.defaultDayOneElf != nil || $0.defaultDayTwoElves != nil }
+            let rest = catalog.filter { $0.defaultDayOneElf == nil && $0.defaultDayTwoElves == nil }
+            for batch in (priority + rest).chunked(into: 8) {
+                if await RemoteArtwork.prefetch(batch) { artworkGeneration += 1 }
+            }
         } catch {
             // Sin conexión o error: seguimos con la copia local.
         }
@@ -188,17 +193,26 @@ enum RemoteArtwork {
         return UIImage(contentsOfFile: fileURL(for: path).path)
     }
 
-    static func prefetch(_ catalog: [Trastada]) async {
+    /// Downloads the missing photos of `catalog` (retrying once). Returns true if any arrived.
+    static func prefetch(_ catalog: [Trastada]) async -> Bool {
         let paths = Set(catalog.compactMap(\.imagePath)).filter(needsDownload)
-        await withTaskGroup(of: Void.self) { group in
+        guard !paths.isEmpty else { return false }
+        return await withTaskGroup(of: Bool.self) { group in
             for path in paths {
                 group.addTask {
-                    guard let url = remoteURL(for: path),
-                          let data = try? await checkedData(for: URLRequest(url: url)),
-                          UIImage(data: data) != nil else { return }
-                    try? data.write(to: fileURL(for: path), options: .atomic)
+                    guard let url = remoteURL(for: path) else { return false }
+                    for _ in 0..<2 {
+                        if let data = try? await checkedData(for: URLRequest(url: url)), UIImage(data: data) != nil {
+                            try? data.write(to: fileURL(for: path), options: .atomic)
+                            return true
+                        }
+                    }
+                    return false
                 }
             }
+            var any = false
+            for await ok in group { any = any || ok }
+            return any
         }
     }
 }
@@ -362,5 +376,11 @@ final class PlanSync {
             filters.append(URLQueryItem(name: "travesura_id", value: "not.in.(\(ids))"))
         }
         _ = try await checkedData(for: request(SupabaseConfig.endpoint("rest/v1/user_mischiefs", query: filters), method: "DELETE"))
+    }
+}
+
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        stride(from: 0, to: count, by: size).map { Array(self[$0..<Swift.min($0 + size, count)]) }
     }
 }

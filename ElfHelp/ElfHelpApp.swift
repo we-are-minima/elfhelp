@@ -1277,17 +1277,17 @@ private struct Home: View {
                 ZStack {
                     floatingPreview("scene-bananas", size: diameter * 0.22, x: -1.15, y: -1.12, depth: 0.18, time: time, container: space.size)
                     floatingPreview("scene-paper-ghosts", size: diameter * 0.27, x: 0.92, y: -1.0, depth: 0.22, time: time, container: space.size)
-                    floatingPreview("scene-film-hammock", size: diameter * 0.18, x: 1.16, y: 0.78, depth: 0.14, time: time, container: space.size)
+                    floatingPreview("scene-swiss-cheese", size: diameter * 0.18, x: 1.16, y: 0.78, depth: 0.14, time: time, container: space.size)
                     floatingPreview("scene-flour-sled", size: diameter * 0.23, x: -1.16, y: 0.76, depth: 0.24, time: time, container: space.size)
-                    floatingPreview("scene-cotton-snowman", size: diameter * 0.2, x: -0.35, y: 1.9, depth: 0.17, time: time, container: space.size)
+                    floatingPreview("scene-foam-mirror-snowman", size: diameter * 0.2, x: -0.35, y: 1.9, depth: 0.17, time: time, container: space.size)
                     floatingPreview("scene-snow-bowling", size: diameter * 0.31, x: 0.04, y: -1.23, depth: 0.31, time: time, container: space.size)
                     floatingPreview("scene-mandarin-choir", size: diameter * 0.45, x: -0.59, y: -0.67, depth: 0.42, time: time, container: space.size)
                     floatingPreview("scene-last-cookie-thief", size: diameter * 0.68, x: -0.68, y: 0.32, depth: 0.7, time: time, container: space.size)
                     floatingPreview("scene-sink-regatta", size: diameter * 0.62, x: 0.68, y: 0.34, depth: 0.63, time: time, container: space.size)
                     floatingPreview("scene-midnight-movie", size: diameter, x: 0, y: -0.02, depth: 1, time: time, container: space.size)
-                    floatingPreview("scene-rubber-ducks", size: diameter * 0.58, x: -0.69, y: 1.42, depth: 0.72, time: time, container: space.size)
-                    floatingPreview("scene-spaghetti-chef", size: diameter * 0.64, x: 0.10, y: 1.67, depth: 0.82, time: time, container: space.size)
-                    floatingPreview("scene-sack-race", size: diameter * 0.49, x: 0.66, y: 1.24, depth: 0.51, time: time, container: space.size)
+                    floatingPreview("scene-guess-who-is-back", size: diameter * 0.58, x: -0.69, y: 1.42, depth: 0.72, time: time, container: space.size)
+                    floatingPreview("scene-spaghetti-mane", size: diameter * 0.64, x: 0.10, y: 1.67, depth: 0.82, time: time, container: space.size)
+                    floatingPreview("scene-fresh-popcorn", size: diameter * 0.49, x: 0.66, y: 1.24, depth: 0.51, time: time, container: space.size)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
